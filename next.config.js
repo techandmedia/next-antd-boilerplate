@@ -6,15 +6,10 @@ if (typeof require !== "undefined") {
   require.extensions[".css"] = file => {};
 }
 
-// module.exports = withCss();
-// withCss()
-
-module.exports = {
-  // withCss: thisCSS(),
-  // withCss(),
+module.exports = withCss({
   exportPathMap: function() {
     return {
       "/": { page: "/" }
     };
   }
-};
+});
