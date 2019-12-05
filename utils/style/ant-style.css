@@ -1,0 +1,22 @@
+.ant-layout-header {
+  margin: 0;
+  padding: 0;
+  height: 40px;
+  background: #ffffff;
+}
+
+.ant-menu-horizontal {
+  line-height: 40px;
+}
+
+.editable-row .ant-form-explain {
+  position: absolute;
+  font-size: 12px;
+  margin-top: -4px;
+}
+
+.ant-layout-sider-trigger {
+  font-size: 22px;
+  color: white;
+  background: rgba(0, 0, 0, 0.65);
+}

@@ -1,0 +1,46 @@
+.logo {
+  width: 120px;
+  height: 30px;
+  background: rgba(151, 26, 4, 0.815);
+  margin: 4px 8px 0 50px;
+  float: left;
+}
+
+.login-form {
+  max-width: 300px;
+}
+
+.login-form-forgot {
+  float: right;
+}
+
+.login-form-button {
+  width: 100%;
+}
+
+.header {
+  margin-bottom: 5px;
+}
+
+.menu-setting {
+  margin-right: 50px;
+}
+
+.row-under-working {
+  background-color: red;
+}
+
+.row-under-working:hover {
+  color: red;
+  background-color: white;
+}
+
+.row-same-working {
+  color: white;
+  background-color: #3c784a;
+}
+
+.row-same-working:hover {
+  color: #3c784a;
+  background-color: white;
+}
