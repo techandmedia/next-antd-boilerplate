@@ -5,15 +5,16 @@ import { tailFormItemLayout, formItemLayout } from "components";
 const { Option } = Select;
 
 export default function CustomForm({
+  form,
   profile,
   methods,
   loginForm,
   registerForm,
   defaultValue,
-  getFieldDecorator,
   compareToFirstPassword,
   validateToNextPassword
 }) {
+  const { getFieldDecorator } = form;
   const prefixSelector = getFieldDecorator("prefix", {
     initialValue: "62"
   })(
@@ -23,7 +24,7 @@ export default function CustomForm({
     </Select>
   );
 
-  const form = [
+  const formToRender = [
     {
       label: "E-Mail",
       field: "username",
@@ -161,7 +162,7 @@ export default function CustomForm({
       {...formItemLayout}
       onSubmit={e => methods.handleSubmit(e, this.props)}
     >
-      {form.map(item => {
+      {formToRender.map(item => {
         /**
          * For Readability, if then else
          * is better than itinerary operator

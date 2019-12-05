@@ -3,11 +3,12 @@ class Methods {
    * handleSubmit
    */
   handleSubmit = (e, props) => {
+    const { form } = props;
     e.preventDefault();
-    props.form.validateFieldsAndScroll((err, values) => {
+    form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         console.log("Received values of form: ", values);
-        // this.props.postData("CUSTOM API UNTUK NANTI", {
+        // props.postData("CUSTOM API UNTUK NANTI", {
         //   params: "CUSTOM PARAMS"
         // });
       }

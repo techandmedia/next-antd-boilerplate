@@ -31,8 +31,14 @@ class CustomForm extends React.Component {
   };
 
   render() {
-    const { getFieldDecorator } = this.props.form;
-    const { defaultValue, profile, loginForm, registerForm } = this.props;
+    const {
+      form,
+      profile,
+      postData,
+      loginForm,
+      defaultValue,
+      registerForm
+    } = this.props;
     const { compareToFirstPassword, validateToNextPassword, methods } = this;
 
     return (
@@ -48,12 +54,12 @@ class CustomForm extends React.Component {
           {/* <Modal modal={modal} dispatchModal={dispatchModal} /> */}
 
           <NewForm
+            form={form}
             profile={profile}
             methods={methods}
             loginForm={loginForm}
             registerForm={registerForm}
             defaultValue={defaultValue}
-            getFieldDecorator={getFieldDecorator}
             compareToFirstPassword={compareToFirstPassword}
             validateToNextPassword={validateToNextPassword}
           />
