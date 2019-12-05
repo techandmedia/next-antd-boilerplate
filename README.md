@@ -152,7 +152,7 @@ function YourComponent() {
    * If you want to render other component, do it like this
    */
   <Modal modal={modal} dispatchModal={dispatchModal}>
-    <YourComponent />
+    <YourOtherComponent />
   </Modal>;
 }
 ```
