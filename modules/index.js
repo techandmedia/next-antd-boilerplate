@@ -24,7 +24,7 @@ const subMenu = [
     title: (
       <span>
         <Icon type="user" />
-        Your Dashboard
+        <span>Your Dashboard</span>
       </span>
     ),
     children: [
@@ -49,7 +49,7 @@ const subMenu = [
     title: (
       <span>
         <Icon type="laptop" />
-        Tambahan
+        <span>Tambahan</span>
       </span>
     ),
     children: [
@@ -73,7 +73,7 @@ const subMenu = [
     title: (
       <span>
         <Icon type="notification" />
-        User Profile
+        <span>User Profile</span>
       </span>
     ),
     children: [

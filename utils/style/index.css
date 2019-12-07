@@ -44,3 +44,11 @@
   color: #3c784a;
   background-color: white;
 }
+
+.minimize{
+  margin-left: 80px !important;
+}
+
+.content{
+  transition: all 200ms;
+}
