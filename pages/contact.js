@@ -1,3 +1,3 @@
 export default function Contact() {
-  return <p>Ini Contact</p>;
+  return <p>KONTEK NIH</p>;
 }
