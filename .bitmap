@@ -64,16 +64,6 @@
     "daftar-dosen": {
         "files": [
             {
-                "relativePath": "modules/daftar-dosen/DaftarDosen.jsx",
-                "test": false,
-                "name": "DaftarDosen.jsx"
-            },
-            {
-                "relativePath": "modules/daftar-dosen/FormTambahDosen.jsx",
-                "test": false,
-                "name": "FormTambahDosen.jsx"
-            },
-            {
                 "relativePath": "modules/daftar-dosen/index.js",
                 "test": false,
                 "name": "index.js"
@@ -102,6 +92,11 @@
                 "relativePath": "modules/default/index.js",
                 "test": false,
                 "name": "index.js"
+            },
+            {
+                "relativePath": "modules/default/reducers.js",
+                "test": false,
+                "name": "reducers.js"
             }
         ],
         "mainFile": "modules/default/index.js",
@@ -138,9 +133,19 @@
     "form-regular": {
         "files": [
             {
+                "relativePath": "components/form-regular/Form.jsx",
+                "test": false,
+                "name": "Form.jsx"
+            },
+            {
                 "relativePath": "components/form-regular/index.js",
                 "test": false,
                 "name": "index.js"
+            },
+            {
+                "relativePath": "components/form-regular/methods.js",
+                "test": false,
+                "name": "methods.js"
             }
         ],
         "mainFile": "components/form-regular/index.js",
@@ -175,6 +180,16 @@
     "layout": {
         "files": [
             {
+                "relativePath": "components/layout/Layout.jsx",
+                "test": false,
+                "name": "Layout.jsx"
+            },
+            {
+                "relativePath": "components/layout/header/Header.jsx",
+                "test": false,
+                "name": "Header.jsx"
+            },
+            {
                 "relativePath": "components/layout/header/index.js",
                 "test": false,
                 "name": "index.js"
@@ -183,6 +198,11 @@
                 "relativePath": "components/layout/index.js",
                 "test": false,
                 "name": "index.js"
+            },
+            {
+                "relativePath": "components/layout/sider/Sider.jsx",
+                "test": false,
+                "name": "Sider.jsx"
             },
             {
                 "relativePath": "components/layout/sider/index.js",
@@ -222,6 +242,11 @@
     },
     "modal": {
         "files": [
+            {
+                "relativePath": "components/modal/Modal.jsx",
+                "test": false,
+                "name": "Modal.jsx"
+            },
             {
                 "relativePath": "components/modal/index.js",
                 "test": false,
@@ -298,9 +323,19 @@
     "table": {
         "files": [
             {
+                "relativePath": "components/table/Table.jsx",
+                "test": false,
+                "name": "Table.jsx"
+            },
+            {
                 "relativePath": "components/table/index.js",
                 "test": false,
                 "name": "index.js"
+            },
+            {
+                "relativePath": "components/table/reducers.js",
+                "test": false,
+                "name": "reducers.js"
             }
         ],
         "mainFile": "components/table/index.js",
