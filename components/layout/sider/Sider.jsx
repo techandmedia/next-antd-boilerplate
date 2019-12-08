@@ -14,11 +14,13 @@ export default function SideMenu({ collapsed, toggleCollapsed }) {
     console.log("SIDEBAR", e);
     dispatchMenu({ key: e.key });
   }
+
   const logo ={
     "height": 32,
     "background": "rgba(255, 255, 255, 0.2)",
     "margin": 16,
   }
+  
   return (
     <Sider
       collapsible

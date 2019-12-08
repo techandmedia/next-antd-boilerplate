@@ -3,7 +3,7 @@ import { UserContext } from "context/Global-Context";
 import { Layout } from "antd";
 import { Header } from "./header";
 import { SideMenu } from "./sider";
-import '../../utils/style/index.css'
+import "../../utils/style/index.css";
 const { Content, Footer } = Layout;
 
 export default function CustomLayout(props) {
@@ -22,9 +22,14 @@ export default function CustomLayout(props) {
   }
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
-      <SideMenu collapsed={collapsed} toggleCollapsed={toggleCollapsed} />
-      <Layout className={`content ${collapsed?'minimize':''}`} style={{ marginLeft: 200 }}>
+    <Layout style={{ minHeight: "100vh" }}>
+      {route && (
+        <SideMenu collapsed={collapsed} toggleCollapsed={toggleCollapsed} />
+      )}
+      <Layout
+        className={`content ${collapsed ? "minimize" : ""}`}
+        style={{ marginLeft: 200 }}
+      >
         <Header
           isLoggedIn={isLoggedIn}
           logout={logout}
@@ -33,7 +38,8 @@ export default function CustomLayout(props) {
         />
         <Content
           style={{
-            margin: '24px 16px 0', overflow: 'initial',
+            margin: "24px 16px 0",
+            overflow: "initial",
             padding: 24,
             background: "#fff",
             minHeight: 280
