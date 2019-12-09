@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import axios from "axios";
 import { Form } from "components";
 import { Row, Col } from "antd";
 const IMAGE_URL = "../static/img/login/";
@@ -6,7 +8,24 @@ const image1 = "Ucap-Janji-Akademi-Keperawatan-Bina-Insan-2016-13.jpg";
 const image2 = "Ucap-Janji-Akademi-Keperawatan-Bina-Insan-2016-2.jpg";
 const image3 = "Ucap-Janji-Akademi-Keperawatan-Bina-Insan-2016-6.jpg";
 const image4 = "Ucap-Janji-Akademi-Keperawatan-Bina-Insan-2016-8.jpg";
+
 export default function Login(props) {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    async function getData() {
+      const result = await axios("http://localhost:3000/api/credentials/login");
+      const res = await result;
+      setData(res);
+    }
+
+    getData()
+  }, []);
+
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+
   const list = [
     {
       name: "menu"
@@ -18,6 +37,7 @@ export default function Login(props) {
       name: "register"
     }
   ];
+
   return (
     <div style={{ height: "inherit" }} className="login-bg">
       <Row style={{ height: "inherit" }}>
@@ -32,6 +52,7 @@ export default function Login(props) {
             <ul>
               {list.map(i => (
                 <li
+                  key={i.name}
                   style={{
                     letterSpacing: 1.5,
                     padding:
