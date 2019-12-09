@@ -11,13 +11,15 @@ export default function TopNavigation({
   logout
 }) {
   return (
-    <Header className={`header`} style={{ height:46,background: "#fff", padding: 0 }}>
+    <Header
+      className={`header`}
+      style={{ height: 46, background: "#fff", padding: 0 }}
+    >
       <Menu theme="light" mode="horizontal">
-        <Menu.Item key="0">
+        <Menu.Item key="0" onClick={() => toggleCollapsed("forced")}>
           <Icon
             className="trigger"
             type={collapsed ? "menu-unfold" : "menu-fold"}
-            onClick={toggleCollapsed}
           />
         </Menu.Item>
         <Menu.Item key="1">

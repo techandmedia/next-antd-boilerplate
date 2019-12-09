@@ -7,30 +7,26 @@ import { subMenu } from "../../../modules/";
 const { SubMenu } = Menu;
 const { Sider } = Layout;
 
-export default function SideMenu({ collapsed, toggleCollapsed }) {
+export default function SideMenu({ collapsed, toggleCollapsed, collClick }) {
   const { dispatchMenu } = useContext(MenuContext);
 
   function handleMenuClick(e) {
     console.log("SIDEBAR", e);
     dispatchMenu({ key: e.key });
   }
-  const logo ={
-    "height": 32,
-    "background": "rgba(255, 255, 255, 0.2)",
-    "margin": 16,
-  }
+  const logo = {
+    height: 32,
+    background: "rgba(255, 255, 255, 0.2)",
+    margin: 16
+  };
   return (
     <Sider
       collapsible
       trigger={null}
       collapsed={collapsed}
       onCollapse={toggleCollapsed}
-      style={{
-        overflow: 'auto',
-        height: '100vh',
-        position: 'fixed',
-        left: 0,
-      }}
+      onMouseEnter={!collClick ? toggleCollapsed : null}
+      onMouseLeave={!collClick ? toggleCollapsed : null}
     >
       <div style={logo} />
       <Menu
@@ -38,20 +34,18 @@ export default function SideMenu({ collapsed, toggleCollapsed }) {
         theme="dark"
         defaultSelectedKeys={["default"]}
         // defaultOpenKeys={["sub-menu-1"]}
-        // style={{ height: "100%" }}
+        style={{ backgroundColor: "initial" }}
         // onClick={handleMenuClick}
         // inlineCollapsed={collapsed}
       >
         {subMenu.map(item => {
           return (
             <SubMenu key={item.key} title={item.title}>
-            <span>
               {item.children.map(el => (
                 <Menu.Item key={el.key}>
-                  <Icon type={el.icon} />
                   <span>{el.title}</span>
                 </Menu.Item>
-              ))}</span>
+              ))}
             </SubMenu>
           );
         })}

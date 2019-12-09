@@ -1,0 +1,89 @@
+@primary-color: #00A88E; // primary color for all components
+@link-color: #05B7F1; // link color
+@success-color: #73d13d; // success state color
+@warning-color: #d48806; // warning state color
+@error-color: #a8071a; // error state color
+@font-size-base: 15px; // major text font size
+@heading-color: rgba(0, 0, 0, 0.85); // heading text color
+@text-color: rgba(0, 0, 0, 0.65); // major text color
+@text-color-secondary : rgba(0, 0, 0, .45); // secondary text color
+@disabled-color : rgba(0, 0, 0, .25); // disable state color
+@border-radius-base: 6px; // major border radius
+@border-color-base: #d9d9d9; // major border color
+@box-shadow-base: 0 2px 8px rgba(0, 0, 0, 0.15); // major shadow for layers
+
+@akper-tosca : #00A88E;
+@akper-orange : #F46F22;
+@akper-blue : #05B7F1;
+
+.ant-menu-dark .ant-menu-inline.ant-menu-sub{
+  background : @akper-tosca
+}
+
+.ant-layout-header {
+  margin: 0;
+  padding: 0;
+  height: 64px !important;
+  background: #ffffff;
+}
+
+.ant-menu-horizontal {
+  line-height: 64px;
+}
+
+.editable-row .ant-form-explain {
+  position: absolute;
+  font-size: 12px;
+  margin-top: -4px;
+}
+
+.ant-layout-sider-trigger {
+  font-size: 22px;
+  color: white;
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.ant-layout-sider{
+  background-color: @akper-tosca;
+  overflow: auto;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  width: 260px !important;
+  flex: 0 0 260px !important;
+  max-width: 260px !important;
+  min-width: 260px !important;
+}
+
+.ant-layout-sider-collapsed{
+  flex: 0 0 80px !important;
+  max-width: 80px !important;
+  min-width: 80px !important;
+  width: 80px !important;
+}
+
+.ant-layout-sider-collapsed .ant-layout-sider-children .ant-menu-submenu-title  i{
+  font-size: 30px !important;
+}
+
+.ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-submenu > .ant-menu-submenu-title, .ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title {
+  padding: 6px 25px !important;
+}
+
+.ant-menu-vertical > .ant-menu-item, .ant-menu-vertical-left > .ant-menu-item, .ant-menu-vertical-right > .ant-menu-item, .ant-menu-inline > .ant-menu-item, .ant-menu-vertical > .ant-menu-submenu > .ant-menu-submenu-title, .ant-menu-vertical-left > .ant-menu-submenu > .ant-menu-submenu-title, .ant-menu-vertical-right > .ant-menu-submenu > .ant-menu-submenu-title, .ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title{
+  height: 50px;
+  line-height: 50px;
+}
+
+.ant-menu.ant-menu-dark .ant-menu-item-selected, .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected, .ant-menu-dark .ant-menu-item:hover, .ant-menu-dark .ant-menu-item-active, .ant-menu-dark .ant-menu-submenu-active, .ant-menu-dark .ant-menu-submenu-open, .ant-menu-dark .ant-menu-submenu-selected, .ant-menu-dark .ant-menu-submenu-title:hover{
+  color: @akper-orange !important;
+  background-color: @text-color-secondary;
+}
+
+.ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open, .ant-menu-submenu-active{
+  color: @akper-orange !important;
+}
+
+.ant-menu-inline .ant-menu-submenu-title{
+  margin-bottom: 0px;
+}

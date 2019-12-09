@@ -1,8 +1,33 @@
 /* eslint-disable */
+const fs = require("fs");
 const path = require("path");
-const withCss = require("@zeit/next-css");
+// const withCss = require("@zeit/next-css");
+const withLess = require("@zeit/next-less");
+const lessToJS = require("less-vars-to-js");
 
-module.exports = withCss({
+// // Where your ant-override.less file lives
+const themeVariables = lessToJS(
+  fs.readFileSync(
+    path.resolve(__dirname, "./utils/style/ant-override.less"),
+    "utf8"
+  )
+);
+
+// // fix: prevents error when .less files are required by node
+if (typeof require !== "undefined") {
+  require.extensions[".less"] = file => {};
+}
+
+// fix: prevents error when .css files are required by node
+if (typeof require !== "undefined") {
+  require.extensions[".css"] = file => {};
+}
+module.exports = withLess({
+  lessLoaderOptions: {
+    javascriptEnabled: true,
+    modifyVars: themeVariables // make your antd custom effective
+  },
+  useFileSystemPublicRoutes: false,
   webpack: (config, { isServer }) => {
     if (isServer) {
       const antStyles = /antd\/.*?\/style\/css.*?/;
