@@ -44,11 +44,11 @@ class CustomForm extends React.Component {
     return (
       <Row type="flex" justify="center">
         <Col span={24}>
-          <div style={{ textAlign: "center" }}>
+          <div style={{ textAlign: "left" }}>
             {loginForm ? (
-              <h1>Login</h1>
+              <h1 style={{ marginBottom: 15 }}>LOGIN</h1>
             ) : registerForm ? (
-              <h1>Account Registration</h1>
+              <h1 style={{ marginBottom: 15 }}>ACCOUNT REGISTRATION</h1>
             ) : null}
           </div>
           {/* <Modal modal={modal} dispatchModal={dispatchModal} /> */}
