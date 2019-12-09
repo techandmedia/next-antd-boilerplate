@@ -7,12 +7,18 @@ const { Option } = Select;
 export default function CustomForm({
   form,
   profile,
-  methods,
   loginForm,
   registerForm,
   defaultValue,
+  dispatchModal,
+  /**
+   * Test
+   */
+  methods,
   compareToFirstPassword,
-  validateToNextPassword
+  validateToNextPassword,
+  setState,
+  confirmDirty
 }) {
   const { getFieldDecorator } = form;
   const prefixSelector = getFieldDecorator("prefix", {
@@ -70,7 +76,8 @@ export default function CustomForm({
       label: "Confirm Password",
       field: "confirm",
       hasFeedback: true,
-      handleConfirmBlur: e => methods.handleConfirmBlur(e, this),
+      handleConfirmBlur: e =>
+        methods.handleConfirmBlur(e, setState, confirmDirty),
       rules: [
         {
           required: true,
@@ -117,7 +124,10 @@ export default function CustomForm({
 
   if (loginForm) {
     return (
-      <Form onSubmit={methods.handleSubmit} className="login-form">
+      <Form
+        onSubmit={e => methods.handleSubmit(e, form, dispatchModal)}
+        className="login-form"
+      >
         {formLogin.map(item => (
           <Form.Item key={item.field}>
             {getFieldDecorator(item.field, {
@@ -158,10 +168,7 @@ export default function CustomForm({
   }
 
   return (
-    <Form
-      {...formItemLayout}
-      onSubmit={e => methods.handleSubmit(e, this.props)}
-    >
+    <Form {...formItemLayout} onSubmit={e => methods.handleSubmit(e, form)}>
       {formToRender.map(item => {
         /**
          * For Readability, if then else

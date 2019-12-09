@@ -37,9 +37,16 @@ class CustomForm extends React.Component {
       postData,
       loginForm,
       defaultValue,
-      registerForm
+      registerForm,
+      dispatchModal
     } = this.props;
-    const { compareToFirstPassword, validateToNextPassword, methods } = this;
+    const {
+      compareToFirstPassword,
+      validateToNextPassword,
+      methods,
+      setState
+    } = this;
+    const { confirmDirty } = this.state;
 
     return (
       <Row type="flex" justify="center">
@@ -56,12 +63,18 @@ class CustomForm extends React.Component {
           <NewForm
             form={form}
             profile={profile}
-            methods={methods}
             loginForm={loginForm}
             registerForm={registerForm}
             defaultValue={defaultValue}
+            dispatchModal={dispatchModal}
+            /**
+             * Tes
+             */
+            methods={methods}
             compareToFirstPassword={compareToFirstPassword}
             validateToNextPassword={validateToNextPassword}
+            setState={setState}
+            confirmDirty={confirmDirty}
           />
         </Col>
       </Row>

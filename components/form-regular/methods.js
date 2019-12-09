@@ -2,15 +2,24 @@ class Methods {
   /**
    * handleSubmit
    */
-  handleSubmit = (e, props) => {
-    const { form } = props;
+  handleSubmit = (e, form, dispatchModal) => {
     e.preventDefault();
+    // const { form } = props;
+    // console.log(props);
     form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        console.log("Received values of form: ", values);
         // props.postData("CUSTOM API UNTUK NANTI", {
         //   params: "CUSTOM PARAMS"
         // });
+
+        if (values.password === "111") {
+          console.log("Received values of form: ", values);
+          const results = {
+            status: "Success",
+            message: "Anda berhasil Login Lho keren kan"
+          };
+          dispatchModal({ type: "success", results });
+        }
       }
     });
   };
@@ -19,9 +28,9 @@ class Methods {
    * Ngga bisa pake this, jadi ganti aja pakai nama laen wakakkaka
    * handleConfirmBlur
    */
-  handleConfirmBlur = (e, newThis) => {
+  handleConfirmBlur = (e, setState, confirmDirty) => {
     const { value } = e.target;
-    newThis.setState({ confirmDirty: newThis.state.confirmDirty || !!value });
+    setState({ confirmDirty: confirmDirty || !!value });
   };
 
   /**

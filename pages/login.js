@@ -1,5 +1,13 @@
 import { Form } from "components";
+import Modal, { useModal } from "../components/modal";
 
 export default function Login(props) {
-  return <Form loginForm {...props} />;
+  const [modal, dispatchModal] = useModal();
+
+  return (
+    <React.Fragment>
+      <Modal modal={modal} />
+      <Form loginForm {...props} dispatchModal={dispatchModal} />;
+    </React.Fragment>
+  );
 }
