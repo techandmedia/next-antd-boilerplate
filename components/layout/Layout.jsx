@@ -27,6 +27,7 @@ export default function CustomLayout(props) {
     setCollapsed(!currentCollapsed);
   }
   console.log(route);
+  const headerOnRoute = { marginLeft: 260 };
   return (
     <Layout style={{ minHeight: "100vh" }}>
       {route && (
@@ -38,9 +39,10 @@ export default function CustomLayout(props) {
       )}
       <Layout
         className={`content ${collapsed ? "minimize" : ""}`}
-        style={{ marginLeft: 260 }}
+        style={route ? headerOnRoute : null}
       >
         <Header
+          route={route}
           isLoggedIn={isLoggedIn}
           logout={logout}
           collapsed={collapsed}
