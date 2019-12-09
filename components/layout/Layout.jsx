@@ -26,14 +26,16 @@ export default function CustomLayout(props) {
     const currentCollapsed = collapsed;
     setCollapsed(!currentCollapsed);
   }
-
+  console.log(route);
   return (
     <Layout style={{ minHeight: "100vh" }}>
-      <SideMenu
-        collapsed={collapsed}
-        toggleCollapsed={toggleCollapsed}
-        collClick={collClick}
-      />
+      {route && (
+        <SideMenu
+          collapsed={collapsed}
+          toggleCollapsed={toggleCollapsed}
+          collClick={collClick}
+        />
+      )}
       <Layout
         className={`content ${collapsed ? "minimize" : ""}`}
         style={{ marginLeft: 260 }}

@@ -19,6 +19,7 @@ export default function SideMenu({ collapsed, toggleCollapsed, collClick }) {
     background: "rgba(255, 255, 255, 0.2)",
     margin: 16
   };
+
   return (
     <Sider
       collapsible
