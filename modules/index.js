@@ -1,7 +1,7 @@
 import { Icon } from "antd";
 import Default from "./default";
 import Profile from "./profile/";
-import UserList from './user-list'
+import UserList from "./user-list";
 import LoginFailed from "./login-failed";
 
 // DEMO
@@ -55,16 +55,28 @@ const subMenu = [
     children: [
       {
         key: "dosen",
-        title: "Daftar Dosen",
+        title: (
+          <span>
+            <span>Daftar Dosen</span>
+          </span>
+        ),
         component: <DaftarDosen />
       },
       {
         key: "21",
-        title: "User List"
+        title: (
+          <span>
+            <span>User List</span>
+          </span>
+        )
       },
       {
         key: "22",
-        title: "Work List"
+        title: (
+          <span>
+            <span>Work List</span>
+          </span>
+        )
       }
     ]
   },
@@ -84,7 +96,7 @@ const subMenu = [
       },
       {
         key: "preference",
-        title: "Preference",
+        title: "Preference"
       },
       {
         key: "change-password",

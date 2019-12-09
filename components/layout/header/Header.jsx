@@ -8,18 +8,23 @@ export default function TopNavigation({
   collapsed,
   toggleCollapsed,
   isLoggedIn,
-  logout
+  logout,
+  route
 }) {
   return (
-    <Header className={`header`} style={{ height:46,background: "#fff", padding: 0 }}>
+    <Header
+      className={`header`}
+      style={{ height: 46, background: "#fff", padding: 0 }}
+    >
       <Menu theme="light" mode="horizontal">
-        <Menu.Item key="0">
-          <Icon
-            className="trigger"
-            type={collapsed ? "menu-unfold" : "menu-fold"}
-            onClick={toggleCollapsed}
-          />
-        </Menu.Item>
+        {route && (
+          <Menu.Item key="0" onClick={() => toggleCollapsed("forced")}>
+            <Icon
+              className="trigger"
+              type={collapsed ? "menu-unfold" : "menu-fold"}
+            />
+          </Menu.Item>
+        )}
         <Menu.Item key="1">
           <Link href="/about">
             <a>About</a>

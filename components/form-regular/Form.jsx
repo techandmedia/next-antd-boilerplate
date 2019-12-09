@@ -158,10 +158,6 @@ export default function CustomForm({
           >
             Log in
           </Button>
-          Or
-          <Link href="/register">
-            <a> Register Now!</a>
-          </Link>
         </Form.Item>
       </Form>
     );
