@@ -63,12 +63,13 @@ const subMenu = [
         component: <DaftarDosen />
       },
       {
-        key: "21",
+        key: "user-list",
         title: (
           <span>
             <span>User List</span>
           </span>
-        )
+        ),
+        component: <UserList />
       },
       {
         key: "22",

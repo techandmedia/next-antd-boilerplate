@@ -6,12 +6,12 @@ const withLess = require("@zeit/next-less");
 const lessToJS = require("less-vars-to-js");
 
 // // Where your ant-override.less file lives
-const themeVariables = lessToJS(
-  fs.readFileSync(
-    path.resolve(__dirname, "./utils/style/ant-override.less"),
-    "utf8"
-  )
-);
+// const themeVariables = lessToJS(
+//   fs.readFileSync(
+//     path.resolve(__dirname, "./utils/style/ant-override.less"),
+//     "utf8"
+//   )
+// );
 
 // // fix: prevents error when .less files are required by node
 if (typeof require !== "undefined") {
@@ -25,7 +25,7 @@ if (typeof require !== "undefined") {
 module.exports = withLess({
   lessLoaderOptions: {
     javascriptEnabled: true,
-    modifyVars: themeVariables // make your antd custom effective
+    // modifyVars: themeVariables // make your antd custom effective
   },
   useFileSystemPublicRoutes: false,
   webpack: (config, { isServer }) => {

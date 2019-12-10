@@ -18,7 +18,7 @@ export default function Registration() {
 
   return (
     <React.Fragment>
-      <Modal />
+      {/* <Modal /> */}
       <Form registerForm postData={postData} dispatchModal={dispatchModal} />
     </React.Fragment>
   );

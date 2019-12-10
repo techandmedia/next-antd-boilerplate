@@ -36,7 +36,7 @@ export default function SideMenu({ collapsed, toggleCollapsed, collClick }) {
         defaultSelectedKeys={["default"]}
         // defaultOpenKeys={["sub-menu-1"]}
         style={{ backgroundColor: "initial" }}
-        // onClick={handleMenuClick}
+        onClick={handleMenuClick}
         // inlineCollapsed={collapsed}
       >
         {subMenu.map(item => {
