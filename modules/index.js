@@ -1,7 +1,7 @@
 import { Icon } from "antd";
 import Default from "./default";
 import Profile from "./profile/";
-import UserList from './user-list'
+import UserList from "./user-list";
 import LoginFailed from "./login-failed";
 
 // DEMO
@@ -24,7 +24,7 @@ const subMenu = [
     title: (
       <span>
         <Icon type="user" />
-        Your Dashboard
+        <span>Your Dashboard</span>
       </span>
     ),
     children: [
@@ -49,22 +49,35 @@ const subMenu = [
     title: (
       <span>
         <Icon type="laptop" />
-        Tambahan
+        <span>Tambahan</span>
       </span>
     ),
     children: [
       {
         key: "dosen",
-        title: "Daftar Dosen",
+        title: (
+          <span>
+            <span>Daftar Dosen</span>
+          </span>
+        ),
         component: <DaftarDosen />
       },
       {
-        key: "21",
-        title: "User List"
+        key: "user-list",
+        title: (
+          <span>
+            <span>User List</span>
+          </span>
+        ),
+        component: <UserList />
       },
       {
         key: "22",
-        title: "Work List"
+        title: (
+          <span>
+            <span>Work List</span>
+          </span>
+        )
       }
     ]
   },
@@ -73,7 +86,7 @@ const subMenu = [
     title: (
       <span>
         <Icon type="notification" />
-        User Profile
+        <span>User Profile</span>
       </span>
     ),
     children: [
@@ -84,7 +97,7 @@ const subMenu = [
       },
       {
         key: "preference",
-        title: "Preference",
+        title: "Preference"
       },
       {
         key: "change-password",

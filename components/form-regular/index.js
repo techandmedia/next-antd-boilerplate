@@ -37,18 +37,25 @@ class CustomForm extends React.Component {
       postData,
       loginForm,
       defaultValue,
-      registerForm
+      registerForm,
+      dispatchModal
     } = this.props;
-    const { compareToFirstPassword, validateToNextPassword, methods } = this;
+    const {
+      compareToFirstPassword,
+      validateToNextPassword,
+      methods,
+      setState
+    } = this;
+    const { confirmDirty } = this.state;
 
     return (
       <Row type="flex" justify="center">
         <Col span={24}>
-          <div style={{ textAlign: "center" }}>
+          <div style={{ textAlign: "left" }}>
             {loginForm ? (
-              <h1>Login</h1>
+              <h1 style={{ marginBottom: 15 }}>LOGIN</h1>
             ) : registerForm ? (
-              <h1>Account Registration</h1>
+              <h1 style={{ marginBottom: 15 }}>ACCOUNT REGISTRATION</h1>
             ) : null}
           </div>
           {/* <Modal modal={modal} dispatchModal={dispatchModal} /> */}
@@ -56,12 +63,18 @@ class CustomForm extends React.Component {
           <NewForm
             form={form}
             profile={profile}
-            methods={methods}
             loginForm={loginForm}
             registerForm={registerForm}
             defaultValue={defaultValue}
+            dispatchModal={dispatchModal}
+            /**
+             * Tes
+             */
+            methods={methods}
             compareToFirstPassword={compareToFirstPassword}
             validateToNextPassword={validateToNextPassword}
+            setState={setState}
+            confirmDirty={confirmDirty}
           />
         </Col>
       </Row>

@@ -4,34 +4,46 @@ import Link from "next/link";
 const { Header } = Layout;
 const LoginContext = React.createContext(null);
 
-export default function TopNavigation({ isLoggedIn, logout }) {
+export default function TopNavigation({
+  collapsed,
+  toggleCollapsed,
+  isLoggedIn,
+  logout,
+  route
+}) {
   return (
-    <div className="header">
-      <Header>
-        <Link href="/">
-          <div className="logo" />
-        </Link>
-        <Menu theme="light" mode="horizontal">
-          <Menu.Item key="1">
-            <Link href="/about">
-              <a>About</a>
-            </Link>
+    <Header
+      className={`header`}
+      style={{ height: 46, background: "#fff", padding: 0 }}
+    >
+      <Menu theme="light" mode="horizontal">
+        {route && (
+          <Menu.Item key="0" onClick={() => toggleCollapsed("forced")}>
+            <Icon
+              className="trigger"
+              type={collapsed ? "menu-unfold" : "menu-fold"}
+            />
           </Menu.Item>
-          <Menu.Item key="2">
-            <Link href="/contact">
-              <a> Contact</a>
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="3" style={{ float: "right", paddingRight: "50px" }}>
-            {/* <div class="menu-setting"> */}
-              <LoginContext.Provider value={logout}>
-                {isLoggedIn ? <Dashboard /> : <Login />}
-              </LoginContext.Provider>
-            {/* </div> */}
-          </Menu.Item>
-        </Menu>
-      </Header>
-    </div>
+        )}
+        <Menu.Item key="1">
+          <Link href="/about">
+            <a>About</a>
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="2">
+          <Link href="/contact">
+            <a> Contact</a>
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="3" style={{ float: "right", paddingRight: "50px" }}>
+          {/* <div class="menu-setting"> */}
+          <LoginContext.Provider value={logout}>
+            {isLoggedIn ? <Dashboard /> : <Login />}
+          </LoginContext.Provider>
+          {/* </div> */}
+        </Menu.Item>
+      </Menu>
+    </Header>
   );
 }
 
