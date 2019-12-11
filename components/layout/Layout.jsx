@@ -1,9 +1,10 @@
 import { useState, useContext } from "react";
 import { UserContext } from "context/Global-Context";
-import { Layout } from "antd";
+import { Layout, Row, Col } from "antd";
 import { Header } from "./header";
 import { SideMenu } from "./sider";
 const { Content, Footer } = Layout;
+import { CustomForm } from "components";
 
 export default function CustomLayout(props) {
   const { user } = useContext(UserContext);
@@ -15,8 +16,6 @@ export default function CustomLayout(props) {
   const groupName = "Admin";
   const [collapsed, setCollapsed] = useState(false);
   const [collClick, setCollClick] = useState(!collapsed);
-
-  console.log("Current Route", currentRoute);
 
   function toggleCollapsed(forceCollapse) {
     if (forceCollapse === "forced") {
@@ -68,7 +67,9 @@ export default function CustomLayout(props) {
           boxShadow: "0px 0px 20px 6px #00000038"
         }}
       >
-        {props.children}
+        <CustomForm currentRoute={props.currentRoute}>
+          {props.children}
+        </CustomForm>
       </Content>
     </Layout>
   );

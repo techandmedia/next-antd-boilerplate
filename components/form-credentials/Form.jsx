@@ -19,7 +19,7 @@ export default function(props) {
   return (
     <div style={{ height: "inherit" }} className="login-bg">
       <Row style={{ height: "inherit" }}>
-        <Col span={14}>
+        <Col sm={0} md={0} lg={14}>
           <div
             style={{
               width: "fit-content",
@@ -37,19 +37,19 @@ export default function(props) {
                     style={{
                       letterSpacing: 1.5,
                       padding:
-                        props.currentRoute === "/" + i.name
+                        props.currentRoute === "/" + name
                           ? "10px 40px 10px 20px"
                           : "10px 33px 10px 27px",
                       cursor: "pointer",
                       borderRadius: "14px 0 0 14px",
-                      fontSize: props.currentRoute === "/" + i.name ? 14 : 12,
+                      fontSize: props.currentRoute === "/" + name ? 14 : 12,
                       textTransform: "uppercase",
                       boxShadow:
-                        props.currentRoute === "/" + i.name
+                        props.currentRoute === "/" + name
                           ? "#000000a8 0px 3px 10px 0px"
                           : "none",
                       background:
-                        props.currentRoute === "/" + i.name
+                        props.currentRoute === "/" + name
                           ? "white"
                           : "transparent"
                     }}
@@ -73,7 +73,9 @@ export default function(props) {
           </div>
         </Col>
         <Col
-          span={10}
+          sm={24}
+          md={24}
+          lg={10}
           style={{ backgroundColor: "#fff", height: "100%", padding: 36 }}
         >
           <Row

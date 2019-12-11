@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
-import { Form, CustomForm } from "components";
+import { Form } from "components";
 // const IMAGE_URL = "../static/img/login/";
 // const image1 = "Ucap-Janji-Akademi-Keperawatan-Bina-Insan-2016-13.jpg";
 // const image2 = "Ucap-Janji-Akademi-Keperawatan-Bina-Insan-2016-2.jpg";
@@ -41,9 +41,5 @@ export default function Login(props) {
     getData();
   }, []);
 
-  return (
-    <CustomForm currentRoute={props.currentRoute}>
-      <Form renderForm={formLogin} loginForm {...props} />
-    </CustomForm>
-  );
+  return <Form renderForm={formLogin} loginForm {...props} />;
 }
