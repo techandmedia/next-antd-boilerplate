@@ -36,6 +36,7 @@ class CustomForm extends React.Component {
       profile,
       postData,
       loginForm,
+      renderForm,
       defaultValue,
       registerForm,
       dispatchModal
@@ -64,6 +65,7 @@ class CustomForm extends React.Component {
             form={form}
             profile={profile}
             loginForm={loginForm}
+            renderForm={renderForm}
             registerForm={registerForm}
             defaultValue={defaultValue}
             dispatchModal={dispatchModal}

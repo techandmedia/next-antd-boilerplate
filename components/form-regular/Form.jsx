@@ -11,6 +11,7 @@ export default function CustomForm({
   registerForm,
   defaultValue,
   dispatchModal,
+  renderForm,
   /**
    * Test
    */
@@ -103,25 +104,7 @@ export default function CustomForm({
     }
   ];
 
-  const formLogin = [
-    {
-      field: "username",
-      placeholder: "Username",
-      icon: "user",
-      rules: [{ required: true, message: "Please input your username!" }]
-    },
-    {
-      field: "password",
-      placeholder: "Password",
-      icon: "lock",
-      rules: [
-        {
-          required: true,
-          message: "Please input your password!"
-        }
-      ]
-    }
-  ];
+  console.log(loginForm, renderForm);
 
   if (loginForm) {
     return (
@@ -129,7 +112,7 @@ export default function CustomForm({
         onSubmit={e => methods.handleSubmit(e, form, dispatchModal)}
         className="login-form"
       >
-        {formLogin.map(item => (
+        {renderForm.map(item => (
           <Form.Item key={item.field}>
             {getFieldDecorator(item.field, {
               rules: item.rules
