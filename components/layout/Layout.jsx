@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
 import { UserContext } from "context/Global-Context";
-import { Layout, Row, Col } from "antd";
+import { Layout, Row, Col, Drawer } from "antd";
 import { Header } from "./header";
 import { SideMenu } from "./sider";
 const { Content, Footer } = Layout;
@@ -57,20 +57,28 @@ export default function CustomLayout(props) {
 
   const loginLayout = (
     <Layout style={{ width: "100vw", height: "100vh" }} className="login-bg">
-      <Content
-        style={{
-          margin: "15vh 20vw",
-          overflow: "initial",
-          borderRadius: "4px",
-          height: "70vh",
-          width: "60vw",
-          boxShadow: "0px 0px 20px 6px #00000038"
-        }}
+      <Row
+        type="flex"
+        justify="center"
+        align="middle"
+        style={{ height: "100%" }}
       >
-        <CustomForm currentRoute={props.currentRoute}>
-          {props.children}
-        </CustomForm>
-      </Content>
+        <div style={{ width: "auto" }}>
+          <Col span={24}>
+            <Content
+              style={{
+                overflow: "initial",
+                borderRadius: "4px",
+                boxShadow: "0px 0px 20px 6px #00000038"
+              }}
+            >
+              <CustomForm currentRoute={props.currentRoute}>
+                {props.children}
+              </CustomForm>
+            </Content>
+          </Col>
+        </div>
+      </Row>
     </Layout>
   );
 

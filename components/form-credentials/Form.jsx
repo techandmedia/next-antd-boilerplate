@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Row, Col } from "antd";
+import { Row, Col, Drawer, Button, Icon } from "antd";
 
 export default function(props) {
   const list = [
@@ -15,11 +15,17 @@ export default function(props) {
   ];
 
   let name;
-
+  const [drawer, setDrawer] = React.useState(false);
+  const showDrawer = () => {
+    setDrawer(true);
+  };
+  const onClose = () => {
+    setDrawer(false);
+  };
   return (
-    <div style={{ height: "inherit" }} className="login-bg">
-      <Row style={{ height: "inherit" }}>
-        <Col sm={0} md={0} lg={14}>
+    <div className="login-bg">
+      <Row id="row-content">
+        <Col xs={0} md={0} lg={14}>
           <div
             style={{
               width: "fit-content",
@@ -73,25 +79,39 @@ export default function(props) {
           </div>
         </Col>
         <Col
-          sm={24}
+          xs={24}
           md={24}
           lg={10}
           style={{ backgroundColor: "#fff", height: "100%", padding: 36 }}
         >
-          <Row
-            type="flex"
-            justify="space-around"
-            align="middle"
-            style={{ height: "inherit" }}
-          >
+          <Col xs={12} md={12} lg={0} style={{ marginBottom: "3rem" }}>
+            <Drawer
+              getContainer="div#row-content"
+              title="Basic Drawer"
+              placement="left"
+              closable={true}
+              onClose={onClose}
+              visible={drawer}
+              style={{
+                position: "absolute"
+              }}
+              width={"100%"}
+            >
+              <p>Some contents...</p>
+            </Drawer>
+            <Button
+              style={{ padding: 22, height: "auto" }}
+              onClick={showDrawer}
+            >
+              <Icon type="menu" style={{ fontSize: "2rem" }} />
+            </Button>
+          </Col>
+          <Col xs={12} md={12} lg={0} style={{ textAlign: "-webkit-right" }}>
             <div
               style={{
                 width: 80,
                 height: 80,
                 background: "blue",
-                position: "absolute",
-                top: 20,
-                right: 20,
                 color: "white",
                 fontWeight: "bold",
                 padding: "30px 20px"
@@ -99,8 +119,8 @@ export default function(props) {
             >
               LOGO
             </div>
-            <Col>{props.children}</Col>
-          </Row>
+          </Col>
+          <Col span={24}>{props.children}</Col>
         </Col>
       </Row>
     </div>

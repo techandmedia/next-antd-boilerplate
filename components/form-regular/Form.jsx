@@ -149,6 +149,7 @@ export default function CustomForm({
 
   return (
     <Form
+      className="register-form"
       {...formItemLayout}
       onSubmit={e => methods.handleSubmit(e, form)}
     >
@@ -187,7 +188,9 @@ export default function CustomForm({
       })}
 
       <Form.Item
-      // {...tailFormItemLayout}
+        label={" "}
+        style={{ textAlign: "right", marginTop: 30 }}
+        // {...tailFormItemLayout}
       >
         <Button type="primary" htmlType="submit">
           {profile ? "Save" : "Register"}
