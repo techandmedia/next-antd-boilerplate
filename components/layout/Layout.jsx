@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext, useEffect, Children } from "react";
 import { UserContext, MenuContext } from "context/Global-Context";
 import { Layout, Row, Col, Menu, Icon } from "antd";
 // import { Header } from "./header";
@@ -65,7 +65,8 @@ export default function CustomLayout(props) {
   }
 
   return (
-    <Layout>
+    <Layout style={{ height: "100vh" }}>
+      {/* {route && ( */}
       <Sider
         breakpoint="lg"
         collapsedWidth="0"
@@ -86,15 +87,24 @@ export default function CustomLayout(props) {
           {renderMenu}
         </Menu>
       </Sider>
-      {route ? (
-        <DashboardLayout route={route} collapsed={collapsed} {...props} />
-      ) : (
-        <HomeLayout {...props} />
-      )}
+      ){/* } */}
+      <ChildrenLayout route={route} {...props} />
     </Layout>
   );
 }
 
+function ChildrenLayout(props) {
+  console.log(props.route);
+  return props.route ? (
+    <DashboardLayout {...props} />
+  ) : (
+    <HomeLayout {...props} />
+  );
+}
+
+/**
+ * Route: home, login, registrasi
+ */
 function HomeLayout(props) {
   return (
     <Layout style={{ width: "100vw", height: "100vh" }} className="login-bg">
@@ -124,11 +134,14 @@ function HomeLayout(props) {
   );
 }
 
+/**
+ * Setelah Berhasil Log In
+ */
 function DashboardLayout(props) {
   return (
     <Layout
-      className={`content ${props.collapsed ? "minimize" : ""}`}
-      style={props.route ? { marginLeft: 260 } : null}
+    // className={`content ${props.collapsed ? "minimize" : ""}`}
+    // style={props.route ? { marginLeft: 260 } : null}
     >
       <Content
         style={{

@@ -84,8 +84,8 @@ export default function(props) {
           lg={10}
           style={{ backgroundColor: "#fff", height: "100%", padding: 36 }}
         >
-          <Col xs={12} md={12} lg={0} style={{ marginBottom: "3rem" }}>
-            <Drawer
+          {/* <Col xs={12} md={12} lg={0} style={{ marginBottom: "3rem" }}> */}
+            {/* <Drawer
               getContainer="div#row-content"
               title="Basic Drawer"
               placement="left"
@@ -104,8 +104,8 @@ export default function(props) {
               onClick={showDrawer}
             >
               <Icon type="menu" style={{ fontSize: "2rem" }} />
-            </Button>
-          </Col>
+            </Button> */}
+          {/* </Col> */}
           <Col xs={12} md={12} lg={0} style={{ textAlign: "-webkit-right" }}>
             <div
               style={{

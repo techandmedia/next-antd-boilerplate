@@ -1,10 +1,10 @@
-import { useContext, useEffect } from "react";
-import { MenuContext, UserContext } from "context/Global-Context";
+import { useContext } from "react";
+import { MenuContext } from "context/Global-Context";
 import { Row, Col } from "antd";
 import pages from "../modules";
 
 export default function Dashboard(props) {
-  const { menus } = useContext(MenuContext);
+  const { menu } = useContext(MenuContext);
 
   function renderPage() {
     for (let i = 0; i < pages.length; i++) {
