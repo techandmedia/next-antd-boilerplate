@@ -1,36 +1,25 @@
 /* eslint-disable */
-const fs = require("fs");
-const path = require("path");
-// const withCss = require("@zeit/next-css");
 const withLess = require("@zeit/next-less");
 const lessToJS = require("less-vars-to-js");
+const fs = require("fs");
+const path = require("path");
 
-// // Where your ant-override.less file lives
-// const themeVariables = lessToJS(
-//   fs.readFileSync(
-//     path.resolve(__dirname, "./utils/style/ant-override.less"),
-//     "utf8"
-//   )
-// );
+// Where your antd-custom.less file lives
+const themeVariables = lessToJS(
+  fs.readFileSync(
+    path.resolve(__dirname, "./utils/style/ant-override.less"),
+    "utf8"
+  )
+);
 
-// // fix: prevents error when .less files are required by node
-if (typeof require !== "undefined") {
-  require.extensions[".less"] = file => {};
-}
-
-// fix: prevents error when .css files are required by node
-if (typeof require !== "undefined") {
-  require.extensions[".css"] = file => {};
-}
 module.exports = withLess({
   lessLoaderOptions: {
     javascriptEnabled: true,
-    // modifyVars: themeVariables // make your antd custom effective
+    modifyVars: themeVariables // make your antd custom effective
   },
-  useFileSystemPublicRoutes: false,
   webpack: (config, { isServer }) => {
     if (isServer) {
-      const antStyles = /antd\/.*?\/style\/css.*?/;
+      const antStyles = /antd\/.*?\/style.*?/;
       const origExternals = [...config.externals];
       config.externals = [
         (context, request, callback) => {
@@ -49,6 +38,7 @@ module.exports = withLess({
         use: "null-loader"
       });
     }
+
     config.resolve.alias["components"] = path.join(__dirname, "components");
     config.resolve.alias["api"] = path.join(__dirname, "utils/api");
     config.resolve.alias["context"] = path.join(__dirname, "utils/context");
@@ -56,7 +46,11 @@ module.exports = withLess({
 
     return config;
   },
-  exportPathMap: function() {
+  exportTrailingSlash: true,
+  exportPathMap: async function(
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
     return {
       "/": { page: "/" },
       "/login": { page: "/login" },
