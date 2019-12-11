@@ -7,7 +7,7 @@ const { Content, Footer } = Layout;
 
 export default function CustomLayout(props) {
   const { user } = useContext(UserContext);
-  const { isLoggedIn, currentRoute, logout } = props;
+  let { isLoggedIn, currentRoute, logout } = props;
   const route = isLoggedIn && currentRoute === "/dashboard" ? true : false;
   const fullName = "Andri";
   // const fullName = route && user.detail[0].user_full_name;
@@ -70,7 +70,10 @@ export default function CustomLayout(props) {
     </Layout>
   );
 
-  const theContent = currentRoute === "/login" ? loginLayout : logedLayout;
+  const loginFams = ["/login", "/register", "/"];
+  const theContent = loginFams.includes(currentRoute)
+    ? loginLayout
+    : logedLayout;
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
@@ -81,8 +84,7 @@ export default function CustomLayout(props) {
           collClick={collClick}
         />
       )}
-      {/* {theContent} */}
-      {loginLayout}
+      {theContent}
     </Layout>
   );
 }
