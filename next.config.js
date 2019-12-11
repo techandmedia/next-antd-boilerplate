@@ -7,7 +7,7 @@ const path = require("path");
 // Where your antd-custom.less file lives
 const themeVariables = lessToJS(
   fs.readFileSync(
-    path.resolve(__dirname, "./utils/style/ant-override.less"),
+    path.resolve(__dirname, "./utils/style/ant-variables.less"),
     "utf8"
   )
 );

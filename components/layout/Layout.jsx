@@ -4,7 +4,7 @@ import { Layout } from "antd";
 import { Header } from "./header";
 import { SideMenu } from "./sider";
 import "../../utils/style/ant-override.less";
-import "../../utils/style/index.less";
+// import "../../utils/style/index.less";
 const { Content, Footer } = Layout;
 
 export default function CustomLayout(props) {

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Form, Input, Select, Button, Checkbox, Icon } from "antd";
+import { Input, Select, Button, Checkbox, Icon } from "antd";
 import { tailFormItemLayout, formItemLayout } from "components";
 
 const { Option } = Select;
@@ -18,7 +18,8 @@ export default function CustomForm({
   compareToFirstPassword,
   validateToNextPassword,
   setState,
-  confirmDirty
+  confirmDirty,
+  Form
 }) {
   const { getFieldDecorator } = form;
   const prefixSelector = getFieldDecorator("prefix", {

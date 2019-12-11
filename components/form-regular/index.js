@@ -75,6 +75,7 @@ class CustomForm extends React.Component {
             validateToNextPassword={validateToNextPassword}
             setState={setState}
             confirmDirty={confirmDirty}
+            Form={Form}
           />
         </Col>
       </Row>
