@@ -46,7 +46,13 @@ module.exports = withLess({
 
     return config;
   },
-  exportTrailingSlash: true,
+  /**
+   * Jadi begini "www.domain/login/" kalau di address bar
+   * Remove this line atau make it false
+   * to change it to "www.domain/login"
+   * exportTrailingSlash: true,
+   */
+
   exportPathMap: async function(
     defaultPathMap,
     { dev, dir, outDir, distDir, buildId }
