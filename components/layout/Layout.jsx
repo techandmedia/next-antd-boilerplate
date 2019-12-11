@@ -1,61 +1,102 @@
-import { useState, useContext } from "react";
-import { UserContext } from "context/Global-Context";
-import { Layout, Row, Col } from "antd";
-import { Header } from "./header";
+import { useState, useContext, useEffect } from "react";
+import { UserContext, MenuContext } from "context/Global-Context";
+import { Layout, Row, Col, Menu, Icon } from "antd";
+// import { Header } from "./header";
 import { SideMenu } from "./sider";
-const { Content, Footer } = Layout;
 import { CustomForm } from "components";
+import { subMenu, homeMenu } from "../../modules";
+
+const { Header, Content, Footer, Sider } = Layout;
+const { SubMenu } = Menu;
 
 export default function CustomLayout(props) {
-  const { user } = useContext(UserContext);
+  const { dispatchMenu } = useContext(MenuContext);
+  // const { user } = useContext(UserContext);
   let { isLoggedIn, currentRoute, logout } = props;
   const route = isLoggedIn && currentRoute === "/dashboard" ? true : false;
-  const fullName = "Andri";
-  // const fullName = route && user.detail[0].user_full_name;
-  // const groupName = route && user.detail[0].group_name;
-  const groupName = "Admin";
+
+  // const fullName = "Andri";
+  // // const fullName = route && user.detail[0].user_full_name;
+  // // const groupName = route && user.detail[0].group_name;
+  // const groupName = "Admin";
   const [collapsed, setCollapsed] = useState(false);
   const [collClick, setCollClick] = useState(!collapsed);
 
-  function toggleCollapsed(forceCollapse) {
-    if (forceCollapse === "forced") {
-      const currentColl = collClick;
-      setCollClick(!currentColl);
-    }
-    const currentCollapsed = collapsed;
-    setCollapsed(!currentCollapsed);
+  // function toggleCollapsed(forceCollapse) {
+  //   if (forceCollapse === "forced") {
+  //     const currentColl = collClick;
+  //     setCollClick(!currentColl);
+  //   }
+  //   const currentCollapsed = collapsed;
+  //   setCollapsed(!currentCollapsed);
+  // }
+
+  // const loginFams = ["/login", "/register", "/"];
+  // const theContent = loginFams.includes(currentRoute)
+  //   ? loginLayout
+  //   : logedLayout;
+
+  useEffect(() => {
+    console.log(currentRoute);
+    console.log(isLoggedIn);
+  });
+
+  const renderMenu = route
+    ? subMenu.map(item => {
+        return (
+          <SubMenu key={item.key} title={item.title}>
+            {item.children.map(el => (
+              <Menu.Item key={el.key}>
+                <span>{el.title}</span>
+              </Menu.Item>
+            ))}
+          </SubMenu>
+        );
+      })
+    : homeMenu.map(item => (
+        <Menu.Item key={item.key}>
+          <span>{item.title}</span>
+        </Menu.Item>
+      ));
+
+  function handleMenuClick({ key }) {
+    console.log("SIDEBAR", key);
+    dispatchMenu({ key });
   }
 
-  const logedLayout = (
-    <Layout
-      className={`content ${collapsed ? "minimize" : ""}`}
-      style={route ? { marginLeft: 260 } : null}
-    >
-      <Header
-        route={route}
-        isLoggedIn={isLoggedIn}
-        logout={logout}
-        collapsed={collapsed}
-        toggleCollapsed={toggleCollapsed}
-      />
-      <Content
-        style={{
-          margin: "24px 16px 0",
-          overflow: "initial",
-          padding: 24,
-          background: "#fff",
-          minHeight: 280
+  return (
+    <Layout>
+      <Sider
+        breakpoint="lg"
+        collapsedWidth="0"
+        onBreakpoint={broken => {
+          console.log(broken);
+        }}
+        onCollapse={(collapsed, type) => {
+          console.log(collapsed, type);
         }}
       >
-        {props.children}
-      </Content>
-      <Footer style={{ textAlign: "center" }}>
-        Ant Design ©2018 Created by Ant UED
-      </Footer>
+        <div className="logo" />
+        <Menu
+          theme="dark"
+          mode="inline"
+          defaultSelectedKeys={["4"]}
+          onClick={handleMenuClick}
+        >
+          {renderMenu}
+        </Menu>
+      </Sider>
+      {route ? (
+        <DashboardLayout route={route} collapsed={collapsed} {...props} />
+      ) : (
+        <HomeLayout {...props} />
+      )}
     </Layout>
   );
+}
 
-  const loginLayout = (
+function HomeLayout(props) {
+  return (
     <Layout style={{ width: "100vw", height: "100vh" }} className="login-bg">
       <Content
         style={{
@@ -73,22 +114,25 @@ export default function CustomLayout(props) {
       </Content>
     </Layout>
   );
+}
 
-  const loginFams = ["/login", "/register", "/"];
-  const theContent = loginFams.includes(currentRoute)
-    ? loginLayout
-    : logedLayout;
-
+function DashboardLayout(props) {
   return (
-    <Layout style={{ minHeight: "100vh" }}>
-      {route && (
-        <SideMenu
-          collapsed={collapsed}
-          toggleCollapsed={toggleCollapsed}
-          collClick={collClick}
-        />
-      )}
-      {theContent}
+    <Layout
+      className={`content ${props.collapsed ? "minimize" : ""}`}
+      style={props.route ? { marginLeft: 260 } : null}
+    >
+      <Content
+        style={{
+          margin: "24px 16px 0",
+          overflow: "initial",
+          padding: 24,
+          background: "#fff",
+          minHeight: 280
+        }}
+      >
+        {props.children}
+      </Content>
     </Layout>
   );
 }

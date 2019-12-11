@@ -3,6 +3,8 @@ import Default from "./default";
 import Profile from "./profile/";
 import UserList from "./user-list";
 import LoginFailed from "./login-failed";
+import Login from "../pages/login";
+import Register from "../pages/register";
 
 // DEMO
 import DaftarDosen from "./daftar-dosen";
@@ -15,6 +17,24 @@ const additional_pages = [
   {
     key: "login-failed",
     component: <LoginFailed />
+  }
+];
+
+const homeMenu = [
+  {
+    key: "/",
+    title: "menu",
+    component: <h1>SISTEM INFORMASI AKADEMIK</h1>
+  },
+  {
+    key: "/login",
+    title: "login",
+    component: <Login />
+  },
+  {
+    key: "/register",
+    title: "register",
+    component: <Register />
   }
 ];
 
@@ -115,5 +135,5 @@ subMenu.forEach(item => {
   );
 });
 
-export { subMenu };
+export { subMenu, homeMenu };
 export default pages;

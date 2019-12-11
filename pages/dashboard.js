@@ -4,7 +4,7 @@ import { Row, Col } from "antd";
 import pages from "../modules";
 
 export default function Dashboard(props) {
-  const { menu, dispatchMenu } = useContext(MenuContext);
+  const { menus } = useContext(MenuContext);
 
   function renderPage() {
     for (let i = 0; i < pages.length; i++) {

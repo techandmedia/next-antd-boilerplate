@@ -3,7 +3,8 @@ import App from "next/app";
 import GlobalProvider from "../utils/context/Global-Context";
 import Router from "next/router";
 import Layout from "components";
-import "../utils/style/ant-override.less";
+import 'antd/dist/antd.less';
+// import "../utils/style/ant-override.less";
 // import "../utils/style/ant-style.less";
 // import "../utils/style/index.less";
 
