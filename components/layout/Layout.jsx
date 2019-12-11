@@ -15,6 +15,9 @@ export default function CustomLayout(props) {
   const groupName = "Admin";
   const [collapsed, setCollapsed] = useState(false);
   const [collClick, setCollClick] = useState(!collapsed);
+
+  console.log("Current Route", currentRoute);
+
   function toggleCollapsed(forceCollapse) {
     if (forceCollapse === "forced") {
       const currentColl = collClick;

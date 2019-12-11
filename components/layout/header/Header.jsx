@@ -11,6 +11,8 @@ export default function TopNavigation({
   logout,
   route
 }) {
+  console.log("Header", route);
+
   return (
     <Header
       className={`header`}
