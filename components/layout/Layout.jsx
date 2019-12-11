@@ -81,7 +81,8 @@ export default function CustomLayout(props) {
           collClick={collClick}
         />
       )}
-      {theContent}
+      {/* {theContent} */}
+      {loginLayout}
     </Layout>
   );
 }

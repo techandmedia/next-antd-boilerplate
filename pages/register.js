@@ -1,5 +1,5 @@
 import { useEffect, useReducer } from "react";
-import { Form } from "components";
+import { Form, CustomForm } from "components";
 import Modal, { useModal } from "../components/modal";
 // import modalReducer from "../utils/reducers/modal-reducer";
 
@@ -17,9 +17,9 @@ export default function Registration() {
   }, [results]);
 
   return (
-    <React.Fragment>
+    <CustomForm>
       {/* <Modal /> */}
       <Form registerForm postData={postData} dispatchModal={dispatchModal} />
-    </React.Fragment>
+    </CustomForm>
   );
 }

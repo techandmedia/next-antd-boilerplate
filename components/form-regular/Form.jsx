@@ -148,7 +148,10 @@ export default function CustomForm({
   }
 
   return (
-    <Form {...formItemLayout} onSubmit={e => methods.handleSubmit(e, form)}>
+    <Form
+      {...formItemLayout}
+      onSubmit={e => methods.handleSubmit(e, form)}
+    >
       {formToRender.map(item => {
         /**
          * For Readability, if then else
@@ -183,7 +186,9 @@ export default function CustomForm({
         }
       })}
 
-      <Form.Item {...tailFormItemLayout}>
+      <Form.Item
+      // {...tailFormItemLayout}
+      >
         <Button type="primary" htmlType="submit">
           {profile ? "Save" : "Register"}
         </Button>
