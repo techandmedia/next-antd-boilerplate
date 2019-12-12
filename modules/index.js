@@ -3,24 +3,24 @@ import Default from "./default";
 import Profile from "./profile/";
 import UserList from "./user-list";
 import LoginFailed from "./login-failed";
-import Login from "../pages/login";
-import Register from "../pages/register";
+import Login from "./login";
+import Register from "./register";
 
 // DEMO
 import DaftarDosen from "./daftar-dosen";
 
 /**
- * Additional Pages is for pages that do not have menu but usefull like
- * error page, login failed pages, etc
+ * Additional Modules is for Modules that do not have menu but usefull like
+ * error page, login failed Modules, etc
  */
-const additional_pages = [
+const additional_Modules = [
   {
     key: "login-failed",
     component: <LoginFailed />
   }
 ];
 
-const homeMenu = [
+const HomeMenu = [
   {
     key: "default",
     title: "menu",
@@ -38,7 +38,7 @@ const homeMenu = [
   }
 ];
 
-const subMenu = [
+const DashboardMenu = [
   {
     key: "sub-menu-1",
     title: (
@@ -49,7 +49,7 @@ const subMenu = [
     ),
     children: [
       {
-        key: "default",
+        key: "task-list",
         title: "Tasks List",
         component: <Default />
       },
@@ -127,13 +127,19 @@ const subMenu = [
   }
 ];
 
-const pages = [...additional_pages];
+const Modules = [...additional_Modules];
 
-subMenu.forEach(item => {
+DashboardMenu.forEach(item => {
   item.children.forEach(el =>
-    pages.push({ key: el.key, component: el.component })
+    Modules.push({ key: el.key, component: el.component })
   );
 });
 
-export { subMenu, homeMenu };
-export default pages;
+HomeMenu.forEach(item => {
+  // item.children.forEach(el =>
+    Modules.push({ key: item.key, component: item.component })
+  // );
+});
+
+export { DashboardMenu, HomeMenu };
+export default Modules;

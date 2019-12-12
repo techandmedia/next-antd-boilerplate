@@ -1,15 +1,18 @@
 import { useContext } from "react";
 import { MenuContext } from "context/Global-Context";
 import { Row, Col } from "antd";
-import { homeMenu } from "../modules";
+import Modules, { HomePages } from "../modules";
 
 export default function Home(props) {
   const { menu } = useContext(MenuContext);
+  // const pageToRender = props.isLoggedIn ? DashboardPages : HomePages;
 
   function renderPage() {
-    for (let i = 0; i < homeMenu.length; i++) {
-      if (homeMenu[i].key === menu.menu) {
-        return <React.Fragment>{homeMenu[i].component}</React.Fragment>;
+    for (let i = 0; i < Modules.length; i++) {
+      if (Modules[i].key === menu.menu) {
+        console.log("FROM", Modules[i].key);
+        console.log("FROM", menu.menu);
+        return <React.Fragment>{Modules[i].component}</React.Fragment>;
       }
     }
   }
@@ -19,7 +22,7 @@ export default function Home(props) {
       <Col span={24}>
         {renderPage()}
         {/* Ini dilakukan jika menggunakan landing page */}
-        {/* {props.isLoggedIn ? : homeMenu[0].component} */}
+        {/* {props.isLoggedIn ? : HomePages[0].component} */}
       </Col>
     </Row>
   );

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { MenuContext } from "context/Global-Context";
 import { Row, Col, Menu } from "antd";
-import { homeMenu } from "../../modules";
+import { HomeMenu } from "../../modules";
 
 export default function(props) {
   const { dispatchMenu } = useContext(MenuContext);
@@ -38,7 +38,7 @@ export default function(props) {
                 defaultSelectedKeys={["default"]}
                 onClick={handleMenuClick}
               >
-                {homeMenu.map(i => {
+                {HomeMenu.map(i => {
                   name = i.title;
                   route = i.key;
 
@@ -59,28 +59,6 @@ export default function(props) {
           className="content-white-section"
           style={{ backgroundColor: "#fff", minHeight: "40rem", padding: 36 }}
         >
-          {/* <Col xs={12} md={12} lg={0} style={{ marginBottom: "3rem" }}> */}
-          {/* <Drawer
-              getContainer="div#row-content"
-              title="Basic Drawer"
-              placement="left"
-              closable={true}
-              onClose={onClose}
-              visible={drawer}
-              style={{
-                position: "absolute"
-              }}
-              width={"100%"}
-            >
-              <p>Some contents...</p>
-            </Drawer>
-            <Button
-              style={{ padding: 22, height: "auto" }}
-              onClick={showDrawer}
-            >
-              <Icon type="menu" style={{ fontSize: "2rem" }} />
-            </Button> */}
-          {/* </Col> */}
           <Col
             xs={24}
             md={24}

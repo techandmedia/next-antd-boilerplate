@@ -1,6 +1,6 @@
 import { useEffect, useReducer } from "react";
 import { Form } from "components";
-import Modal, { useModal } from "../components/modal";
+import Modal, { useModal } from "../../components/modal";
 // import modalReducer from "../utils/reducers/modal-reducer";
 
 import usePostData from "api/usePostData";
