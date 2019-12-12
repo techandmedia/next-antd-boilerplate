@@ -22,17 +22,17 @@ const additional_pages = [
 
 const homeMenu = [
   {
-    key: "/",
+    key: "default",
     title: "menu",
     component: <h1>SISTEM INFORMASI AKADEMIK</h1>
   },
   {
-    key: "/login",
+    key: "login",
     title: "login",
     component: <Login />
   },
   {
-    key: "/register",
+    key: "register",
     title: "register",
     component: <Register />
   }

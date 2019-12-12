@@ -3,7 +3,8 @@ import App from "next/app";
 import GlobalProvider from "../utils/context/Global-Context";
 import Router from "next/router";
 import Layout from "components";
-import 'antd/dist/antd.less';
+import "antd/dist/antd.less";
+
 // import "../utils/style/ant-override.less";
 // import "../utils/style/ant-style.less";
 // import "../utils/style/index.less";
@@ -11,7 +12,11 @@ import 'antd/dist/antd.less';
 /**
  * Preparing to use reducer here
  */
+
+ 
+
 export default function CustomApp(props) {
+  // console.log(process.browser);
   return (
     <GlobalProvider>
       <MyApp {...props} />
@@ -21,7 +26,7 @@ export default function CustomApp(props) {
 
 class MyApp extends App {
   state = {
-    isLoggedIn: true,
+    isLoggedIn: false
   };
 
   login = () => {

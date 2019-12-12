@@ -1,4 +1,5 @@
 /* eslint-disable */
+require("dotenv").config();
 const withLess = require("@zeit/next-less");
 const lessToJS = require("less-vars-to-js");
 const fs = require("fs");
@@ -13,6 +14,12 @@ const themeVariables = lessToJS(
 );
 
 module.exports = withLess({
+  env: {
+    // Reference a variable that was defined in the .env file and make it available at Build Time
+    DB_HOST: process.env.DB_HOST,
+    DB_USER: process.env.DB_USER,
+    DB_PASS: process.env.DB_PASS
+  },
   lessLoaderOptions: {
     javascriptEnabled: true,
     modifyVars: themeVariables // make your antd custom effective

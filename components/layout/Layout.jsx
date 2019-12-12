@@ -14,32 +14,19 @@ export default function CustomLayout(props) {
   // const { user } = useContext(UserContext);
   let { isLoggedIn, currentRoute, logout } = props;
   const route = isLoggedIn && currentRoute === "/dashboard" ? true : false;
-
-  // const fullName = "Andri";
-  // // const fullName = route && user.detail[0].user_full_name;
-  // // const groupName = route && user.detail[0].group_name;
-  // const groupName = "Admin";
-  const [collapsed, setCollapsed] = useState(false);
-  const [collClick, setCollClick] = useState(!collapsed);
-
-  // function toggleCollapsed(forceCollapse) {
-  //   if (forceCollapse === "forced") {
-  //     const currentColl = collClick;
-  //     setCollClick(!currentColl);
-  //   }
-  //   const currentCollapsed = collapsed;
-  //   setCollapsed(!currentCollapsed);
-  // }
-
-  // const loginFams = ["/login", "/register", "/"];
-  // const theContent = loginFams.includes(currentRoute)
-  //   ? loginLayout
-  //   : logedLayout;
+  const [collapsed, setCollapsed] = useState(null);
+  const [hideSider, setHideSider] = useState(false);
 
   useEffect(() => {
-    console.log(currentRoute);
-    console.log(isLoggedIn);
-  });
+    // console.log("WINDOWS INNER", process.);
+    if (collapsed) {
+      console.log("WINDOWS INNER", window.innerWidth, true);
+      setHideSider(!collapsed);
+    } else {
+      setHideSider(!collapsed);
+      console.log("WINDOWS INNER", window.innerWidth, false);
+    }
+  }, [collapsed]);
 
   const renderMenu = route
     ? subMenu.map(item => {
@@ -60,41 +47,43 @@ export default function CustomLayout(props) {
       ));
 
   function handleMenuClick({ key }) {
-    console.log("SIDEBAR", key);
+    // console.log("SIDEBAR", key);
     dispatchMenu({ key });
   }
 
   return (
     <Layout style={{ height: "100vh" }}>
       {/* {route && ( */}
-      <Sider
-        breakpoint="lg"
-        collapsedWidth="0"
-        onBreakpoint={broken => {
-          console.log(broken);
-        }}
-        onCollapse={(collapsed, type) => {
-          console.log(collapsed, type);
-        }}
-      >
-        <div className="logo" />
-        <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={["4"]}
-          onClick={handleMenuClick}
+      <div style={{ display: hideSider ? "none" : "block" }}>
+        <Sider
+          breakpoint="lg"
+          collapsedWidth="0"
+          onBreakpoint={broken => {
+            console.log(broken);
+          }}
+          onCollapse={(collapsed, type) => {
+            // console.log("INNER", collapsed, type);
+            setCollapsed(collapsed);
+          }}
         >
-          {renderMenu}
-        </Menu>
-      </Sider>
-      ){/* } */}
+          <div className="logo" />
+          <Menu
+            // theme="dark"
+            mode="inline"
+            defaultSelectedKeys={["4"]}
+            onClick={handleMenuClick}
+          >
+            {renderMenu}
+          </Menu>
+        </Sider>
+      </div>
+
       <ChildrenLayout route={route} {...props} />
     </Layout>
   );
 }
 
 function ChildrenLayout(props) {
-  console.log(props.route);
   return props.route ? (
     <DashboardLayout {...props} />
   ) : (

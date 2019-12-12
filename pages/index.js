@@ -17,7 +17,9 @@ export default function Home(props) {
   return (
     <Row type="flex" justify="center" style={{ paddingRight: 50 }}>
       <Col span={24}>
-        {props.isLoggedIn ? renderPage() : homeMenu[0].component}
+        {renderPage()}
+        {/* Ini dilakukan jika menggunakan landing page */}
+        {/* {props.isLoggedIn ? : homeMenu[0].component} */}
       </Col>
     </Row>
   );

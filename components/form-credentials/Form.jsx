@@ -1,27 +1,26 @@
-import Link from "next/link";
-import { Row, Col, Drawer, Button, Icon } from "antd";
+import { useContext } from "react";
+import { MenuContext } from "context/Global-Context";
+import { Row, Col, Menu } from "antd";
+import { homeMenu } from "../../modules";
 
 export default function(props) {
-  const list = [
-    {
-      name: "menu"
-    },
-    {
-      name: "login"
-    },
-    {
-      name: "register"
-    }
-  ];
+  const { dispatchMenu } = useContext(MenuContext);
 
-  let name;
+  let name, route;
   const [drawer, setDrawer] = React.useState(false);
   const showDrawer = () => {
     setDrawer(true);
   };
+
   const onClose = () => {
     setDrawer(false);
   };
+
+  function handleMenuClick({ key }) {
+    console.log("SIDEBAR", key);
+    dispatchMenu({ key });
+  }
+
   return (
     <div className="login-bg">
       <Row id="row-content">
@@ -34,47 +33,52 @@ export default function(props) {
             }}
           >
             <ul>
-              {list.map(i => {
-                name = i.name === "menu" ? "" : i.name;
+              <Menu
+                mode="inline"
+                defaultSelectedKeys={["default"]}
+                onClick={handleMenuClick}
+              >
+                {homeMenu.map(i => {
+                  name = i.title;
+                  route = i.key;
 
-                return (
-                  <li
-                    key={i.name}
-                    style={{
-                      letterSpacing: 1.5,
-                      padding:
-                        props.currentRoute === "/" + name
-                          ? "10px 40px 10px 20px"
-                          : "10px 33px 10px 27px",
-                      cursor: "pointer",
-                      borderRadius: "14px 0 0 14px",
-                      fontSize: props.currentRoute === "/" + name ? 14 : 12,
-                      textTransform: "uppercase",
-                      boxShadow:
-                        props.currentRoute === "/" + name
-                          ? "#000000a8 0px 3px 10px 0px"
-                          : "none",
-                      background:
-                        props.currentRoute === "/" + name
-                          ? "white"
-                          : "transparent"
-                    }}
-                  >
-                    <Link href={`${"/" + name}`}>
-                      <a
-                        style={{
-                          color:
-                            props.currentRoute === "/" + name
-                              ? "black"
-                              : "white"
-                        }}
+                  return (
+                    <Menu.Item
+                      key={route}
+                      style={
+                        {
+                          // letterSpacing: 1.5,
+                          // padding:
+                          //   props.currentRoute === route
+                          //     ? "10px 40px 10px 20px"
+                          //     : "10px 33px 10px 27px",
+                          // cursor: "pointer",
+                          // borderRadius: "14px 0 0 14px",
+                          // fontSize: props.currentRoute === route ? 14 : 12,
+                          // textTransform: "uppercase",
+                          // boxShadow:
+                          //   props.currentRoute === route
+                          //     ? "#000000a8 0px 3px 10px 0px"
+                          //     : "none",
+                          // background:
+                          //   props.currentRoute === route ? "white" : "transparent"
+                        }
+                      }
+                    >
+                      <div
+                      // style={{
+                      //   color:
+                      //     props.currentRoute === route
+                      //       ? "black"
+                      //       : "white"
+                      // }}
                       >
-                        {i.name}
-                      </a>
-                    </Link>
-                  </li>
-                );
-              })}
+                        {name}
+                      </div>
+                    </Menu.Item>
+                  );
+                })}
+              </Menu>
             </ul>
           </div>
         </Col>
@@ -85,7 +89,7 @@ export default function(props) {
           style={{ backgroundColor: "#fff", height: "100%", padding: 36 }}
         >
           {/* <Col xs={12} md={12} lg={0} style={{ marginBottom: "3rem" }}> */}
-            {/* <Drawer
+          {/* <Drawer
               getContainer="div#row-content"
               title="Basic Drawer"
               placement="left"
