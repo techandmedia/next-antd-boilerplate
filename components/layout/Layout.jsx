@@ -16,6 +16,7 @@ export default function CustomLayout(props) {
   const route = isLoggedIn && currentRoute === "/dashboard" ? true : false;
   const [collapsed, setCollapsed] = useState(null);
   const [hideSider, setHideSider] = useState(false);
+  const [onBreakpoint, setBreakPoint] = useState(null);
 
   useEffect(() => {
     // console.log("WINDOWS INNER", process.);
@@ -54,21 +55,20 @@ export default function CustomLayout(props) {
   return (
     <Layout style={{ height: "100vh" }}>
       {/* {route && ( */}
-      <div style={{ display: hideSider ? "none" : "block" }}>
+      <div style={{ display: onBreakpoint ? "block" : "none" }}>
         <Sider
+          // style={{ height: "100vh" }}
+          // className="home"
           breakpoint="lg"
           collapsedWidth="0"
           onBreakpoint={broken => {
-            console.log(broken);
+            setBreakPoint(broken);
           }}
           onCollapse={(collapsed, type) => {
-            // console.log("INNER", collapsed, type);
             setCollapsed(collapsed);
           }}
         >
-          <div className="logo" />
           <Menu
-            // theme="dark"
             mode="inline"
             defaultSelectedKeys={["4"]}
             onClick={handleMenuClick}
@@ -106,10 +106,11 @@ function HomeLayout(props) {
         <div style={{ width: "auto" }}>
           <Col span={24}>
             <Content
+              className="content-home-section"
               style={{
                 overflow: "initial",
                 borderRadius: "4px",
-                boxShadow: "0px 0px 20px 6px #00000038"
+                minWidth: "60rem"
               }}
             >
               <CustomForm currentRoute={props.currentRoute}>

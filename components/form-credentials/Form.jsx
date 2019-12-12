@@ -32,7 +32,7 @@ export default function(props) {
               float: "right"
             }}
           >
-            <ul>
+            <ul style={{ marginRight: -1 }}>
               <Menu
                 mode="inline"
                 defaultSelectedKeys={["default"]}
@@ -43,38 +43,8 @@ export default function(props) {
                   route = i.key;
 
                   return (
-                    <Menu.Item
-                      key={route}
-                      style={
-                        {
-                          // letterSpacing: 1.5,
-                          // padding:
-                          //   props.currentRoute === route
-                          //     ? "10px 40px 10px 20px"
-                          //     : "10px 33px 10px 27px",
-                          // cursor: "pointer",
-                          // borderRadius: "14px 0 0 14px",
-                          // fontSize: props.currentRoute === route ? 14 : 12,
-                          // textTransform: "uppercase",
-                          // boxShadow:
-                          //   props.currentRoute === route
-                          //     ? "#000000a8 0px 3px 10px 0px"
-                          //     : "none",
-                          // background:
-                          //   props.currentRoute === route ? "white" : "transparent"
-                        }
-                      }
-                    >
-                      <div
-                      // style={{
-                      //   color:
-                      //     props.currentRoute === route
-                      //       ? "black"
-                      //       : "white"
-                      // }}
-                      >
-                        {name}
-                      </div>
+                    <Menu.Item key={route}>
+                      <div>{name}</div>
                     </Menu.Item>
                   );
                 })}
@@ -83,10 +53,11 @@ export default function(props) {
           </div>
         </Col>
         <Col
-          xs={24}
-          md={24}
-          lg={10}
-          style={{ backgroundColor: "#fff", height: "100%", padding: 36 }}
+          xs={{ span: 8, offset: 8 }}
+          md={{ span: 18, offset: 3 }}
+          lg={{ span: 10, offset: 0 }}
+          className="content-white-section"
+          style={{ backgroundColor: "#fff", minHeight: "40rem", padding: 36 }}
         >
           {/* <Col xs={12} md={12} lg={0} style={{ marginBottom: "3rem" }}> */}
           {/* <Drawer
@@ -110,7 +81,12 @@ export default function(props) {
               <Icon type="menu" style={{ fontSize: "2rem" }} />
             </Button> */}
           {/* </Col> */}
-          <Col xs={12} md={12} lg={0} style={{ textAlign: "-webkit-right" }}>
+          <Col
+            xs={24}
+            md={24}
+            lg={0}
+            style={{ textAlign: "-webkit-center", marginBottom: "2rem" }}
+          >
             <div
               style={{
                 width: 80,

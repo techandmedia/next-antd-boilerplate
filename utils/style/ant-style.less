@@ -20,6 +20,24 @@
   background : @akper-tosca
 }
 
+.home{
+  // border-right: 1px solid @akper-blue;
+  background: rgb(244,111,34);
+  background: -moz-linear-gradient(-65deg, rgba(244,111,34,1) 0%, rgba(0,168,142,1) 43%, rgba(5,183,241,1) 100%);
+  background: -webkit-linear-gradient(-65deg, rgba(244,111,34,1) 0%, rgba(0,168,142,1) 43%, rgba(5,183,241,1) 100%);
+  background: linear-gradient(-65deg, rgba(244,111,34,1) 0%, rgba(0,168,142,1) 43%, rgba(5,183,241,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f46f22",endColorstr="#05b7f1",GradientType=1);
+}
+.home .ant-menu-inline{
+  border-right: none;
+}
+.home .ant-menu{
+  padding-left: 2rem
+}
+.home .ant-layout-sider-zero-width-trigger{
+  color: #000;
+  background: #ffffff;
+}
 .ant-layout-header {
   margin: 0;
   padding: 0;
@@ -43,7 +61,7 @@
   background: rgba(0, 0, 0, 0.65);
 }
 
-.ant-layout-sider{
+.dashboard .ant-layout-sider{
   background-color: @akper-tosca;
   overflow: auto;
   height: 100vh;
@@ -55,39 +73,64 @@
   min-width: 260px !important;
 }
 
-.ant-layout-sider-collapsed{
+.dashboard .ant-layout-sider-collapsed{
   flex: 0 0 80px !important;
   max-width: 80px !important;
   min-width: 80px !important;
   width: 80px !important;
 }
 
-.ant-layout-sider-collapsed .ant-layout-sider-children .ant-menu-submenu-title  i{
+.dashboard .ant-layout-sider-collapsed .ant-layout-sider-children .ant-menu-submenu-title  i{
   font-size: 30px !important;
 }
 
-.ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-submenu > .ant-menu-submenu-title, .ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title {
+.dashboard .ant-menu-inline-collapsed > .ant-menu-item-group > .ant-menu-item-group-list > .ant-menu-submenu > .ant-menu-submenu-title,.dashboard .ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title {
   padding: 6px 25px !important;
 }
 
-.ant-menu-vertical > .ant-menu-item, .ant-menu-vertical-left > .ant-menu-item, .ant-menu-vertical-right > .ant-menu-item, .ant-menu-inline > .ant-menu-item, .ant-menu-vertical > .ant-menu-submenu > .ant-menu-submenu-title, .ant-menu-vertical-left > .ant-menu-submenu > .ant-menu-submenu-title, .ant-menu-vertical-right > .ant-menu-submenu > .ant-menu-submenu-title, .ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title{
+.dashboard .ant-menu-vertical > .ant-menu-item, .dashboard .ant-menu-vertical-left > .ant-menu-item, .dashboard .ant-menu-vertical-right > .ant-menu-item, .dashboard .ant-menu-inline > .ant-menu-item, .dashboard .ant-menu-vertical > .ant-menu-submenu > .ant-menu-submenu-title, .dashboard .ant-menu-vertical-left > .ant-menu-submenu > .ant-menu-submenu-title, .dashboard .ant-menu-vertical-right > .ant-menu-submenu > .ant-menu-submenu-title, .dashboard .ant-menu-inline > .ant-menu-submenu > .ant-menu-submenu-title{
   height: 50px;
   line-height: 50px;
 }
 
-.ant-menu.ant-menu-dark .ant-menu-item-selected, .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected, .ant-menu-dark .ant-menu-item:hover, .ant-menu-dark .ant-menu-item-active, .ant-menu-dark .ant-menu-submenu-active, .ant-menu-dark .ant-menu-submenu-open, .ant-menu-dark .ant-menu-submenu-selected, .ant-menu-dark .ant-menu-submenu-title:hover{
+.ant-menu.ant-menu-dark .ant-menu-item-selected, .dashboard .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected, .dashboard .ant-menu-dark .ant-menu-item:hover, .dashboard .ant-menu-dark .ant-menu-item-active, .dashboard .ant-menu-dark .ant-menu-submenu-active, .dashboard .ant-menu-dark .ant-menu-submenu-open, .dashboard .ant-menu-dark .ant-menu-submenu-selected, .dashboard .ant-menu-dark .ant-menu-submenu-title:hover{
   color: @akper-orange !important;
   background-color: @text-color-secondary;
 }
 
-.ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open, .ant-menu-submenu-active{
+.ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open, .dashboard .ant-menu-submenu-active{
   color: @akper-orange !important;
 }
 
-.ant-menu-inline .ant-menu-submenu-title{
+.dashboard .ant-menu-inline .ant-menu-submenu-title{
   margin-bottom: 0px;
 }
 
 .login-form > .ant-form-item, .register-form > .ant-form-item{
   margin-bottom: 0;
+}
+
+.ant-menu-inline{
+  background: none;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 12px;
+}
+.ant-menu-inline li{
+  border-radius: 14px 0 0 14px;
+  font-weight: 400
+}
+.ant-menu-item-selected{
+  font-size: 14px;
+  box-shadow: #000000a8 0px 3px 10px 0px !important;
+}
+.ant-menu-inline .ant-menu-item::after{
+  border-right: 3px solid #ffffff;
+}
+.ant-menu-item:hover{
+  color: @akper-orange
+}
+.ant-menu-item-active{
+  color: @akper-tosca
 }
