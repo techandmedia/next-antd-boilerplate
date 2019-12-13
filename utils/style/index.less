@@ -7,7 +7,7 @@
 }
 
 .login-form {
-  max-width: 300px;
+  // max-width: 300px;
 }
 
 .login-form-forgot {
@@ -45,27 +45,92 @@
   background-color: white;
 }
 
-.minimize{
-  margin-left: 80px !important;
+.icon-submenu {
+  margin-right: 10px;
 }
 
-.content{
-  transition: all 200ms;
-}
-
-.icon-submenu{
-  margin-right: 10px
-}
-
-.login-bg{
-  background: rgb(244,111,34);
-  background: -moz-linear-gradient(40deg, rgba(244,111,34,1) 0%, rgba(0,168,142,1) 43%, rgba(5,183,241,1) 100%);
-  background: -webkit-linear-gradient(40deg, rgba(244,111,34,1) 0%, rgba(0,168,142,1) 43%, rgba(5,183,241,1) 100%);
-  background: linear-gradient(40deg, rgba(244,111,34,1) 0%, rgba(0,168,142,1) 43%, rgba(5,183,241,1) 100%);
+.login-bg {
+  background: rgb(244, 111, 34);
+  background: -moz-linear-gradient(
+    40deg,
+    rgba(244, 111, 34, 1) 0%,
+    rgba(0, 168, 142, 1) 43%,
+    rgba(5, 183, 241, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    40deg,
+    rgba(244, 111, 34, 1) 0%,
+    rgba(0, 168, 142, 1) 43%,
+    rgba(5, 183, 241, 1) 100%
+  );
+  background: linear-gradient(
+    40deg,
+    rgba(244, 111, 34, 1) 0%,
+    rgba(0, 168, 142, 1) 43%,
+    rgba(5, 183, 241, 1) 100%
+  );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f46f22",endColorstr="#05b7f1",GradientType=1);
 }
 
-ul > li {
-  list-style: none;
-  padding: 4px 10px;
+@trigger-width : 6px;
+@trigger-height : 1.5px;
+@trigger-top : 45%;
+@trigger-left : 25%;
+@trigger-background : white;
+@trigger-position : absolute;
+
+.trigger {
+  cursor: pointer;
+  background: @akper-tosca;
+  height: 1.2rem;
+  width: 1.2rem;
+  position: absolute;
+  bottom: 2.5rem;
+  right: -0.5rem;
+  border-radius: 50%;
+  box-shadow: 2px 3px 5px 0px #0000005c;
+  &::after {
+    content: "";
+    transform: rotate(45deg) translateX(2px);
+    position: @trigger-position;
+    width: @trigger-width;
+    height: @trigger-height;
+    top: @trigger-top;
+    left: @trigger-left;
+    background: @trigger-background;
+  }
+  &::before {
+    content: "";
+    transform: rotate(-45deg) translateX(2px);
+    position: @trigger-position;
+    width: @trigger-width;
+    height: @trigger-height;
+    top: @trigger-top;
+    left: @trigger-left;
+    background: @trigger-background;
+  }
+}
+
+@collapsed-trigger-left : 45%;
+.collapsed.trigger {
+  &::after {
+    content: "";
+    transform: rotate(135deg) translateX(2px);
+    position: @trigger-position;
+    width: @trigger-width;
+    height: @trigger-height;
+    top: @trigger-top;
+    left: @collapsed-trigger-left;
+    background: @trigger-background;
+  }
+  &::before {
+    content: "";
+    transform: rotate(-135deg) translateX(2px);
+    position: @trigger-position;
+    width: @trigger-width;
+    height: @trigger-height;
+    top: @trigger-top;
+    left: @collapsed-trigger-left;
+    background: @trigger-background;
+  }
 }

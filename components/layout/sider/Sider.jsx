@@ -29,7 +29,7 @@ export default function SideMenu({ collapsed, toggleCollapsed, collClick }) {
       onMouseEnter={!collClick ? toggleCollapsed : null}
       onMouseLeave={!collClick ? toggleCollapsed : null}
     >
-      <div style={logo} />
+      <div style={logo}>ayam</div>
       <Menu
         mode="inline"
         theme="dark"

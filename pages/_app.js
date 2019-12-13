@@ -20,7 +20,7 @@ export default function CustomApp(props) {
 
 class MyApp extends App {
   state = {
-    isLoggedIn: false
+    isLoggedIn: true
   };
 
   login = () => {

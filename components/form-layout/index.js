@@ -1,11 +1,13 @@
 const formItemLayout = {
   labelCol: {
     xs: { span: 24 },
-    md: { span: 8 }
+    md: { span: 8 },
+    lg: { span: 11 }
   },
   wrapperCol: {
     xs: { span: 24 },
-    md: { span: 16 }
+    md: { span: 16 },
+    lg: { span: 13 }
   }
 };
 

@@ -10,7 +10,13 @@ const { SubMenu } = Menu;
 export default function CustomLayout(props) {
   const { dispatchMenu } = useContext(MenuContext);
   // const { user } = useContext(UserContext);
+  const [collapsed, setCollapsed] = useState(false);
   const [onBreakpoint, setBreakPoint] = useState(null);
+
+  function toggleCollapsed() {
+    const varCollapsed = collapsed;
+    setCollapsed(!varCollapsed);
+  }
 
   function handleMenuClick({ key }) {
     // console.log("SIDEBAR", key);
@@ -23,6 +29,8 @@ export default function CustomLayout(props) {
         onBreakpoint={onBreakpoint}
         setBreakPoint={setBreakPoint}
         handleMenuClick={handleMenuClick}
+        collapsed={collapsed}
+        toggleCollapsed={toggleCollapsed}
         {...props}
       />
     </Layout>
@@ -45,6 +53,7 @@ function HomeLayout(props) {
     <React.Fragment>
       <div style={{ display: props.onBreakpoint ? "block" : "none" }}>
         <Sider
+          style={{ height: "100vh" }}
           breakpoint="lg"
           collapsedWidth="0"
           onBreakpoint={broken => {
@@ -67,7 +76,10 @@ function HomeLayout(props) {
           </Menu>
         </Sider>
       </div>
-      <Layout style={{ width: "100vw", height: "100vh" }} className="login-bg">
+      <Layout
+        style={{ width: "100vw", height: "100vh" }}
+        className="home login-bg"
+      >
         <Row
           type="flex"
           justify="center"
@@ -100,9 +112,27 @@ function HomeLayout(props) {
  * Setelah Berhasil Log In
  */
 function DashboardLayout(props) {
+  const logo = {
+    height: 32,
+    background: "rgba(255, 255, 255, 0.2)",
+    margin: 16,
+    position: "relative"
+  };
   return (
-    <Layout>
-      <Sider breakpoint="lg" collapsedWidth="0">
+    <Layout className="dashboard">
+      <Sider
+        breakpoint="lg"
+        collapsedWidth="0"
+        trigger={null}
+        collapsed={props.collapsed}
+        onClick={props.toggleCollapsed}
+        // onCollapse={props.toggleCollapsed}
+      >
+        <div
+          className={props.collapsed ? "trigger collapsed" : "trigger"}
+          onClick={props.toggleCollapsed}
+        />
+        <div style={logo} />
         <Menu
           mode="inline"
           defaultSelectedKeys={["task-list"]}
@@ -122,8 +152,9 @@ function DashboardLayout(props) {
         </Menu>
       </Sider>
       <Content
+        className={props.collapsed ? "collapsed" : ""}
         style={{
-          margin: "24px 16px 0",
+          // margin: "24px 16px 0",
           overflow: "initial",
           padding: 24,
           background: "#fff",
