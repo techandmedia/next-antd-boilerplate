@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import { Form } from "components";
+import usePostData from "api/usePostData";
 // const IMAGE_URL = "../static/img/login/";
 // const image1 = "Ucap-Janji-Akademi-Keperawatan-Bina-Insan-2016-13.jpg";
 // const image2 = "Ucap-Janji-Akademi-Keperawatan-Bina-Insan-2016-2.jpg";
@@ -29,17 +30,15 @@ const formLogin = [
 ];
 
 export default function Login(props) {
-  const [data, setData] = useState(null);
+  const [data, postData] = usePostData();
+  
+  useEffect(() => {
+    postData("credentials/login");
+  }, []);
 
   useEffect(() => {
-    async function getData() {
-      const result = await axios("http://localhost:3000/api/credentials/login");
-      const res = await result;
-      setData(res);
-    }
-
-    getData();
-  }, []);
+    console.log(data);
+  }, [data]);
 
   return <Form renderForm={formLogin} loginForm {...props} />;
 }

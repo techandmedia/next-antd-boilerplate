@@ -12,17 +12,13 @@ function fetchReducer(state, action) {
       return {
         ...state,
         isLoading: true,
-        isError: false,
-        code: "",
-        status: "",
-        message: ""
       };
     case "POST_SUCCESS":
       const { result } = action;
       return {
         ...state,
         code: result.data.code,
-        status: result.data.status,
+        title: result.data.title,
         message: result.data.message,
         data: result.data.data,
         isLoading: false,
@@ -44,9 +40,9 @@ export default function usePostData() {
   const [params, setParams] = useState({});
   const [state, dispatch] = useReducer(fetchReducer, {
     code: "",
-    status: "",
+    title: "",
     message: "",
-    data: ""
+    data: null
   });
 
   useEffect(() => {
@@ -72,7 +68,7 @@ export default function usePostData() {
             result
           });
           setAPI("");
-          setParams("")
+          setParams("");
         }
       } catch (error) {
         if (!didCancel) {
@@ -88,8 +84,8 @@ export default function usePostData() {
     return () => {
       didCancel = true;
     };
-  // }, []);
-}, [API, params]);
+    // }, []);
+  }, [API, params]);
 
   function postData(api, params) {
     // console.log(URL + api);
