@@ -12,6 +12,10 @@ class CustomForm extends React.Component {
     };
   }
 
+  handleSubmit = e => {
+    this.methods.handleSubmit(e, this.props);
+  };
+
   /**
    * 2 biji ini ngga bisa pakai functional component,
    * ngga bisa dipindah full, seadanya lah
@@ -44,6 +48,7 @@ class CustomForm extends React.Component {
     const {
       compareToFirstPassword,
       validateToNextPassword,
+      handleSubmit,
       methods,
       setState
     } = this;
@@ -64,6 +69,7 @@ class CustomForm extends React.Component {
           <NewForm
             form={form}
             profile={profile}
+            postData={postData}
             loginForm={loginForm}
             renderForm={renderForm}
             registerForm={registerForm}
@@ -73,6 +79,7 @@ class CustomForm extends React.Component {
              * Tes
              */
             methods={methods}
+            handleSubmit={handleSubmit}
             compareToFirstPassword={compareToFirstPassword}
             validateToNextPassword={validateToNextPassword}
             setState={setState}

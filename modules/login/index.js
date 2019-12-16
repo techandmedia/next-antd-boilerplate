@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import axios from "axios";
-import { Form } from "components";
+import { useEffect, useReducer } from "react";
+import { Form, Modal, useModal } from "components";
 import usePostData from "api/usePostData";
 // const IMAGE_URL = "../static/img/login/";
 // const image1 = "Ucap-Janji-Akademi-Keperawatan-Bina-Insan-2016-13.jpg";
@@ -30,17 +28,27 @@ const formLogin = [
 ];
 
 export default function Login(props) {
-  const [data, postData] = usePostData();
+  const [results, postLogin] = usePostData();
+  const [modal, dispatchModal] = useModal();
+
+  const API = "user/login";
 
   useEffect(() => {
-    postData("credentials/login");
-  }, []);
-
-  useEffect(() => {
-    if (!data.isLoading) {
-      console.log(data);
+    if (!results.isLoading) {
+      dispatchModal({ type: "success", results });
     }
-  }, [data]);
+  }, [results]);
 
-  return <Form renderForm={formLogin} loginForm {...props} />;
+  return (
+    <React.Fragment>
+      <Modal modal={modal} dispatchModal={dispatchModal} />;
+      <Form
+        renderForm={formLogin}
+        postData={postLogin}
+        API={API}
+        loginForm
+        {...props}
+      />
+    </React.Fragment>
+  );
 }

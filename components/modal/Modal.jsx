@@ -6,11 +6,11 @@ function modalReducer(state, action) {
   const { type, results } = action;
   switch (type) {
     case "success":
-      const { status, message } = results;
+      const { title, message } = results;
       return {
         ...state,
         isModalVisible: true,
-        modalTitle: status,
+        modalTitle: title,
         modalMessage: message
       };
     case "modal-show":
@@ -45,8 +45,8 @@ export function useModal() {
 }
 
 export default function CustomModal(props) {
-  const [modal, dispatchModal] = useModal();
-
+  const { modal, dispatchModal, children } = props;
+  const { modalTitle, modalMessage, isModalVisible } = modal;
   console.log("modal", modal);
   console.log("modal", props);
 
@@ -60,13 +60,13 @@ export default function CustomModal(props) {
 
   return (
     <Modal
-      title={props.modal.title}
-      visible={props.modal.isModalVisible}
+      title={modalTitle}
+      visible={isModalVisible}
       onOk={handleOk}
       onCancel={handleCancel}
     >
-      <p>{props.modal.message}</p>
-      {props.children}
+      <p>{modalMessage}</p>
+      {children}
     </Modal>
   );
 

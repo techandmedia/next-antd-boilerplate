@@ -10,12 +10,12 @@ export default function CustomForm({
   loginForm,
   registerForm,
   defaultValue,
-  dispatchModal,
   renderForm,
   /**
    * Test
    */
   methods,
+  handleSubmit,
   compareToFirstPassword,
   validateToNextPassword,
   setState,
@@ -106,10 +106,7 @@ export default function CustomForm({
 
   if (loginForm) {
     return (
-      <Form
-        onSubmit={e => methods.handleSubmit(e, form, dispatchModal)}
-        className="login-form"
-      >
+      <Form onSubmit={handleSubmit} className="login-form">
         {renderForm.map(item => (
           <Form.Item key={item.field}>
             {getFieldDecorator(item.field, {
@@ -146,11 +143,7 @@ export default function CustomForm({
   }
 
   return (
-    <Form
-      className="register-form"
-      {...formItemLayout}
-      onSubmit={e => methods.handleSubmit(e, form)}
-    >
+    <Form className="register-form" {...formItemLayout} onSubmit={handleSubmit}>
       {formToRender.map(item => {
         /**
          * For Readability, if then else

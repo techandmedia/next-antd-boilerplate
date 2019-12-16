@@ -2,24 +2,17 @@ class Methods {
   /**
    * handleSubmit
    */
-  handleSubmit = (e, form, dispatchModal) => {
+  handleSubmit = (e, props) => {
+    console.log("PROPS", props);
+    const { form, postData, API } = props;
     e.preventDefault();
-    // const { form } = props;
-    // console.log(props);
     form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        // props.postData("CUSTOM API UNTUK NANTI", {
-        //   params: "CUSTOM PARAMS"
-        // });
-
-        if (values.password === "111") {
-          console.log("Received values of form: ", values);
-          const results = {
-            status: "Success",
-            message: "Anda berhasil Login Lho keren kan"
-          };
-          dispatchModal({ type: "success", results });
-        }
+        // console.log("Received values of form: ", values);
+        postData(API, {
+          username: values.username,
+          password: values.password
+        });
       }
     });
   };

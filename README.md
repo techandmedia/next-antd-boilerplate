@@ -1,6 +1,7 @@
 # Web Application with React - Next - MySQL
 
 ## Sebelum Melanjutkan:
+
 Install bit secara global sebagai component sharing tool
 
 https://docs.bit.dev/docs/installation
@@ -12,6 +13,7 @@ yarn global add bit-bin
 ```
 
 ####
+
 File dengan extensi jsx > layout
 File dengan nama index.js > logic
 Entah kenapa key nya harus field, ngga bisa label T_T
@@ -19,20 +21,25 @@ Entah kenapa key nya harus field, ngga bisa label T_T
 Crud application
 
 ## Last Update: December 4, 2019 - 16:36
+
 #### Feature
+
 1. Basic CRUD - ALL working properly
 2. Update - see the known bugs at the end of this readme
 
 #### What can be better
-1. Design a better and comprehensive system 
+
+1. Design a better and comprehensive system
 2. Using NestJs / Or at this point, probably GraphQL at the backend
 3. Better component composition and make use of reducer more
 
 #### Feature not available
+
 1. Exporting to html / excel
 2. No testing
 
 #### How to run the app
+
 1. Clone this repo
 2. CD into the folder just created, and run yarn
 3. For the development, run yarn dev
@@ -42,6 +49,7 @@ Crud application
 7. A sql file is available for testing
 
 #### User Login
+
 1. To Login as a Administrator, use username: eko.andri@icloud.com, password: 111
 2. To Login as a Manager, use username: adi.sopian@gmail.com, password: 111
 3. To Login as a User, use username: eko.andri@gmail.com, password: 111
@@ -109,13 +117,10 @@ Added Protection in the backend to prevent unactivated user log in
 
 ```js
 import { useReducer } from "react";
-import { Modal } from "components";
-import modalReducer from "utils/reducers/modal-reducer";
+import { Modal, useModal } from "components";
 
 function YourComponent() {
-  const [modal, dispatchModal] = useReducer(modalReducer, {
-    isModalVisible: false
-  });
+  const [modal, dispatchModal] = useModal();
 
   /**
    * When you call modal and want to send some attributs
