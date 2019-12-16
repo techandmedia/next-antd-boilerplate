@@ -19,7 +19,9 @@ export default async function login(req, res) {
       title: error.code,
       message: error.sqlMessage
     });
-  } else if (results.length > 0) {
+  }
+
+  if (results.length > 0) {
     if (results[0].password === password) {
       res.send({
         code: 200,

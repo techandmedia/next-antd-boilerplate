@@ -9,16 +9,13 @@ class Methods {
     form.validateFieldsAndScroll((err, values) => {
       if (!err) {
         // console.log("Received values of form: ", values);
-        postData(API, {
-          username: values.username,
-          password: values.password
-        });
+        postData(API, values);
       }
     });
   };
 
   /**
-   * Ngga bisa pake this, jadi ganti aja pakai nama laen wakakkaka
+   * Ngga bisa pake sama sekali T_T
    * handleConfirmBlur
    */
   handleConfirmBlur = (e, setState, confirmDirty) => {
