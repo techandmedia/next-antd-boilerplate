@@ -1,5 +1,5 @@
 export default function menuReducer(state, action) {
-  console.log(state, action);
+  // console.log(state, action);
   const { key, results } = action;
   switch (key) {
     case key:

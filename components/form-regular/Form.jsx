@@ -104,8 +104,6 @@ export default function CustomForm({
     }
   ];
 
-  console.log(loginForm, renderForm);
-
   if (loginForm) {
     return (
       <Form

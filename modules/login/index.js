@@ -31,13 +31,15 @@ const formLogin = [
 
 export default function Login(props) {
   const [data, postData] = usePostData();
-  
+
   useEffect(() => {
     postData("credentials/login");
   }, []);
 
   useEffect(() => {
-    console.log(data);
+    if (!data.isLoading) {
+      console.log(data);
+    }
   }, [data]);
 
   return <Form renderForm={formLogin} loginForm {...props} />;

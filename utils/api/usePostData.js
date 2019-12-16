@@ -11,7 +11,7 @@ function fetchReducer(state, action) {
     case "FETCH_INIT":
       return {
         ...state,
-        isLoading: true,
+        isLoading: true
       };
     case "POST_SUCCESS":
       const { result } = action;
@@ -42,6 +42,7 @@ export default function usePostData() {
     code: "",
     title: "",
     message: "",
+    isLoading: true,
     data: null
   });
 

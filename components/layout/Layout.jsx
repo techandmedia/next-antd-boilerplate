@@ -60,7 +60,7 @@ function HomeLayout(props) {
             props.setBreakPoint(broken);
           }}
           onCollapse={(collapsed, type) => {
-            console.log(collapsed, type);
+            // console.log(collapsed, type);
           }}
         >
           <Menu
