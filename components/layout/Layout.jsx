@@ -128,7 +128,7 @@ function DashboardLayout(props) {
         collapsedWidth="0"
         trigger={null}
         collapsed={props.collapsed}
-        onClick={props.toggleCollapsed}
+        onClick={props.collapsed ? props.toggleCollapsed : null}
         // onCollapse={props.toggleCollapsed}
       >
         <div

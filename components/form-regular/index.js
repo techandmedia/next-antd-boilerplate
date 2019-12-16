@@ -62,7 +62,7 @@ class CustomForm extends React.Component {
         <Col span={24}>
           <div style={{ textAlign: "left" }}>
             {loginForm ? (
-              <h1 style={{ marginBottom: 15 }}>LOGIN</h1>
+              <h1 style={{ marginBottom: 15 }}>AKSES MASUK</h1>
             ) : registerForm ? (
               <h1 style={{ marginBottom: 15 }}>PENDAFTARAN</h1>
             ) : null}

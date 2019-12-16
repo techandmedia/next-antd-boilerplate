@@ -31,7 +31,7 @@ export default function(props) {
                 {HomeMenu.map(item => {
                   return (
                     <Menu.Item key={item.key}>
-                      <div>{item.title}</div>
+                      <div style={{ width: 110 }}>{item.title}</div>
                     </Menu.Item>
                   );
                 })}
@@ -49,7 +49,7 @@ export default function(props) {
           <Col
             xs={24}
             md={24}
-            lg={0}
+            lg={24}
             style={{ textAlign: "-webkit-center", marginBottom: "2rem" }}
           >
             <div

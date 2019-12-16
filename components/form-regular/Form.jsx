@@ -36,7 +36,7 @@ export default function CustomForm({
       rules: [
         {
           required: true,
-          message: "Please input your password!"
+          message: "Masukkan kata sandi!"
         },
         {
           validator: validateToNextPassword
@@ -44,14 +44,14 @@ export default function CustomForm({
       ]
     },
     {
-      label: "Confirm Password",
+      label: "Konfirmasi Password",
       field: "confirm",
       hasFeedback: true,
       handleConfirmBlur: handleConfirmBlur,
       rules: [
         {
           required: true,
-          message: "Please confirm your password!"
+          message: "Masukkan kembali kata sandi anda!"
         },
         {
           validator: compareToFirstPassword
@@ -85,16 +85,16 @@ export default function CustomForm({
           {getFieldDecorator("remember", {
             valuePropName: "checked",
             initialValue: true
-          })(<Checkbox>Remember me</Checkbox>)}
+          })(<Checkbox>Ingat saya</Checkbox>)}
           <a className="login-form-forgot" href="">
-            Forgot password
+            Lupa <i>password</i>
           </a>
           <Button
             type="primary"
             htmlType="submit"
             className="login-form-button"
           >
-            Log in
+            Masuk
           </Button>
         </Form.Item>
       </Form>
@@ -143,7 +143,7 @@ export default function CustomForm({
         // {...tailFormItemLayout}
       >
         <Button type="primary" htmlType="submit">
-          {profile ? "Save" : "Register"}
+          {profile ? "Simpan" : "Daftarkan"}
         </Button>
         {/* </Form.Item> */}
       </div>

@@ -28,12 +28,12 @@ const HomeMenu = [
   },
   {
     key: "login",
-    title: "login",
+    title: "masuk",
     component: <Login />
   },
   {
     key: "register",
-    title: "daftar",
+    title: "pendaftaran",
     component: <Register />
   },
   {
