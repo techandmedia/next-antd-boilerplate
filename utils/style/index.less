@@ -80,13 +80,14 @@
 @trigger-position : absolute;
 
 .trigger {
+  left: 15.5rem;
+  z-index: 1;
   cursor: pointer;
   background: @akper-tosca;
   height: 1.2rem;
   width: 1.2rem;
   position: absolute;
   bottom: 2.5rem;
-  right: -0.5rem;
   border-radius: 50%;
   box-shadow: 2px 3px 5px 0px #0000005c;
   &::after {
@@ -113,6 +114,7 @@
 
 @collapsed-trigger-left : 45%;
 .collapsed.trigger {
+  left: -0.5rem;
   &::after {
     content: "";
     transform: rotate(135deg) translateX(2px);
@@ -133,4 +135,14 @@
     left: @collapsed-trigger-left;
     background: @trigger-background;
   }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.dashboard .ant-layout-sider::-webkit-scrollbar {
+  display: none !important;
+}
+
+/* Hide scrollbar for IE and Edge */
+.dashboard .ant-layout-sider {
+  -ms-overflow-style: none !important;
 }

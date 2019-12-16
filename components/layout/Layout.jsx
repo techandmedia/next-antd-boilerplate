@@ -41,7 +41,7 @@ export default function CustomLayout(props) {
 function ChildrenLayout(props) {
   const { user } = props;
 
-  if (user.isLoggedIn) {
+  if (!user.isLoggedIn) {
     return <DashboardLayout {...props} />;
   }
 
@@ -123,7 +123,12 @@ function DashboardLayout(props) {
   };
   return (
     <Layout className="dashboard">
+      <div
+        className={props.collapsed ? "trigger collapsed" : "trigger"}
+        onClick={props.toggleCollapsed}
+      />
       <Sider
+        style={{ overflowY: "scroll", overflowX: "hidden" }}
         breakpoint="lg"
         collapsedWidth="0"
         trigger={null}
@@ -131,10 +136,6 @@ function DashboardLayout(props) {
         onClick={props.collapsed ? props.toggleCollapsed : null}
         // onCollapse={props.toggleCollapsed}
       >
-        <div
-          className={props.collapsed ? "trigger collapsed" : "trigger"}
-          onClick={props.toggleCollapsed}
-        />
         <div style={logo} />
         <Menu
           mode="inline"
@@ -142,7 +143,7 @@ function DashboardLayout(props) {
           onClick={props.handleMenuClick}
         >
           {DashboardMenu.map(item => {
-            return (
+            return item.children !== undefined ? (
               <SubMenu key={item.key} title={item.title}>
                 {item.children.map(el => (
                   <Menu.Item key={el.key}>
@@ -150,6 +151,10 @@ function DashboardLayout(props) {
                   </Menu.Item>
                 ))}
               </SubMenu>
+            ) : (
+              <Menu.Item key={item.key}>
+                <span>{item.title}</span>
+              </Menu.Item>
             );
           })}
         </Menu>

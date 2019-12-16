@@ -1,0 +1,60 @@
+// Extra Small devices (landscape phones, 320px and up)
+@media (max-width: 575px) {
+  .content-home-section {
+    box-shadow: none;
+  }
+  .content-white-section {
+    border-radius: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  @sider-width : 0;
+  .dashboard {
+    .ant-layout-sider-collapsed {
+      flex: 0 0 @sider-width !important;
+      max-width: @sider-width !important;
+      min-width: @sider-width !important;
+      width: @sider-width !important;
+    }
+    .collapsed {
+      margin-left: @sider-width;
+    }
+  }
+  .ant-menu-inline-collapsed {
+    width: @sider-width;
+  }
+  .trigger {
+    height: 3rem;
+    width: 3rem;
+    bottom: 7rem;
+    right: -1.5rem;
+    &.collapsed {
+      right: -4.5rem;
+    }
+    &::before,
+    &::after {
+      width: 1.5rem;
+      left: 0.72rem;
+    }
+    &::before {
+      transform: rotate(-45deg);
+    }
+    &::after {
+      transform: rotate(45deg);
+    }
+  }
+  .collapsed.trigger {
+    &::after,
+    &::before {
+      width: 0.7rem;
+    }
+    &::after {
+      transform: rotate(135deg) translateX(4px);
+      top: 1.5rem;
+    }
+    &::before {
+      transform: rotate(-135deg) translateX(4px);
+      top: 1.4rem;
+    }
+  }
+}

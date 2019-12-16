@@ -12,7 +12,7 @@ export default function(props) {
   }
 
   return (
-    <div className="login-bg">
+    <div className="login-bg ipad">
       <Row id="row-content">
         <Col xs={0} md={0} lg={14}>
           <div
