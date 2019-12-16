@@ -33,8 +33,13 @@ const HomeMenu = [
   },
   {
     key: "register",
-    title: "register",
+    title: "daftar",
     component: <Register />
+  },
+  {
+    key: "status",
+    title: "cek status",
+    component: <h1>UNDER CONSTRUCTION</h1>
   }
 ];
 

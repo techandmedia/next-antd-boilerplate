@@ -1,25 +1,44 @@
-import { useEffect, useReducer } from "react";
-import { Form } from "components";
-import Modal, { useModal } from "../../components/modal";
-// import modalReducer from "../utils/reducers/modal-reducer";
-
+import { useEffect, useContext } from "react";
+import { Form, Modal, useModal } from "components";
+import { UserContext } from "context/Global-Context";
 import usePostData from "api/usePostData";
+import formRegister from "./form";
 
-export default function Registration(props) {
-  const [results, postData] = usePostData();
+const API = "user/register";
+
+export default function Register(props) {
+  const { dispatchUser } = useContext(UserContext);
+  const [results, postNewUser] = usePostData();
   const [modal, dispatchModal] = useModal();
 
   useEffect(() => {
-    // console.log(results);
-    if (results.code !== "") {
+    const { isLoading, code } = results;
+    if (!isLoading && code === 200) {
+      dispatchModal({ type: "success", results });
+      setTimeout(() => {
+        dispatchUser({
+          type: "login-success",
+          data: results.data,
+          cookie: "COOKIES"
+        });
+      }, 1000);
+    }
+
+    if (!isLoading && code > 200) {
       dispatchModal({ type: "success", results });
     }
   }, [results]);
 
-  // {
-  //   /* <Modal /> */
-  // }
   return (
-    <Form registerForm postData={postData} dispatchModal={dispatchModal} />
+    <React.Fragment>
+      <Modal modal={modal} dispatchModal={dispatchModal} />
+      <Form
+        registerForm
+        renderForm={formRegister}
+        postData={postNewUser}
+        API={API}
+        {...props}
+      />
+    </React.Fragment>
   );
 }

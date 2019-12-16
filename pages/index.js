@@ -8,7 +8,7 @@ export default function Home(props) {
   const { user } = useContext(UserContext);
   const modulesToRender = user.isLoggedIn ? DashboardModules : HomeModules;
 
-  console.log(modulesToRender, user);
+  // console.log(modulesToRender, user);
 
   function renderPage() {
     for (let i = 0; i < modulesToRender.length; i++) {

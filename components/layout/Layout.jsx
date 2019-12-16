@@ -23,8 +23,6 @@ export default function CustomLayout(props) {
     dispatchMenu({ key });
   }
 
-  console.log("Layout", user);
-
   return (
     <Layout style={{ height: "100vh" }}>
       <ChildrenLayout
@@ -42,7 +40,7 @@ export default function CustomLayout(props) {
 
 function ChildrenLayout(props) {
   const { user } = props;
-  
+
   if (user.isLoggedIn) {
     return <DashboardLayout {...props} />;
   }

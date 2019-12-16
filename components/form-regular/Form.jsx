@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Input, Select, Button, Checkbox, Icon } from "antd";
 import { tailFormItemLayout, formItemLayout } from "components";
 
@@ -8,18 +7,15 @@ export default function CustomForm({
   form,
   profile,
   loginForm,
-  registerForm,
   defaultValue,
   renderForm,
   /**
    * Test
    */
-  methods,
+  handleConfirmBlur,
   handleSubmit,
   compareToFirstPassword,
   validateToNextPassword,
-  setState,
-  confirmDirty,
   Form
 }) {
   const { getFieldDecorator } = form;
@@ -32,34 +28,7 @@ export default function CustomForm({
     </Select>
   );
 
-  const formToRender = [
-    {
-      label: "E-Mail",
-      field: "username",
-      placeholder: "Email will be your user name",
-      initialValue: profile ? defaultValue.user_name : "",
-      rules: [
-        {
-          type: "email",
-          message: "The input is not valid E-mail!"
-        },
-        {
-          required: true,
-          message: "Please input your E-mail!"
-        }
-      ]
-    },
-    {
-      label: "Full Name",
-      field: "fullname",
-      initialValue: profile ? defaultValue.user_full_name : "",
-      rules: [
-        {
-          required: true,
-          message: "Please input your Full Name!"
-        }
-      ]
-    },
+  const password = [
     {
       label: "Password",
       field: "password",
@@ -78,8 +47,7 @@ export default function CustomForm({
       label: "Confirm Password",
       field: "confirm",
       hasFeedback: true,
-      handleConfirmBlur: e =>
-        methods.handleConfirmBlur(e, setState, confirmDirty),
+      handleConfirmBlur: handleConfirmBlur,
       rules: [
         {
           required: true,
@@ -89,20 +57,11 @@ export default function CustomForm({
           validator: compareToFirstPassword
         }
       ]
-    },
-    {
-      label: "Address",
-      field: "address",
-      initialValue: profile ? defaultValue.user_address : ""
-    },
-    {
-      label: "Phone Number",
-      field: "phone",
-      addonBefore: prefixSelector,
-      initialValue: profile ? defaultValue.user_phone_number : "",
-      style: { width: "100%" }
     }
   ];
+
+  // const formToRender = [...renderForm, ...password];
+  const formToRender = [...renderForm];
 
   if (loginForm) {
     return (

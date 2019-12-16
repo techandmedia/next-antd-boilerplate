@@ -17,6 +17,14 @@ class CustomForm extends React.Component {
   };
 
   /**
+   * ini juga jadi ngga bisa T_T,
+   */
+  handleConfirmBlur = e => {
+    const { value } = e.target;
+    this.setState({ confirmDirty: this.state.confirmDirty || !!value });
+  };
+
+  /**
    * 2 biji ini ngga bisa pakai functional component,
    * ngga bisa dipindah full, seadanya lah
    */
@@ -38,21 +46,16 @@ class CustomForm extends React.Component {
     const {
       form,
       profile,
-      postData,
       loginForm,
       renderForm,
       defaultValue,
-      registerForm,
-      dispatchModal
+      registerForm
     } = this.props;
     const {
       compareToFirstPassword,
       validateToNextPassword,
-      handleSubmit,
-      methods,
-      setState
+      handleSubmit
     } = this;
-    const { confirmDirty } = this.state;
 
     return (
       <Row type="flex" justify="center">
@@ -61,29 +64,23 @@ class CustomForm extends React.Component {
             {loginForm ? (
               <h1 style={{ marginBottom: 15 }}>LOGIN</h1>
             ) : registerForm ? (
-              <h1 style={{ marginBottom: 15 }}>ACCOUNT REGISTRATION</h1>
+              <h1 style={{ marginBottom: 15 }}>PENDAFTARAN</h1>
             ) : null}
           </div>
-          {/* <Modal modal={modal} dispatchModal={dispatchModal} /> */}
 
           <NewForm
             form={form}
             profile={profile}
-            postData={postData}
             loginForm={loginForm}
             renderForm={renderForm}
-            registerForm={registerForm}
             defaultValue={defaultValue}
-            dispatchModal={dispatchModal}
             /**
              * Tes
              */
-            methods={methods}
+            handleConfirmBlur={this.handleConfirmBlur}
             handleSubmit={handleSubmit}
             compareToFirstPassword={compareToFirstPassword}
             validateToNextPassword={validateToNextPassword}
-            setState={setState}
-            confirmDirty={confirmDirty}
             Form={Form}
           />
         </Col>
