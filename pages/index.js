@@ -18,7 +18,7 @@ export default function Home(props) {
   }
 
   return (
-    <Row type="flex" justify="center" style={{ paddingRight: 50 }}>
+    <Row type="flex" justify="center">
       <Col span={24}>
         {renderPage()}
         {/* Ini dilakukan jika menggunakan landing page */}

@@ -44,7 +44,7 @@ export default function(props) {
           md={{ span: 18, offset: 3 }}
           lg={{ span: 10, offset: 0 }}
           className="content-white-section"
-          style={{ backgroundColor: "#fff", minHeight: "40rem", padding: 36 }}
+          style={{ backgroundColor: "#fff", minHeight: "30rem", padding: 36 }}
         >
           <Col
             xs={24}

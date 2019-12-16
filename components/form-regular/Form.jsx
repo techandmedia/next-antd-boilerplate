@@ -187,15 +187,16 @@ export default function CustomForm({
         }
       })}
 
-      <Form.Item
-        label={" "}
-        style={{ textAlign: "right", marginTop: 30 }}
+      <div
+        // <Form.Item
+        style={{ textAlign: "right", marginTop: 30, width: "100%" }}
         // {...tailFormItemLayout}
       >
         <Button type="primary" htmlType="submit">
           {profile ? "Save" : "Register"}
         </Button>
-      </Form.Item>
+        {/* </Form.Item> */}
+      </div>
     </Form>
   );
 }
