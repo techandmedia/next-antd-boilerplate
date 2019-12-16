@@ -10,7 +10,7 @@ import "../utils/style/ant-override.less";
 // const abc = require("dotenv").config();
 
 export default function CustomApp(props) {
-  // console.log(process.env.env.);
+  console.log("CUSTOM", props);
   return (
     <GlobalProvider>
       <MyApp {...props} />
@@ -19,29 +19,13 @@ export default function CustomApp(props) {
 }
 
 class MyApp extends App {
-  state = {
-    isLoggedIn: false
-  };
-
-  login = () => {
-    this.setState({ isLoggedIn: true });
-  };
-
-  logout = () => {
-    this.setState({ isLoggedIn: false });
-  };
-
   render() {
     const { Component, pageProps, router } = this.props;
     const currentRoute = router.route;
+
     return (
-      <Layout {...this.state} currentRoute={currentRoute} {...this}>
-        <Component
-          {...pageProps}
-          {...this.state}
-          {...this}
-          currentRoute={currentRoute}
-        />
+      <Layout currentRoute={currentRoute}>
+        <Component {...pageProps} currentRoute={currentRoute} />
       </Layout>
     );
   }

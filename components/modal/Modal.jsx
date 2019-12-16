@@ -2,7 +2,7 @@ import { useState, useReducer } from "react";
 import { Modal } from "antd";
 
 function modalReducer(state, action) {
-  console.log(state, action);
+  // console.log(state, action);
   const { type, results } = action;
   switch (type) {
     case "success":
@@ -47,8 +47,8 @@ export function useModal() {
 export default function CustomModal(props) {
   const { modal, dispatchModal, children } = props;
   const { modalTitle, modalMessage, isModalVisible } = modal;
-  console.log("modal", modal);
-  console.log("modal", props);
+  // console.log("modal", modal);
+  // console.log("modal", props);
 
   function handleOk() {
     dispatchModal({ type: "modal-ok" });
@@ -69,24 +69,4 @@ export default function CustomModal(props) {
       {children}
     </Modal>
   );
-
-  // function handleOk() {
-  //   props.dispatchModal({ type: "modal-ok" });
-  // }
-
-  // function handleCancel() {
-  //   props.dispatchModal({ type: "modal-cancel" });
-  // }
-
-  // return (
-  //   <Modal
-  //     title={props.modal.modalTitle}
-  //     visible={props.modal.isModalVisible}
-  //     onOk={handleOk}
-  //     onCancel={handleCancel}
-  //   >
-  //     <p>{props.modal.modalMessage}</p>
-  //     {props.children}
-  //   </Modal>
-  // );
 }

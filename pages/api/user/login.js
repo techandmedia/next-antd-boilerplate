@@ -29,7 +29,7 @@ export default async function login(req, res) {
       });
     } else {
       res.send({
-        code: 200,
+        code: 210,
         title: "login",
         message: "username atau password salah",
         data: []
@@ -37,7 +37,7 @@ export default async function login(req, res) {
     }
   } else {
     res.send({
-      code: 200,
+      code: 201,
       title: "login",
       message: "username belum terdaftar",
       data: []

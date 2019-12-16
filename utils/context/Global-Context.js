@@ -6,6 +6,7 @@ const UserContext = createContext(null);
 
 export default function GlobalProvider(props) {
   const [user, dispatchUser] = useReducer(userReducer, {
+    isLoggedIn: false,
     preferredWorkingHour: 8
   });
   const [menu, dispatchMenu] = useReducer(selectMenuReducer, {

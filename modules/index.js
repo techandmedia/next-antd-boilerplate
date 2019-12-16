@@ -1,6 +1,6 @@
 import { Icon } from "antd";
 import Default from "./default";
-import Profile from "./profile/";
+import Profile from "./profile";
 import UserList from "./user-list";
 import LoginFailed from "./login-failed";
 import Login from "./login";
@@ -128,18 +128,20 @@ const DashboardMenu = [
 ];
 
 const Modules = [...additional_Modules];
+const DashboardModules = [...additional_Modules];
+const HomeModules = [...additional_Modules];
 
 DashboardMenu.forEach(item => {
-  item.children.forEach(el =>
-    Modules.push({ key: el.key, component: el.component })
-  );
+  item.children.forEach(el => {
+    Modules.push({ key: el.key, component: el.component });
+    DashboardModules.push({ key: el.key, component: el.component });
+  });
 });
 
 HomeMenu.forEach(item => {
-  // item.children.forEach(el =>
-    Modules.push({ key: item.key, component: item.component })
-  // );
+  Modules.push({ key: item.key, component: item.component });
+  HomeModules.push({ key: item.key, component: item.component });
 });
 
-export { DashboardMenu, HomeMenu };
+export { DashboardMenu, DashboardModules, HomeMenu, HomeModules };
 export default Modules;

@@ -1,18 +1,19 @@
 import { useContext } from "react";
-import { MenuContext } from "context/Global-Context";
+import { UserContext, MenuContext } from "context/Global-Context";
 import { Row, Col } from "antd";
-import Modules from "../modules";
+import Modules, { DashboardModules, HomeModules } from "../modules";
 
 export default function Home(props) {
   const { menu } = useContext(MenuContext);
+  const { user } = useContext(UserContext);
+  const modulesToRender = user.isLoggedIn ? DashboardModules : HomeModules;
 
-  
-  // console.log(process.env);
+  console.log(modulesToRender, user);
 
   function renderPage() {
-    for (let i = 0; i < Modules.length; i++) {
-      if (Modules[i].key === menu.menu) {
-        return <React.Fragment>{Modules[i].component}</React.Fragment>;
+    for (let i = 0; i < modulesToRender.length; i++) {
+      if (modulesToRender[i].key === menu.menu) {
+        return <React.Fragment>{modulesToRender[i].component}</React.Fragment>;
       }
     }
   }

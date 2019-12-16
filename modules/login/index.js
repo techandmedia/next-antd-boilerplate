@@ -1,5 +1,6 @@
-import { useEffect, useReducer } from "react";
+import { useEffect, useContext } from "react";
 import { Form, Modal, useModal } from "components";
+import { UserContext } from "context/Global-Context";
 import usePostData from "api/usePostData";
 // const IMAGE_URL = "../static/img/login/";
 // const image1 = "Ucap-Janji-Akademi-Keperawatan-Bina-Insan-2016-13.jpg";
@@ -27,14 +28,27 @@ const formLogin = [
   }
 ];
 
+const API = "user/login";
+
 export default function Login(props) {
+  const { dispatchUser } = useContext(UserContext);
   const [results, postLogin] = usePostData();
   const [modal, dispatchModal] = useModal();
 
-  const API = "user/login";
-
   useEffect(() => {
-    if (!results.isLoading) {
+    const { isLoading, code } = results;
+    if (!isLoading && code === 200) {
+      dispatchModal({ type: "success", results });
+      setTimeout(() => {
+        dispatchUser({
+          type: "login-success",
+          data: results.data,
+          cookie: "COOKIES"
+        });
+      }, 1000);
+    }
+
+    if (!isLoading && code > 200) {
       dispatchModal({ type: "success", results });
     }
   }, [results]);

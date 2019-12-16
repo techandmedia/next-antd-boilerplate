@@ -9,7 +9,7 @@ const { SubMenu } = Menu;
 
 export default function CustomLayout(props) {
   const { dispatchMenu } = useContext(MenuContext);
-  // const { user } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const [collapsed, setCollapsed] = useState(false);
   const [onBreakpoint, setBreakPoint] = useState(null);
 
@@ -23,6 +23,8 @@ export default function CustomLayout(props) {
     dispatchMenu({ key });
   }
 
+  console.log("Layout", user);
+
   return (
     <Layout style={{ height: "100vh" }}>
       <ChildrenLayout
@@ -31,6 +33,7 @@ export default function CustomLayout(props) {
         handleMenuClick={handleMenuClick}
         collapsed={collapsed}
         toggleCollapsed={toggleCollapsed}
+        user={user}
         {...props}
       />
     </Layout>
@@ -38,11 +41,13 @@ export default function CustomLayout(props) {
 }
 
 function ChildrenLayout(props) {
-  return props.isLoggedIn ? (
-    <DashboardLayout {...props} />
-  ) : (
-    <HomeLayout {...props} />
-  );
+  const { user } = props;
+  
+  if (user.isLoggedIn) {
+    return <DashboardLayout {...props} />;
+  }
+
+  return <HomeLayout {...props} />;
 }
 
 /**
