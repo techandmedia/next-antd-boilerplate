@@ -45,93 +45,93 @@ const HomeMenu = [
 
 const DashboardMenu = [
   {
-    key: "sub-menu-1",
+    key: "default",
     title: (
       <span>
         <Icon type="user" />
-        <span>Your Dashboard</span>
+        <span>Dashboard</span>
       </span>
     ),
-    children: [
-      {
-        key: "task-list",
-        title: "Tasks List",
-        component: <Default />
-      },
-      {
-        key: "user-list",
-        title: "User List",
-        component: <UserList />
-      },
-      {
-        key: "work-list",
-        title: "Work List"
-      }
-    ]
+    component: <Default />
+    // children: [
+    //   {
+    //     key: "task-list",
+    //     title: "Tasks List",
+    //   },
+    //   {
+    //     key: "user-list",
+    //     title: "User List",
+    //     component: <UserList />
+    //   },
+    //   {
+    //     key: "work-list",
+    //     title: "Work List"
+    //   }
+    // ]
   },
+  // {
+  //   key: "sub-menu-2",
+  //   title: (
+  //     <span>
+  //       <Icon type="laptop" />
+  //       <span>Tambahan</span>
+  //     </span>
+  //   ),
+  //   children: [
+  //     {
+  //       key: "dosen",
+  //       title: (
+  //         <span>
+  //           <span>Daftar Dosen</span>
+  //         </span>
+  //       ),
+  //       component: <DaftarDosen />
+  //     },
+  //     {
+  //       key: "user-list",
+  //       title: (
+  //         <span>
+  //           <span>User List</span>
+  //         </span>
+  //       ),
+  //       component: <UserList />
+  //     },
+  //     {
+  //       key: "22",
+  //       title: (
+  //         <span>
+  //           <span>Work List</span>
+  //         </span>
+  //       )
+  //     }
+  //   ]
+  // },
+  // {
+  //   key: "sub-menu-3",
+  //   title: (
+  //     <span>
+  //       <Icon type="notification" />
+  //       <span>User Profile</span>
+  //     </span>
+  //   ),
+  //   children: [
+  //     {
+  //       key: "profile",
+  //       title: "Profile",
+  //       component: <Profile />
+  //     },
+  //     {
+  //       key: "preference",
+  //       title: "Preference"
+  //     },
+  //     {
+  //       key: "change-password",
+  //       title: "Change Password"
+  //     }
+  //   ]
+  // },
   {
-    key: "sub-menu-2",
-    title: (
-      <span>
-        <Icon type="laptop" />
-        <span>Tambahan</span>
-      </span>
-    ),
-    children: [
-      {
-        key: "dosen",
-        title: (
-          <span>
-            <span>Daftar Dosen</span>
-          </span>
-        ),
-        component: <DaftarDosen />
-      },
-      {
-        key: "user-list",
-        title: (
-          <span>
-            <span>User List</span>
-          </span>
-        ),
-        component: <UserList />
-      },
-      {
-        key: "22",
-        title: (
-          <span>
-            <span>Work List</span>
-          </span>
-        )
-      }
-    ]
-  },
-  {
-    key: "sub-menu-3",
-    title: (
-      <span>
-        <Icon type="notification" />
-        <span>User Profile</span>
-      </span>
-    ),
-    children: [
-      {
-        key: "profile",
-        title: "Profile",
-        component: <Profile />
-      },
-      {
-        key: "preference",
-        title: "Preference"
-      },
-      {
-        key: "change-password",
-        title: "Change Password"
-      }
-    ]
-  },
-  {
-    key: "sub-menu-4",
+    key: "master-data",
     title: (
       <span>
         <Icon type="notification" />
@@ -141,20 +141,23 @@ const DashboardMenu = [
     children: [
       {
         key: "master-pusat",
-        title: "master pusat"
+        title: "master pusat",
+        component: <h1>UNDER CONSTRUCTION</h1>
       },
       {
         key: "akademik",
-        title: "akademik"
+        title: "akademik",
+        component: <h1>UNDER CONSTRUCTION</h1>
       },
       {
         key: "civitas",
-        title: "civitas"
+        title: "civitas",
+        component: <h1>UNDER CONSTRUCTION</h1>
       }
     ]
   },
   {
-    key: "sub-menu-5",
+    key: "pmb-online",
     title: (
       <span>
         <Icon type="notification" />
@@ -164,16 +167,18 @@ const DashboardMenu = [
     children: [
       {
         key: "konfigurasi",
-        title: "konfigurasi"
+        title: "konfigurasi",
+        component: <h1>UNDER CONSTRUCTION</h1>
       },
       {
         key: "maba",
-        title: "maba"
+        title: "maba",
+        component: <h1>UNDER CONSTRUCTION</h1>
       }
     ]
   },
   {
-    key: "sub-menu-5",
+    key: "akademika",
     title: (
       <span>
         <Icon type="notification" />
@@ -183,91 +188,101 @@ const DashboardMenu = [
     children: [
       {
         key: "tahun-akademik",
-        title: "tahun akademik"
+        title: "tahun akademik",
+        component: <h1>UNDER CONSTRUCTION</h1>
       },
       {
         key: "status-mahasiswa",
-        title: "status mahasiswa"
+        title: "status mahasiswa",
+        component: <h1>UNDER CONSTRUCTION</h1>
       },
       {
         key: "perkuliahan",
-        title: "Perkuliahan"
+        title: "Perkuliahan",
+        component: <h1>UNDER CONSTRUCTION</h1>
       },
       {
         key: "krs",
-        title: "KRS"
+        title: "KRS",
+        component: <h1>UNDER CONSTRUCTION</h1>
       },
       {
         key: "tugas-akhir",
-        title: "Tugas Akhir"
+        title: "Tugas Akhir",
+        component: <h1>UNDER CONSTRUCTION</h1>
       },
       {
         key: "penilaian",
-        title: "Penilaian"
+        title: "Penilaian",
+        component: <h1>UNDER CONSTRUCTION</h1>
       },
       {
         key: "hasil-studi",
-        title: "Hasil Studi"
+        title: "Hasil Studi",
+        component: <h1>UNDER CONSTRUCTION</h1>
       },
       {
         key: "wisuda",
-        title: "Wisuda"
+        title: "Wisuda",
+        component: <h1>UNDER CONSTRUCTION</h1>
       },
       {
-        key: "quesiner",
-        title: "Quesiner"
+        key: "quesioner",
+        title: "Quesioner",
+        component: <h1>UNDER CONSTRUCTION</h1>
       },
       {
         key: "evaluasi-dosen-mengajar",
-        title: "Evaluasi Dosen Mengajar"
+        title: "Evaluasi Dosen Mengajar",
+        component: <h1>UNDER CONSTRUCTION</h1>
       }
     ]
   },
+  // {
+  //   key: "sub-menu-6",
+  //   title: (
+  //     <span>
+  //       <Icon type="notification" />
+  //       <span>Keuangan</span>
+  //     </span>
+  //   ),
+  //   children: [
+  //     {
+  //       key: "saldo-awal",
+  //       title: "Saldo Awal"
+  //     },
+  //     {
+  //       key: "keuangan-mahasiswa",
+  //       title: "Keuangan Mahasiswa"
+  //     },
+  //     {
+  //       key: "kode-akun",
+  //       title: "Kode Akun"
+  //     },
+  //     {
+  //       key: "rencana-anggaran",
+  //       title: "Rencana Anggaran"
+  //     },
+  //     {
+  //       key: "jurnal",
+  //       title: "Jurnal"
+  //     },
+  //     {
+  //       key: "buku-besar",
+  //       title: "Buku Besar"
+  //     },
+  //     {
+  //       key: "neraca-saldo",
+  //       title: "Neraca Saldo"
+  //     },
+  //     {
+  //       key: "laporan",
+  //       title: "Laporan"
+  //     }
+  //   ]
+  // },
   {
-    key: "sub-menu-6",
-    title: (
-      <span>
-        <Icon type="notification" />
-        <span>Keuangan</span>
-      </span>
-    ),
-    children: [
-      {
-        key: "saldo-awal",
-        title: "Saldo Awal"
-      },
-      {
-        key: "keuangan-mahasiswa",
-        title: "Keuangan Mahasiswa"
-      },
-      {
-        key: "kode-akun",
-        title: "Kode Akun"
-      },
-      {
-        key: "rencana-anggaran",
-        title: "Rencana Anggaran"
-      },
-      {
-        key: "jurnal",
-        title: "Jurnal"
-      },
-      {
-        key: "buku-besar",
-        title: "Buku Besar"
-      },
-      {
-        key: "neraca-saldo",
-        title: "Neraca Saldo"
-      },
-      {
-        key: "laporan",
-        title: "Laporan"
-      }
-    ]
-  },
-  {
-    key: "sub-menu-7",
+    key: "grafik-view",
     title: (
       <span>
         <Icon type="notification" />
@@ -294,7 +309,7 @@ const DashboardMenu = [
     ]
   },
   {
-    key: "sub-menu-8",
+    key: "forlap-dikti",
     title: (
       <span>
         <Icon type="notification" />
@@ -312,117 +327,127 @@ const DashboardMenu = [
       }
     ]
   },
+  // {
+  //   key: "sub-menu-9",
+  //   title: (
+  //     <span>
+  //       <Icon type="notification" />
+  //       <span>Perpustakaan</span>
+  //     </span>
+  //   ),
+  //   children: [
+  //     {
+  //       key: "setting",
+  //       title: "Setting"
+  //     },
+  //     {
+  //       key: "anggota",
+  //       title: "Anggota"
+  //     },
+  //     {
+  //       key: "pustaka",
+  //       title: "Pustaka"
+  //     },
+  //     {
+  //       key: "sirkulasi",
+  //       title: "Sirkulasi"
+  //     },
+  //     {
+  //       key: "laporan",
+  //       title: "Laporan"
+  //     }
+  //   ]
+  // },
+  // {
+  //   key: "sub-menu-10",
+  //   title: (
+  //     <span>
+  //       <Icon type="notification" />
+  //       <span>Konfigurasi</span>
+  //     </span>
+  //   ),
+  //   children: [
+  //     {
+  //       key: "pengaturan-modul",
+  //       title: "Pengaturan Modul"
+  //     },
+  //     {
+  //       key: "backup-restore",
+  //       title: "Backup & Restore"
+  //     }
+  //   ]
+  // },
+  // {
+  //   key: "sub-menu-11",
+  //   title: (
+  //     <span>
+  //       <Icon type="notification" />
+  //       <span>Inventory</span>
+  //     </span>
+  //   ),
+  //   children: [
+  //     {
+  //       key: "data-utama",
+  //       title: "Data Utama"
+  //     },
+  //     {
+  //       key: "transaksi",
+  //       title: "Transaksi"
+  //     },
+  //     {
+  //       key: "Laporan",
+  //       title: "Laporan"
+  //     }
+  //   ]
+  // },
   {
-    key: "sub-menu-9",
-    title: (
-      <span>
-        <Icon type="notification" />
-        <span>Perpustakaan</span>
-      </span>
-    ),
-    children: [
-      {
-        key: "setting",
-        title: "Setting"
-      },
-      {
-        key: "anggota",
-        title: "Anggota"
-      },
-      {
-        key: "pustaka",
-        title: "Pustaka"
-      },
-      {
-        key: "sirkulasi",
-        title: "Sirkulasi"
-      },
-      {
-        key: "laporan",
-        title: "Laporan"
-      }
-    ]
-  },
-  {
-    key: "sub-menu-10",
-    title: (
-      <span>
-        <Icon type="notification" />
-        <span>Konfigurasi</span>
-      </span>
-    ),
-    children: [
-      {
-        key: "pengaturan-modul",
-        title: "Pengaturan Modul"
-      },
-      {
-        key: "backup-restore",
-        title: "Backup & Restore"
-      }
-    ]
-  },
-  {
-    key: "sub-menu-11",
-    title: (
-      <span>
-        <Icon type="notification" />
-        <span>Inventory</span>
-      </span>
-    ),
-    children: [
-      {
-        key: "data-utama",
-        title: "Data Utama"
-      },
-      {
-        key: "transaksi",
-        title: "Transaksi"
-      },
-      {
-        key: "Laporan",
-        title: "Laporan"
-      }
-    ]
-  },
-  {
-    key: "sub-menu-12",
+    key: "akun-saya",
     title: (
       <span>
         <Icon type="notification" />
         <span>Akun Saya</span>
       </span>
-    )
+    ),
+    children: [
+      {
+        key: "edit-profile",
+        title: "edit profile"
+      },
+      {
+        key: "edit-password",
+        title: "edit password"
+      }
+    ]
   },
+  // {
+  //   key: "sub-menu-13",
+  //   title: (
+  //     <span>
+  //       <Icon type="notification" />
+  //       <span>Edit Profile</span>
+  //     </span>
+  //   )
+  // },
+  // {
+  //   key: "sub-menu-14",
+  //   title: (
+  //     <span>
+  //       <Icon type="notification" />
+  //       <span>Edit Avatar</span>
+  //     </span>
+  //   )
+  // },
+  // {
+  //   key: "sub-menu-15",
+  //   title: (
+  //     <span>
+  //       <Icon type="notification" />
+  //       <span>Edit Password</span>
+  //     </span>
+  //   )
+  // },
   {
-    key: "sub-menu-13",
-    title: (
-      <span>
-        <Icon type="notification" />
-        <span>Edit Profile</span>
-      </span>
-    )
-  },
-  {
-    key: "sub-menu-14",
-    title: (
-      <span>
-        <Icon type="notification" />
-        <span>Edit Avatar</span>
-      </span>
-    )
-  },
-  {
-    key: "sub-menu-15",
-    title: (
-      <span>
-        <Icon type="notification" />
-        <span>Edit Password</span>
-      </span>
-    )
-  },
-  {
-    key: "sub-menu-16",
+    key: "logout",
     title: (
       <span>
         <Icon type="notification" />
@@ -435,9 +460,11 @@ const DashboardMenu = [
 const Modules = [...additional_Modules];
 const DashboardModules = [...additional_Modules];
 const HomeModules = [...additional_Modules];
+const rootSubmenuKeys = [];
 
 DashboardMenu.forEach(item => {
-  if (item.children !== undefined) {
+  rootSubmenuKeys.push({ key: item.key });
+  if (item.children) {
     item.children.forEach(el => {
       Modules.push({ key: el.key, component: el.component });
       DashboardModules.push({ key: el.key, component: el.component });
@@ -453,5 +480,11 @@ HomeMenu.forEach(item => {
   HomeModules.push({ key: item.key, component: item.component });
 });
 
-export { DashboardMenu, DashboardModules, HomeMenu, HomeModules };
-export default Modules;
+export {
+  DashboardMenu,
+  DashboardModules,
+  HomeMenu,
+  HomeModules,
+  rootSubmenuKeys
+};
+// export default Modules;

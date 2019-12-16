@@ -6,7 +6,7 @@ import Modules, { DashboardModules, HomeModules } from "../modules";
 export default function Home(props) {
   const { menu } = useContext(MenuContext);
   const { user } = useContext(UserContext);
-  const modulesToRender = user.isLoggedIn ? DashboardModules : HomeModules;
+  const modulesToRender = !user.isLoggedIn ? DashboardModules : HomeModules;
 
   // console.log(modulesToRender, user);
 
