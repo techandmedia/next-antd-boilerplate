@@ -56,7 +56,7 @@ export default function CustomLayout(props) {
 function ChildrenLayout(props) {
   const { user } = props;
 
-  if (!user.isLoggedIn) {
+  if (user.isLoggedIn) {
     return <DashboardLayout {...props} onOpenChange={props.onOpenChange} />;
   }
 
