@@ -42,8 +42,8 @@ export default function CustomLayout(props) {
 
 function ChildrenLayout(props) {
   const { user } = props;
-  
-  if (user.isLoggedIn) {
+
+  if (!user.isLoggedIn) {
     return <DashboardLayout {...props} />;
   }
 
@@ -130,7 +130,7 @@ function DashboardLayout(props) {
         collapsedWidth="0"
         trigger={null}
         collapsed={props.collapsed}
-        onClick={props.toggleCollapsed}
+        onClick={props.collapsed ? props.toggleCollapsed : null}
         // onCollapse={props.toggleCollapsed}
       >
         <div

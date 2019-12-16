@@ -33,7 +33,7 @@ class Methods {
   compareToFirstPassword = (rule, value, callback, props) => {
     const { form } = props;
     if (value && value !== form.getFieldValue("password")) {
-      callback("Two passwords that you enter is inconsistent!");
+      callback("Kata sandi dan konfirmasi berbeda!");
     } else {
       callback();
     }

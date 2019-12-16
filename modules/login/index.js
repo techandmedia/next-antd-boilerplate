@@ -55,7 +55,7 @@ export default function Login(props) {
 
   return (
     <React.Fragment>
-      <Modal modal={modal} dispatchModal={dispatchModal} />;
+      <Modal modal={modal} dispatchModal={dispatchModal} />
       <Form
         renderForm={formLogin}
         postData={postLogin}

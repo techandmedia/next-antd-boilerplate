@@ -59,9 +59,9 @@ class CustomForm extends React.Component {
         <Col span={24}>
           <div style={{ textAlign: "left" }}>
             {loginForm ? (
-              <h1 style={{ marginBottom: 15 }}>LOGIN</h1>
+              <h1 style={{ marginBottom: 15 }}>AKSES MASUK</h1>
             ) : registerForm ? (
-              <h1 style={{ marginBottom: 15 }}>ACCOUNT REGISTRATION</h1>
+              <h1 style={{ marginBottom: 15 }}>PENDAFTARAN AKUN</h1>
             ) : null}
           </div>
           {/* <Modal modal={modal} dispatchModal={dispatchModal} /> */}
