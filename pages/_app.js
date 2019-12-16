@@ -1,16 +1,16 @@
 import React from "react";
 import App from "next/app";
 import GlobalProvider from "../utils/context/Global-Context";
-import Router from "next/router";
 import Layout from "components";
 import "../utils/style/ant-override.less";
 
 /**
  * Preparing to use reducer here
  */
+// const abc = require("dotenv").config();
 
 export default function CustomApp(props) {
-  // console.log(process.browser);
+  // console.log(process.env.env.);
   return (
     <GlobalProvider>
       <MyApp {...props} />
@@ -20,7 +20,7 @@ export default function CustomApp(props) {
 
 class MyApp extends App {
   state = {
-    isLoggedIn: true
+    isLoggedIn: false
   };
 
   login = () => {

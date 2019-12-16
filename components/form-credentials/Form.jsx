@@ -6,16 +6,6 @@ import { HomeMenu } from "../../modules";
 export default function(props) {
   const { dispatchMenu } = useContext(MenuContext);
 
-  let name, route;
-  const [drawer, setDrawer] = React.useState(false);
-  const showDrawer = () => {
-    setDrawer(true);
-  };
-
-  const onClose = () => {
-    setDrawer(false);
-  };
-
   function handleMenuClick({ key }) {
     console.log("SIDEBAR", key);
     dispatchMenu({ key });
@@ -32,24 +22,21 @@ export default function(props) {
               float: "right"
             }}
           >
-            <ul style={{ marginRight: -1 }}>
+            <div style={{ marginRight: -1 }}>
               <Menu
                 mode="inline"
                 defaultSelectedKeys={["default"]}
                 onClick={handleMenuClick}
               >
-                {HomeMenu.map(i => {
-                  name = i.title;
-                  route = i.key;
-
+                {HomeMenu.map(item => {
                   return (
-                    <Menu.Item key={route}>
-                      <div>{name}</div>
+                    <Menu.Item key={item.key}>
+                      <div>{item.title}</div>
                     </Menu.Item>
                   );
                 })}
               </Menu>
-            </ul>
+            </div>
           </div>
         </Col>
         <Col

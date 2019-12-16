@@ -1,17 +1,17 @@
 import { useContext } from "react";
 import { MenuContext } from "context/Global-Context";
 import { Row, Col } from "antd";
-import Modules, { HomePages } from "../modules";
+import Modules from "../modules";
 
 export default function Home(props) {
   const { menu } = useContext(MenuContext);
-  // const pageToRender = props.isLoggedIn ? DashboardPages : HomePages;
+
+  
+  // console.log(process.env);
 
   function renderPage() {
     for (let i = 0; i < Modules.length; i++) {
       if (Modules[i].key === menu.menu) {
-        console.log("FROM", Modules[i].key);
-        console.log("FROM", menu.menu);
         return <React.Fragment>{Modules[i].component}</React.Fragment>;
       }
     }
