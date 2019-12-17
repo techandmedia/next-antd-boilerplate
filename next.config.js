@@ -76,11 +76,13 @@ module.exports = withLess({
   ) {
     return {
       "/": { page: "/" },
-      "/login": { page: "/login" },
-      "/register": { page: "/register" },
-      "/contact": { page: "/contact" },
-      "/dashboard": { page: "/dashboard" },
-      "/about": { page: "/about" }
+      // "api/config": { page: "api/config" },
+      // "api/user/login": { page: "api/user/login" }
+      // "/login": { page: "/login" },
+      // "/register": { page: "/register" },
+      // "/contact": { page: "/contact" },
+      // "/dashboard": { page: "/dashboard" },
+      // "/about": { page: "/about" }
     };
   }
 });

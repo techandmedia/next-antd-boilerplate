@@ -13,6 +13,13 @@ export default function menuReducer(state, action) {
         data,
         cookie
       };
+    case "logout-success":
+      return {
+        ...state,
+        isLoggedIn: false,
+        data: [],
+        cookie: ""
+      };
     default:
       throw new Error();
   }

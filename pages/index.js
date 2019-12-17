@@ -3,12 +3,12 @@ import { UserContext, MenuContext } from "context/Global-Context";
 import { Row, Col } from "antd";
 import Modules, { DashboardModules, HomeModules } from "../modules";
 
-export default function Home(props) {
+function Home(props) {
   const { menu } = useContext(MenuContext);
   const { user } = useContext(UserContext);
   const modulesToRender = user.isLoggedIn ? DashboardModules : HomeModules;
 
-  // console.log(modulesToRender, user);
+  console.log(props);
 
   function renderPage() {
     for (let i = 0; i < modulesToRender.length; i++) {
@@ -28,3 +28,11 @@ export default function Home(props) {
     </Row>
   );
 }
+
+Home.getInitialProps = async (req, res) => {
+  // console.log(await req);
+  console.log("Await res", await res);
+  return { tes: "Andri Masa sih ini bener" };
+};
+
+export default Home;

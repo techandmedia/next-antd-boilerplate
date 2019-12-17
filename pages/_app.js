@@ -18,3 +18,8 @@ export default class MyApp extends App {
     );
   }
 }
+
+MyApp.getInitialProps = async (req, res) => {
+  console.log("dari app nih", req);
+  return { andri: "Tes dari APp" };
+};
