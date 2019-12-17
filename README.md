@@ -163,7 +163,9 @@ function YourComponent() {
 ```
 
 2. Custom Sider Menu. Menu is now stateless, which now only received state from modules. Modules are what I called "pages" that rendered in the dashboard. Example of these pages are: User List, Report Table, User Profile, User Preference, Change Password and so on.
-   This makes the App highly flexible, where you can just add or remove "pages" easily from an array. Example is below
+   This makes the App highly flexible, where you can just add or remove "pages" easily from an array. Example is below:
+
+    Pastikan jika memiliki 2 pages default, biasanya homepage (sebelum login) dan dashboard (sesudah login), keduanya memiliki 'key' yang sama, agar pada saat load pertama kali, baik itu homepage atau dashboard dapat langsung diload tanpa perlu melakukan klik pada menu nya
 
 ```js
 const subMenu = [

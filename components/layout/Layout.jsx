@@ -2,7 +2,7 @@ import { useState, useContext } from "react";
 import { UserContext, MenuContext } from "context/Global-Context";
 import { Layout, Row, Col, Menu, Icon } from "antd";
 import { CustomForm } from "components";
-import { DashboardMenu, HomeMenu } from "../../modules";
+import { DashboardMenu, HomeMenu, rootSubmenuKeys } from "../../modules";
 
 const { Content, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -12,6 +12,8 @@ export default function CustomLayout(props) {
   const { user } = useContext(UserContext);
   const [collapsed, setCollapsed] = useState(false);
   const [onBreakpoint, setBreakPoint] = useState(null);
+
+  const [openKeys, setOpenKeys] = useState("default");
 
   function toggleCollapsed() {
     const varCollapsed = collapsed;
@@ -23,6 +25,18 @@ export default function CustomLayout(props) {
     dispatchMenu({ key });
   }
 
+  function onOpenChange(valueOpenKeys) {
+    console.log(valueOpenKeys);
+    const latestOpenKey = valueOpenKeys.find(
+      key => openKeys.indexOf(key) === -1
+    );
+    if (rootSubmenuKeys.indexOf(latestOpenKey) === -1) {
+      setOpenKeys(valueOpenKeys);
+    } else {
+      setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
+    }
+  }
+
   return (
     <Layout style={{ height: "100vh" }}>
       <ChildrenLayout
@@ -32,6 +46,7 @@ export default function CustomLayout(props) {
         collapsed={collapsed}
         toggleCollapsed={toggleCollapsed}
         user={user}
+        onOpenChange={onOpenChange}
         {...props}
       />
     </Layout>
@@ -42,7 +57,7 @@ function ChildrenLayout(props) {
   const { user } = props;
 
   if (user.isLoggedIn) {
-    return <DashboardLayout {...props} />;
+    return <DashboardLayout {...props} onOpenChange={props.onOpenChange} />;
   }
 
   return <HomeLayout {...props} />;
@@ -139,8 +154,9 @@ function DashboardLayout(props) {
         <div style={logo} />
         <Menu
           mode="inline"
-          defaultSelectedKeys={["task-list"]}
+          defaultSelectedKeys={["default"]}
           onClick={props.handleMenuClick}
+          onOpenChange={props.onOpenChange}
         >
           {DashboardMenu.map(item => {
             return item.children !== undefined ? (
