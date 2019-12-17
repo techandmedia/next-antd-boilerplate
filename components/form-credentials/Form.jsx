@@ -1,7 +1,12 @@
-import { useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { MenuContext } from "context/Global-Context";
-import { Row, Col, Menu } from "antd";
+import { Row, Col, Menu, Affix } from "antd";
 import { HomeMenu } from "../../modules";
+const image1 = "/login/Ucap-Janji-Akademi-Keperawatan-Bina-Insan-2016-2.jpg";
+const image2 = "/login/Ucap-Janji-Akademi-Keperawatan-Bina-Insan-2016-6.jpg";
+const image3 = "/login/Ucap-Janji-Akademi-Keperawatan-Bina-Insan-2016-8.jpg";
+const image4 = "/login/Ucap-Janji-Akademi-Keperawatan-Bina-Insan-2016-13.jpg";
+const logo = "/images/logo-akper.png";
 
 export default function(props) {
   const { dispatchMenu } = useContext(MenuContext);
@@ -11,63 +16,90 @@ export default function(props) {
     dispatchMenu({ key });
   }
 
+  // carousel ale - ale
+  const [imageActive, setImageActive] = useState(image1);
+  const [fadeOut, setFadeOut] = useState(true);
+  const images = [image1, image2, image3, image4];
+  let x = 0;
+  function slide() {
+    x = x === images.length - 1 ? 0 : x + 1;
+    setFadeOut(true);
+    setTimeout(function() {
+      setImageActive(images[x]);
+      setFadeOut(false);
+    }, 500);
+  }
+  function slideTimer() {
+    setInterval(slide, 3000);
+  }
+  useEffect(() => {
+    slideTimer();
+  }, []);
+  // carousel ale - ale END
+
   return (
-    <div className="login-bg ipad">
-      <Row id="row-content">
-        <Col xs={0} md={0} lg={14}>
+    <Row id="row-content">
+      <Col xs={0} md={0} lg={14}>
+        <div
+          className={`fading ${fadeOut ? "fadeOut" : ""}`}
+          style={{
+            minHeight: "30rem",
+            width: "100%",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundImage: `url(${imageActive})`
+          }}
+        ></div>
+        <div className="login-image-overlay">
           <div
             style={{
-              width: "fit-content",
-              padding: "20px 0 3px 0",
-              float: "right"
+              marginRight: -1,
+              maxWidth: "10rem",
+              float: "right",
+              padding: "20px 0 3px"
             }}
           >
-            <div style={{ marginRight: -1 }}>
-              <Menu
-                mode="inline"
-                defaultSelectedKeys={["default"]}
-                onClick={handleMenuClick}
-              >
-                {HomeMenu.map(item => {
-                  return (
-                    <Menu.Item key={item.key}>
-                      <div style={{ width: 110 }}>{item.title}</div>
-                    </Menu.Item>
-                  );
-                })}
-              </Menu>
-            </div>
-          </div>
-        </Col>
-        <Col
-          xs={{ span: 8, offset: 8 }}
-          md={{ span: 18, offset: 3 }}
-          lg={{ span: 10, offset: 0 }}
-          className="content-white-section"
-          style={{ backgroundColor: "#fff", minHeight: "30rem", padding: 36 }}
-        >
-          <Col
-            xs={24}
-            md={24}
-            lg={24}
-            style={{ textAlign: "-webkit-center", marginBottom: "2rem" }}
-          >
-            <div
-              style={{
-                width: 80,
-                height: 80,
-                background: "blue",
-                color: "white",
-                fontWeight: "bold",
-                padding: "30px 20px"
-              }}
+            <Menu
+              mode="inline"
+              defaultSelectedKeys={["default"]}
+              onClick={handleMenuClick}
             >
-              LOGO
-            </div>
-          </Col>
-          <Col span={24}>{props.children}</Col>
+              {HomeMenu.map(item => {
+                return (
+                  <Menu.Item key={item.key}>
+                    <div style={{ width: "10rem" }}>{item.title}</div>
+                  </Menu.Item>
+                );
+              })}
+            </Menu>
+          </div>
+        </div>
+      </Col>
+      <Col
+        xs={{ span: 8, offset: 8 }}
+        md={{ span: 18, offset: 3 }}
+        lg={{ span: 10, offset: 0 }}
+        className="content-white-section"
+        style={{ backgroundColor: "#fff", padding: "1rem 2rem" }}
+      >
+        <Col
+          span={24}
+          style={{
+            textAlign: "-webkit-center",
+            marginBottom: "2rem",
+            position: "-webkit-sticky",
+            position: "sticky",
+            zIndex: 1,
+            background: "white",
+            padding: ".5rem 0",
+            top: "-1rem"
+          }}
+        >
+          <img src={logo} style={{ width: "8rem" }} />
         </Col>
-      </Row>
-    </div>
+        <Col span={24}>{props.children}</Col>
+      </Col>
+    </Row>
   );
 }

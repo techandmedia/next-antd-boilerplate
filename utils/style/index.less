@@ -1,3 +1,23 @@
+/* width */
+::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: @akper-blue;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: @akper-tosca;
+}
+
 .logo {
   width: 120px;
   height: 30px;
@@ -47,6 +67,28 @@
 
 .icon-submenu {
   margin-right: 10px;
+}
+
+.login-image-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background: #ffffff00;
+  background: -moz-linear-gradient(
+    56deg,
+    #ffffff00 0%,
+    #ffffff00 50%,
+    #05b7f1 100%
+  );
+  background: -webkit-linear-gradient(
+    56deg,
+    #ffffff00 0%,
+    #ffffff00 50%,
+    #05b7f1 100%
+  );
+  background: linear-gradient(56deg, #ffffff00 0%, #ffffff00 50%, #05b7f1 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff00",endColorstr="#05b7f1",GradientType=1);
 }
 
 .login-bg {
@@ -145,4 +187,24 @@
 /* Hide scrollbar for IE and Edge */
 .dashboard .ant-layout-sider {
   -ms-overflow-style: none !important;
+}
+
+.ant-carousel .slick-slide {
+  text-align: center;
+  height: 160px;
+  line-height: 160px;
+  background: #364d79;
+  overflow: hidden;
+}
+
+.ant-carousel .slick-slide h3 {
+  color: #fff;
+}
+
+.fading {
+  opacity: 1;
+  transition: opacity 500ms ease-in-out;
+}
+.fading.fadeOut {
+  opacity: 0;
 }
