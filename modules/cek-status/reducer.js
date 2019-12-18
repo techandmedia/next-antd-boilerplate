@@ -13,21 +13,23 @@ export default function cekStatusReducer(state, action) {
   switch (type) {
     case "init":
       return {
-        ...state
+        ...state,
+        nomorToken,
+        feedbackServer,
+        proses,
+        fileList,
+        previewImage,
+        previewVisible
       };
-    case "login-success":
+    case "success":
       return {
         ...state,
-        isLoggedIn: true,
-        data,
-        cookie
-      };
-    case "logout-success":
-      return {
-        ...state,
-        isLoggedIn: false,
-        data: [],
-        cookie: ""
+        nomorToken,
+        feedbackServer,
+        proses,
+        fileList,
+        previewImage,
+        previewVisible
       };
     default:
       throw new Error();

@@ -118,7 +118,7 @@ export default function CekStatus() {
               description={<span>{feedbackServer}</span>}
             />
             {results.code === 200 ? (
-              proses === true ? (
+              proses === true ? ( //harusnya dari server
                 <Result
                   style={{ marginTop: "1rem" }}
                   status="success"

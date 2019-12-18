@@ -9,6 +9,7 @@ export default async function checkStatus(req, res) {
   const username = req.body.username;
   const password = req.body.password;
   const token = req.body.token;
+  const proses = req.body.proses ? req.body.proses : false;
   const queryLogin = escape`
     SELECT * FROM user_login WHERE username = ${username}
   `;
@@ -66,7 +67,7 @@ export default async function checkStatus(req, res) {
       code: 200,
       title: "token",
       message: "anda sudah terdaftar, silahkan upload bukti pembayaran",
-      data: []
+      data: [{ proses: proses }]
     });
   }
 
