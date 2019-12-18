@@ -90,10 +90,11 @@ export default function(props) {
             marginBottom: "2rem",
             position: "-webkit-sticky",
             position: "sticky",
-            zIndex: 1,
+            zIndex: 3,
             background: "white",
             padding: ".5rem 0",
-            top: "-1rem"
+            top: "-1rem",
+            boxShadow: "0px 3px 4px -4px #0000003b"
           }}
         >
           <img src={logo} style={{ width: "8rem" }} />

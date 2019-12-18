@@ -5,6 +5,7 @@ import UserList from "./user-list";
 import LoginFailed from "./login-failed";
 import Login from "./login";
 import Register from "./register";
+import CekStatus from "./cek-status";
 
 // DEMO
 import DaftarDosen from "./daftar-dosen";
@@ -39,7 +40,7 @@ const HomeMenu = [
   {
     key: "status",
     title: "cek status",
-    component: <h1>UNDER CONSTRUCTION</h1>
+    component: <CekStatus />
   }
 ];
 

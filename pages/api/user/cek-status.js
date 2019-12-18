@@ -70,9 +70,9 @@ export default async function checkStatus(req, res) {
     });
   }
 
-  if (token === "11111111") {
+  if (token === "987654321") {
     res.send({
-      code: 200,
+      code: 201,
       title: "token",
       message:
         "anda sudah terdaftar sebagai mahasiswa, silahkan cek email untuk cek nim dan password anda",
@@ -92,28 +92,28 @@ export default async function checkStatus(req, res) {
  * UNTUK KEPERLUAN DEMO
  */
 
-if (token === "123456789") {
-  res.send({
-    code: 200,
-    title: "token",
-    message: "anda sudah terdaftar, silahkan upload bukti pembayaran",
-    data: []
-  });
-}
-
-if (token === "11111111") {
-  res.send({
-    code: 200,
-    title: "token",
-    message:
-      "anda sudah terdaftar sebagai mahasiswa, silahkan cek email untuk cek nim dan password anda",
-    data: []
-  });
-} else {
-  res.send({
-    code: 300,
-    title: "token",
-    message: "token tidak terdaftar, harap registrasi ulang",
-    data: []
-  });
-}
+// if (token === "123456789") {
+//   res.send({
+//     code: 200,
+//     title: "token",
+//     message: "anda sudah terdaftar, silahkan upload bukti pembayaran",
+//     data: []
+//   });
+// }
+//
+// if (token === "11111111") {
+//   res.send({
+//     code: 200,
+//     title: "token",
+//     message:
+//       "anda sudah terdaftar sebagai mahasiswa, silahkan cek email untuk cek nim dan password anda",
+//     data: []
+//   });
+// } else {
+//   res.send({
+//     code: 300,
+//     title: "token",
+//     message: "token tidak terdaftar, harap registrasi ulang",
+//     data: []
+//   });
+// }
