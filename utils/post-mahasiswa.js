@@ -9,7 +9,7 @@ export default (req, res) => {
   mySQL.query(
     `SELECT * FROM ${TABLE_NAME} WHERE id_mahasiswa = ?`,
     [id_mahasiswa],
-    function(err, results, fields) {
+    function (err, results, fields) {
       if (err) {
         console.log("IS IT ERROR???=========", err);
         res.send({
