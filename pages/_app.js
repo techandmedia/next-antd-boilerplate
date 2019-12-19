@@ -4,6 +4,10 @@ import Head from "next/head";
 import GlobalProvider from "../utils/context/Global-Context";
 import Layout from "components";
 import "../utils/style/ant-override.less";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+
+library.add();
 
 export default class MyApp extends App {
   render() {
