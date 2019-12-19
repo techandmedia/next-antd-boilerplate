@@ -71,6 +71,7 @@ function HomeLayout(props) {
     <React.Fragment>
       <div style={{ display: props.onBreakpoint ? "block" : "none" }}>
         <Sider
+          className="home"
           style={{ height: "100vh" }}
           breakpoint="lg"
           collapsedWidth="0"

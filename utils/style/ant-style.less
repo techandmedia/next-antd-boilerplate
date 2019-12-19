@@ -44,15 +44,17 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f46f22",endColorstr="#05b7f1",GradientType=1);
 }
 
-.home .ant-menu-inline,
-.dashboard .ant-menu-inline,
-.dashboard .ant-menu-vertical {
-  border-right: none;
+.home .ant-menu-inline {
+  // padding-top: 2rem;
+  // padding-left: 2rem;
+  border-right: #ffffff;
 }
 
 .home .ant-layout-sider-zero-width-trigger {
   color: #000;
   background: #ffffff;
+  z-index: 2;
+  box-shadow: 1px 2px 5px 0px #cacaca;
 }
 
 .home .ant-menu-inline li {
@@ -71,6 +73,10 @@
 
 .home .ant-menu-inline {
   text-transform: uppercase;
+}
+
+.home .ant-layout-sider-children {
+  border-right: 4px solid #ffffff52;
 }
 
 .ant-menu-inline,
@@ -114,6 +120,11 @@
 
 .dashboard {
   transition: all 200ms;
+}
+
+.dashboard .ant-menu-inline,
+.dashboard .ant-menu-vertical {
+  border-right: none;
 }
 
 .dashboard .ant-layout-sider {
@@ -229,9 +240,21 @@
 .register-form > .ant-form-item {
   margin-bottom: 0;
 }
+
 .ant-menu-item:hover {
   color: @akper-orange;
 }
+
 .ant-menu-item-active {
   color: @akper-tosca;
+}
+
+.ant-upload-select-picture-card i {
+  font-size: 32px;
+  color: #999;
+}
+
+.ant-upload-select-picture-card .ant-upload-text {
+  margin-top: 8px;
+  color: #666;
 }

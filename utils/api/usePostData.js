@@ -42,7 +42,7 @@ export default function usePostData() {
     code: "",
     title: "",
     message: "",
-    isLoading: true,
+    isLoading: false,
     data: null
   });
 
