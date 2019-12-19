@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useReducer } from "react";
 import {
   Input,
   Tooltip,
@@ -12,18 +12,20 @@ import {
   Result
 } from "antd";
 import usePostData from "api/usePostData";
+import { cekStatusReducer, beforeUpload } from "./reducer";
 import { capitalize, isEmpty, getBase64, formatBytes } from "utils/helpers";
 const { Search } = Input;
 const { Meta } = Card;
 
 export default function CekStatus() {
-  const [nomorToken, setNoToken] = useState(null);
-  const [feedbackServer, setFeedServer] = useState(null);
-
-  const [proses, setProses] = useState(false);
-  const [fileList, setFileList] = useState([]);
-  const [previewImage, setPreviewImage] = useState("");
-  const [previewVisible, setPreviewVisible] = useState(false);
+  const [state, dispatch] = useReducer(cekStatusReducer, {
+    type: "init",
+    nomorToken: null,
+    feedbackServer: null,
+    fileList: [],
+    previewImage: "",
+    previewVisible: false
+  });
 
   const API = "user/cek-status";
   const [results, postToken] = usePostData();
@@ -32,35 +34,44 @@ export default function CekStatus() {
     const { isLoading, code, message } = results;
     let text = capitalize(message ? message : "Nomor token tidak dikenali");
     if (!isLoading && code === 200) {
-      setFeedServer(text);
+      dispatch({ type: "server", feedbackServer: text });
     }
     if (!isLoading && code > 200) {
-      setFeedServer(text);
+      dispatch({ type: "server", feedbackServer: text });
     }
   }, [results]);
 
   const handleSearch = (value, event) => {
     if (!isEmpty(value)) {
       postToken(API, { token: value });
-      setNoToken(value);
+      dispatch({ type: "search", nomorToken: value });
     }
   };
 
-  const handleCancel = () => setPreviewVisible(false);
+  const handleCancel = () =>
+    dispatch({
+      type: "preview",
+      previewVisible: false
+    });
 
   const handlePreview = async file => {
     if (!file.url && !file.preview) {
       file.preview = await getBase64(file.originFileObj);
     }
-    setPreviewImage(file.url || file.preview);
-    setPreviewVisible(true);
+    dispatch({
+      type: "preview",
+      previewImage: file.url || file.preview,
+      previewVisible: true
+    });
   };
 
-  const handleChange = ({ fileList }) => setFileList(fileList);
+  const handleChange = ({ fileList }) =>
+    dispatch({ type: "preview", fileList: fileList });
 
+  const [proses, setProses] = useState(false);
   const handleProses = status => {
     let okCounter = 0;
-    const messages = fileList.map(image => {
+    const messages = state.fileList.map(image => {
       if (image.status === "done") {
         message.success(
           `${image.name} berhasil diunggah (${formatBytes(image.size)})`
@@ -72,7 +83,7 @@ export default function CekStatus() {
         );
       }
     });
-    setProses(okCounter > 0 ? true : false);
+    setProses(true);
     return messages;
   };
 
@@ -82,18 +93,6 @@ export default function CekStatus() {
       <div className="ant-upload-text">Upload</div>
     </div>
   );
-
-  function beforeUpload(file) {
-    const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
-    if (!isJpgOrPng) {
-      message.error("You can only upload JPG/PNG file!");
-    }
-    const isLt2M = file.size / 1024 / 1024 < 2;
-    if (!isLt2M) {
-      message.error("Image must smaller than 2MB!");
-    }
-    return isJpgOrPng && isLt2M;
-  }
 
   return (
     <div>
@@ -110,15 +109,15 @@ export default function CekStatus() {
         enterButton
         onSearch={handleSearch}
       />
-      {nomorToken && (
+      {state.nomorToken && (
         <Card style={{ marginTop: 16 }}>
           <Skeleton loading={results.isLoading} active>
             <Meta
-              title={`NOMOR TOKEN : ${nomorToken}`}
-              description={<span>{feedbackServer}</span>}
+              title={`NOMOR TOKEN : ${state.nomorToken}`}
+              description={<span>{state.feedbackServer}</span>}
             />
             {results.code === 200 ? (
-              proses === true ? ( //harusnya dari server
+              results.data.proses === true || proses === true ? ( //harusnya dari server
                 <Result
                   style={{ marginTop: "1rem" }}
                   status="success"
@@ -134,18 +133,20 @@ export default function CekStatus() {
                     onChange={handleChange}
                     beforeUpload={beforeUpload}
                   >
-                    {fileList.length >= 2 ? null : uploadButton}
+                    {state.fileList.length >= 2 ? null : uploadButton}
                   </Upload>
-                  <Button onClick={() => handleProses(fileList)}>Proses</Button>
+                  <Button onClick={() => handleProses(state.fileList)}>
+                    Proses
+                  </Button>
                   <Modal
-                    visible={previewVisible}
+                    visible={state.previewVisible}
                     footer={null}
                     onCancel={handleCancel}
                   >
                     <img
                       alt="example"
                       style={{ width: "100%" }}
-                      src={previewImage}
+                      src={state.previewImage}
                     />
                   </Modal>
                 </div>

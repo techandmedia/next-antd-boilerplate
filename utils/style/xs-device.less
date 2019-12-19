@@ -27,9 +27,21 @@
     height: 3rem;
     width: 3rem;
     bottom: 7rem;
-    right: -1.5rem;
+    left: 14.5rem;
     &.collapsed {
-      right: -4.5rem;
+      left: 1.5rem;
+      &::after,
+      &::before {
+        width: 0.7rem;
+      }
+      &::after {
+        transform: rotate(135deg) translateX(4px);
+        top: 1.5rem;
+      }
+      &::before {
+        transform: rotate(-135deg) translateX(4px);
+        top: 1.4rem;
+      }
     }
     &::before,
     &::after {
@@ -41,20 +53,6 @@
     }
     &::after {
       transform: rotate(45deg);
-    }
-  }
-  .collapsed.trigger {
-    &::after,
-    &::before {
-      width: 0.7rem;
-    }
-    &::after {
-      transform: rotate(135deg) translateX(4px);
-      top: 1.5rem;
-    }
-    &::before {
-      transform: rotate(-135deg) translateX(4px);
-      top: 1.4rem;
     }
   }
 }
