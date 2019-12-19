@@ -29,7 +29,7 @@ const HomeMenu = [
   {
     key: "default",
     title: "menu",
-    component: <h1>SISTEM INFORMASI AKADEMIK</h1>
+    component: <h1>SISTEM INFORMASI AKADEMIKS</h1>
   },
   {
     key: "login",

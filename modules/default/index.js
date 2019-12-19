@@ -1,79 +1,86 @@
-import { Table, Divider, Tag } from "antd";
+import { Row, Col, Menu, Card, PageHeader, Tag, Dropdown, Icon } from "antd";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+const { Meta } = Card;
 
-const columns = [
-  {
-    title: "Name",
-    dataIndex: "name",
-    key: "name",
-    render: text => <a>{text}</a>
-  },
-  {
-    title: "Age",
-    dataIndex: "age",
-    key: "age"
-  },
-  {
-    title: "Address",
-    dataIndex: "address",
-    key: "address"
-  },
-  {
-    title: "Tags",
-    key: "tags",
-    dataIndex: "tags",
-    render: tags => (
-      <span>
-        {tags.map(tag => {
-          let color = tag.length > 5 ? "geekblue" : "green";
-          if (tag === "loser") {
-            color = "volcano";
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </span>
-    )
-  },
-  {
-    title: "Action",
-    key: "action",
-    render: (text, record) => (
-      <span>
-        <a>Invite {record.name}</a>
-        <Divider type="vertical" />
-        <a>Delete</a>
-      </span>
-    )
-  }
-];
-
-const data = [
-  {
-    key: "1",
-    name: "John Brown",
-    age: 32,
-    address: "New York No. 1 Lake Park",
-    tags: ["nice", "developer"]
-  },
-  {
-    key: "2",
-    name: "Jim Green",
-    age: 42,
-    address: "London No. 1 Lake Park",
-    tags: ["loser"]
-  },
-  {
-    key: "3",
-    name: "Joe Black",
-    age: 32,
-    address: "Sidney No. 1 Lake Park",
-    tags: ["cool", "teacher"]
-  }
-];
+const menu = (
+  <Menu>
+    <Menu.Item>2018 / 2019</Menu.Item>
+    <Menu.Item>2019 / 2020</Menu.Item>
+    <Menu.Item>2020 / 2021</Menu.Item>
+  </Menu>
+);
 
 export default function Content() {
-  return <Table columns={columns} dataSource={data} />;
+  return (
+    <div>
+      <PageHeader
+        onBack={() => null}
+        backIcon={false}
+        title="Dashboard"
+        subTitle=""
+        extra={[
+          <Dropdown key="1" overlay={menu}>
+            <a className="ant-dropdown-link" href="#">
+              <Tag>
+                Tahun Akademik &nbsp; 2019 / 2020 <Icon type="down" />
+              </Tag>
+            </a>
+          </Dropdown>,
+          <Tag key="2">
+            <Icon type="search" />
+          </Tag>
+        ]}
+      />
+      <Row gutter={48}>
+        <Col xs={24} md={16} lg={16}>
+          <Card
+            style={{
+              width: "100%",
+              background: "#ffdc9c",
+              borderRadius: "1rem"
+            }}
+            bordered={false}
+          >
+            <h2>Hi, Nama Lengkap!</h2>
+            <Col span={20}>
+              <p>
+                Banyak mahasiswa yang tidak hadir kelas bulan ini! E - DOM baru
+                terisikan 70% dari siswa Contoh pemberitahuan lainnya ...
+              </p>
+            </Col>
+            <Col span={4}>
+              <Icon
+                style={{
+                  fontSize: "8rem",
+                  position: "absolute",
+                  top: "-7rem",
+                  right: "-1rem"
+                }}
+                type="smile"
+                theme="twoTone"
+              />
+            </Col>
+          </Card>
+        </Col>
+        <Col xs={24} md={8} lg={8}>
+          <Card
+            title="Birthday today"
+            extra={<Icon type="ellipsis" />}
+            style={{
+              width: "100%",
+              borderRadius: "1rem"
+            }}
+          >
+            <Meta
+              description={
+                <div>
+                  <FontAwesomeIcon icon="user-graduate" />
+                </div>
+              }
+            />
+          </Card>
+        </Col>
+      </Row>
+    </div>
+  );
 }
