@@ -1,11 +1,15 @@
+import dynamic from 'next/dynamic'
 import { Icon } from "antd";
-import Default from "./default";
-import Profile from "./profile";
-import UserList from "./user-list";
-import LoginFailed from "./login-failed";
-import Login from "./login";
-import Register from "./register";
-import CekStatus from "./cek-status";
+
+// const DynamicComponent = dynamic(() => import('../components/hello'))
+
+const Default = dynamic(() => import('./default'))
+const Profile = dynamic(() => import('./profile'))
+const UserList = dynamic(() => import('./user-list'))
+const LoginFailed = dynamic(() => import('./login-failed'))
+const Login = dynamic(() => import('./login'))
+const Register = dynamic(() => import('./register'))
+const CekStatus = dynamic(() => import('./cek-status'))
 
 // DEMO
 import DaftarDosen from "./daftar-dosen";

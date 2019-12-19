@@ -4,7 +4,8 @@ import escape from "sql-template-strings";
  * Mencegah SQL Injection
  */
 
-export default async function login(req, res) {
+async function login(req, res) {
+  // export default async function login(req, res) {
   console.log("LOGIN", req.body);
   const username = req.body.username;
   const password = req.body.password;
@@ -31,36 +32,23 @@ export default async function login(req, res) {
   //   });
   // }
 
-  if (results.length > 0) {
-    if (results[0].password === password) {
-      res.send({
-        code: 200,
-        title: "login",
-        message: "login success",
-        data: results
-      });
-    } else {
-      res.send({
-        code: 210,
-        title: "login",
-        message: "username atau password salah",
-        data: []
-      });
-    }
-  } else {
-    res.send({
-      code: 201,
-      title: "login",
-      message: "username belum terdaftar",
-      data: []
-    });
-  }
-
-  /**
-   * UNTUK KEPERLUAN DEMO
-   */
-
-  // if (username !== "17111004") {
+  // if (results.length > 0) {
+  //   if (results[0].password === password) {
+  //     res.send({
+  //       code: 200,
+  //       title: "login",
+  //       message: "login success",
+  //       data: results
+  //     });
+  //   } else {
+  //     res.send({
+  //       code: 210,
+  //       title: "login",
+  //       message: "username atau password salah",
+  //       data: []
+  //     });
+  //   }
+  // } else {
   //   res.send({
   //     code: 201,
   //     title: "login",
@@ -69,19 +57,41 @@ export default async function login(req, res) {
   //   });
   // }
 
-  // if (username === "17111004" && password === "111") {
-  //   res.send({
-  //     code: 200,
-  //     title: "login",
-  //     message: "login success",
-  //     data: []
-  //   });
-  // } else {
-  //   res.send({
-  //     code: 210,
-  //     title: "login",
-  //     message: "username atau password salah",
-  //     data: []
-  //   });
-  // }
+  /**
+   * UNTUK KEPERLUAN DEMO
+   */
+
+  if (username !== "17111004") {
+    res.send({
+      code: 201,
+      title: "login",
+      message: "username belum terdaftar",
+      data: []
+    });
+    return null;
+  }
+
+  if (username === "17111004" && password === "111") {
+    res.send({
+      code: 200,
+      title: "login",
+      message: "login success",
+      data: []
+    });
+  } else {
+    res.send({
+      code: 210,
+      title: "login",
+      message: "username atau password salah",
+      data: []
+    });
+  }
 }
+
+
+login.getInitialProps = async (req, res) => {
+  console.log("dari login nih ============================", await req, await res)
+  return { andri: "Tes Login" }
+}
+
+export default login

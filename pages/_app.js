@@ -21,10 +21,15 @@ export default class MyApp extends App {
   }
 }
 
-MyApp.getInitialProps = async (req, res) => {
-  console.log("dari app nih", req);
-  return { andri: "Tes dari APp" };
-};
+/**
+ Warning: You have opted-out of Automatic Static Optimization due to `getInitialProps` in `pages/_app`.
+ Read more: https://err.sh/next.js/opt-out-auto-static-optimization
+ 
+ MyApp.getInitialProps = async (req, res) => {
+   console.log("dari app nih", req);
+   return { andri: "Tes dari APp" };
+  };
+ */
 
 const HeadTags = props => (
   <div>
@@ -74,23 +79,23 @@ const HeadTags = props => (
       <meta name="distribution" content="Global" />
       <meta name="rating" content="General" />
       <meta name="revisit-after" content="30 days" />
-      <meta http-equiv="Expires" content="0" />
-      <meta http-equiv="Pragma" content="no-cache" />
-      <meta http-equiv="Cache-Control" content="no-cache" />
+      <meta httpEquiv="Expires" content="0" />
+      <meta httpEquiv="Pragma" content="no-cache" />
+      <meta httpEquiv="Cache-Control" content="no-cache" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta content="yes" name="apple-touch-fullscreen" />
       <meta name="apple-mobile-web-app-status-bar-style" content="tosca" />
       <meta name="format-detection" content="telephone=no" />
       <meta
-        http-equiv="Page-Enter"
+        httpEquiv="Page-Enter"
         content="RevealTrans(Duration=2.0,Transition=2)"
       />
       <meta
-        http-equiv="Page-Exit"
+        httpEquiv="Page-Exit"
         content="RevealTrans(Duration=3.0,Transition=12)"
       />
       <meta name="mssmarttagspreventparsing" content="true" />
-      <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+      <meta httpEquiv="X-UA-Compatible" content="chrome=1" />
       <meta
         name="msapplication-starturl"
         content="siakad.akperbinainsan.ac.id"

@@ -62,16 +62,17 @@ export default async function checkStatus(req, res) {
    * UNTUK KEPERLUAN DEMO
    */
 
-  if (token === "123456789") {
+  if (token === "123") {
     res.send({
       code: 200,
       title: "token",
       message: "anda sudah terdaftar, silahkan upload bukti pembayaran",
       data: [{ proses: proses }]
     });
+    return null
   }
 
-  if (token === "987654321") {
+  if (token === "111") {
     res.send({
       code: 201,
       title: "token",
