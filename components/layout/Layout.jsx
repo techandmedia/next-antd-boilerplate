@@ -92,7 +92,7 @@ function HomeLayout(props) {
               console.log(item);
               return (
                 <Menu.Item key={item.key}>
-                  <Link href="/login">
+                  <Link href={item.key}>
                     <a>{item.title}</a>
                   </Link>
                 </Menu.Item>

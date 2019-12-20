@@ -76,13 +76,16 @@ module.exports = withLess({
   ) {
     return {
       "/": { page: "/" },
-      // "api/config": { page: "api/config" },
-      // "api/user/login": { page: "api/user/login" }
-      "/login": { page: "/login" },
-      // "/register": { page: "/register" },
       // "/contact": { page: "/contact" },
-      // "/dashboard": { page: "/dashboard" },
       // "/about": { page: "/about" }
+      /**
+       * Setiap kali nambah modul, tambah juga route nya di sini
+       */
+      "/menu": { page: "/menu" },
+      "/menu/login": { page: "/menu/login" },
+      "/menu/register": { page: "/menu/register" },
+      "/menu/status": { page: "/menu/status" },
+      // "/dashboard": { page: "/dashboard" },
     };
   }
 });

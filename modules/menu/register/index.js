@@ -1,14 +1,13 @@
 import { useEffect, useContext } from "react";
 import { Form, Modal, useModal } from "components";
 import { UserContext } from "context/Global-Context";
-import usePostData from "api/usePostData";
 import formRegister from "./form";
 
 const API = "user/register";
 
 export default function Register(props) {
+  const { results, postData } = props
   const { dispatchUser } = useContext(UserContext);
-  const [results, postNewUser] = usePostData();
   const [modal, dispatchModal] = useModal();
 
   useEffect(() => {
@@ -35,7 +34,7 @@ export default function Register(props) {
       <Form
         registerForm
         renderForm={formRegister}
-        postData={postNewUser}
+        postData={postData}
         API={API}
         {...props}
       />

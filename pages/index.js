@@ -1,39 +1,15 @@
-import { useContext } from "react";
-import { UserContext, MenuContext } from "context/Global-Context";
-import { Row, Col } from "antd";
-import Modules, { DashboardModules, HomeModules } from "../modules";
+import HomeMenu from '../modules/menu/home-menu'
+import usePostData from "api/usePostData";
 
-function Home(props) {
-  const { menu } = useContext(MenuContext);
-  const { user } = useContext(UserContext);
-  const modulesToRender = user.isLoggedIn ? DashboardModules : HomeModules;
+const API = "user/login";
 
-  console.log(props, menu.menu, "baqhlul");
+/**
+ * Jika menggunakan landing page, maka ganti import nya dengan halaman landing page
+ * Karena ini adalah file 'default' index di NextJs
+ */
 
-  function renderPage() {
-    for (let i = 0; i < modulesToRender.length; i++) {
-      if (modulesToRender[i].key === menu.menu) {
-        return <React.Fragment>{modulesToRender[i].component}</React.Fragment>;
-      }
-    }
-  }
+function Menu(props) {
+  return <HomeMenu />
+};
 
-  return (
-    <Row type="flex" justify="center">
-      <Col span={24}>
-        TES HOME
-        {/* {renderPage()} */}
-        {/* Ini dilakukan jika menggunakan landing page */}
-        {/* {props.isLoggedIn ? : HomePages[0].component} */}
-      </Col>
-    </Row>
-  );
-}
-
-// Home.getInitialProps = async (req, res) => {
-//   // console.log(await req);
-//   console.log("Await res", await res);
-//   return { tes: "Andri Masa sih ini bener" };
-// };
-
-export default Home;
+export default Menu

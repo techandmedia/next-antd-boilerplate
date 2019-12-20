@@ -1,16 +1,8 @@
 import dynamic from 'next/dynamic'
 import { Icon } from "antd";
 
-const Default = dynamic(() => import('./default'))
-const Profile = dynamic(() => import('./profile'))
-const UserList = dynamic(() => import('./user-list'))
-const LoginFailed = dynamic(() => import('./login-failed'))
-const Login = dynamic(() => import('./login'))
-const Register = dynamic(() => import('./register'))
-const CekStatus = dynamic(() => import('./cek-status'))
-
 // DEMO
-import DaftarDosen from "./daftar-dosen";
+// import DaftarDosen from "./daftar-dosen";
 
 /**
  * Additional Modules is for Modules that do not have menu but usefull like
@@ -19,30 +11,31 @@ import DaftarDosen from "./daftar-dosen";
 const additional_Modules = [
   {
     key: "login-failed",
-    component: <LoginFailed />
+    // component: <LoginFailed />
   }
 ];
 
+
+
 const HomeMenu = [
   {
-    key: "default",
+    key: "/menu",
     title: "menu",
-    component: <h1>SISTEM INFORMASI AKADEMIKS</h1>
   },
   {
-    key: "/login",
+    key: "/menu/login",
     title: "masuk",
-    component: <Login />
+    // component: <Login />
   },
   {
-    key: "register",
+    key: "/menu/register",
     title: "pendaftaran",
-    component: <Register />
+    // component: <Register />
   },
   {
-    key: "status",
+    key: "/menu/status",
     title: "cek status",
-    component: <CekStatus />
+    // component: <CekStatus />
   }
 ];
 
@@ -55,7 +48,7 @@ const DashboardMenu = [
         <span>Dashboard</span>
       </span>
     ),
-    component: <Default />
+    // component: <Default />
     // children: [
     //   {
     //     key: "task-list",

@@ -11,13 +11,12 @@ import {
   message,
   Result
 } from "antd";
-import usePostData from "api/usePostData";
 import { cekStatusReducer, beforeUpload } from "./reducer";
 import { capitalize, isEmpty, getBase64, formatBytes } from "utils/helpers";
 const { Search } = Input;
 const { Meta } = Card;
 
-export default function CekStatus() {
+export default function CekStatus(props) {
   const [state, dispatch] = useReducer(cekStatusReducer, {
     type: "init",
     nomorToken: null,
@@ -28,7 +27,7 @@ export default function CekStatus() {
   });
 
   const API = "user/cek-status";
-  const [results, postToken] = usePostData();
+  const {results, postToken} = props;
 
   useEffect(() => {
     const { isLoading, code, message } = results;
