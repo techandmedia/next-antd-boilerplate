@@ -79,7 +79,7 @@ export default function(props) {
                   <Menu.Item key={item.key}>
                     <div style={{ width: '10rem' }}>
                       <Link href={item.key}>
-                        <a>{item.title}</a>
+                        <a style={{ color: 'white' }}>{item.title}</a>
                       </Link>
                     </div>
                   </Menu.Item>
