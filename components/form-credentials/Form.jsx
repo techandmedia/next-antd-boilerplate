@@ -1,4 +1,5 @@
 import { useState, useContext, useEffect } from 'react';
+import Link from 'next/link';
 import { MenuContext } from 'context/Global-Context';
 import { Row, Col, Menu, Affix } from 'antd';
 import { HomeMenu } from '../../modules';
@@ -76,7 +77,11 @@ export default function(props) {
               {HomeMenu.map(item => {
                 return (
                   <Menu.Item key={item.key}>
-                    <div style={{ width: '10rem' }}>{item.title}</div>
+                    <div style={{ width: '10rem' }}>
+                      <Link href={item.key}>
+                        <a>{item.title}</a>
+                      </Link>
+                    </div>
                   </Menu.Item>
                 );
               })}

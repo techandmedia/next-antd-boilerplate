@@ -7,7 +7,7 @@ function Login(props) {
   /**
    * Didapat dari getInitialProps di bawah
    */
-  console.log(props.response)
+  // console.log(props.response)
 
   return <LoginModule results={results} postLogin={postLogin} />
 
@@ -16,9 +16,9 @@ function Login(props) {
 /**
  * Jika membutuhkan data di awal / sebelum component load
  */
-// Login.getInitialProps = async () => {
-// const response = await axios("URL")
-//   return { response: response,  }
-// }
+Login.getInitialProps = async () => {
+  // const response = await axios("URL")
+  return { response: "Andri" }
+}
 
 export default Login
