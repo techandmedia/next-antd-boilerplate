@@ -32,10 +32,12 @@ const API = "user/login";
 
 export default function Login(props) {
   const { dispatchUser } = useContext(UserContext);
-  const [results, postLogin] = usePostData();
+  const { results, postLogin } = props
+  // const [results, postLogin] = usePostData();
   const [modal, dispatchModal] = useModal();
 
   useEffect(() => {
+    console.log(results)
     const { isLoading, code } = results;
     if (!isLoading && code === 200) {
       dispatchModal({ type: "success", results });

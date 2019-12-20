@@ -1,8 +1,6 @@
 import dynamic from 'next/dynamic'
 import { Icon } from "antd";
 
-// const DynamicComponent = dynamic(() => import('../components/hello'))
-
 const Default = dynamic(() => import('./default'))
 const Profile = dynamic(() => import('./profile'))
 const UserList = dynamic(() => import('./user-list'))
@@ -32,7 +30,7 @@ const HomeMenu = [
     component: <h1>SISTEM INFORMASI AKADEMIKS</h1>
   },
   {
-    key: "login",
+    key: "/login",
     title: "masuk",
     component: <Login />
   },

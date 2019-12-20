@@ -35,10 +35,13 @@ export default class MyApp extends App {
   };
  */
 
+const baseURL = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "http://localhost:5000"
+
 const HeadTags = props => (
   <div>
     <Head>
       <title>SIAKAD - Akademi Perawat Bina Insan</title>
+      {/* <base href={baseURL} /> */}
       <meta name="theme-color" content="#00A88E" />
       <link rel="icon" sizes="192x192" href="/images/logo-akper.png" />
       <meta

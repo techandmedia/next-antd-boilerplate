@@ -4,13 +4,13 @@ import usePostData from "api/usePostData";
 const API = "user/login";
 
 function Login(props) {
-  const [response, postLogin] = usePostData()
+  const [results, postLogin] = usePostData()
 
-  React.useEffect(() => {
-    postLogin(API, { username: "17111004", password: "111" })
-  }, [])
+  // React.useEffect(() => {
+  //   postLogin(API, { username: "17111004", password: "111" })
+  // }, [])
 
-  return <LoginModule />
+  return <LoginModule results={results} postLogin={postLogin} />
 
 };
 
