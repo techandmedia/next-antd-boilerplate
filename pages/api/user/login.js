@@ -5,22 +5,24 @@ import escape from "sql-template-strings";
  */
 
 export default async function login(req, res) {
-  console.log("LOGIN", req.body);
+  // export default async function login(req, res) {
+  console.log("LOGIN API", req.body);
   const username = req.body.username;
   const password = req.body.password;
-  const queryLogin = escape`
-    SELECT * FROM user_login WHERE username = ${username}
-  `;
-  const { results, failed, error } = await mySQL.query(queryLogin);
-  // console.log(error.code);
+  // const queryLogin = escape`
+  //   SELECT * FROM user_login WHERE username = ${username}
+  // `;
+  // const { results, failed, error } = await mySQL.query(queryLogin);
+  // // console.log(error.code);
 
-  if (failed) {
-    res.send({
-      code: error.errno,
-      title: error.code,
-      message: error.sqlMessage
-    });
-  }
+  // if (failed) {
+  //   res.send({
+  //     code: error.errno,
+  //     title: error.code,
+  //     message: error.sqlMessage
+  //   });
+  //   return null
+  // }
 
   // if (error.code === undefined) {
   //   res.send({
@@ -31,36 +33,23 @@ export default async function login(req, res) {
   //   });
   // }
 
-  if (results.length > 0) {
-    if (results[0].password === password) {
-      res.send({
-        code: 200,
-        title: "login",
-        message: "login success",
-        data: results
-      });
-    } else {
-      res.send({
-        code: 210,
-        title: "login",
-        message: "username atau password salah",
-        data: []
-      });
-    }
-  } else {
-    res.send({
-      code: 201,
-      title: "login",
-      message: "username belum terdaftar",
-      data: []
-    });
-  }
-
-  /**
-   * UNTUK KEPERLUAN DEMO
-   */
-
-  // if (username !== "17111004") {
+  // if (results.length > 0) {
+  //   if (results[0].password === password) {
+  //     res.send({
+  //       code: 200,
+  //       title: "login",
+  //       message: "login success",
+  //       data: results
+  //     });
+  //   } else {
+  //     res.send({
+  //       code: 210,
+  //       title: "login",
+  //       message: "username atau password salah",
+  //       data: []
+  //     });
+  //   }
+  // } else {
   //   res.send({
   //     code: 201,
   //     title: "login",
@@ -69,19 +58,33 @@ export default async function login(req, res) {
   //   });
   // }
 
-  // if (username === "17111004" && password === "111") {
-  //   res.send({
-  //     code: 200,
-  //     title: "login",
-  //     message: "login success",
-  //     data: []
-  //   });
-  // } else {
-  //   res.send({
-  //     code: 210,
-  //     title: "login",
-  //     message: "username atau password salah",
-  //     data: []
-  //   });
-  // }
+  /**
+   * UNTUK KEPERLUAN DEMO
+   */
+
+  if (username !== "17111004") {
+    res.send({
+      code: 201,
+      title: "login",
+      message: "username belum terdaftar",
+      data: []
+    });
+    return null;
+  }
+
+  if (username === "17111004" && password === "111") {
+    res.send({
+      code: 200,
+      title: "login",
+      message: "login success",
+      data: []
+    });
+  } else {
+    res.send({
+      code: 210,
+      title: "login",
+      message: "username atau password salah",
+      data: []
+    });
+  }
 }
