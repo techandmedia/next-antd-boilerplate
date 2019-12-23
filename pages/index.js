@@ -6,7 +6,7 @@ import Modules, { DashboardModules, HomeModules } from "../modules";
 function Home(props) {
   const { menu } = useContext(MenuContext);
   const { user } = useContext(UserContext);
-  const modulesToRender = !user.isLoggedIn ? DashboardModules : HomeModules;
+  const modulesToRender = user.isLoggedIn ? DashboardModules : HomeModules;
 
   console.log(props, menu.menu, "baqhlul");
 
@@ -28,11 +28,5 @@ function Home(props) {
     </Row>
   );
 }
-
-Home.getInitialProps = async (req, res) => {
-  // console.log(await req);
-  console.log("Await res", await res);
-  return { tes: "Andri Masa sih ini bener" };
-};
 
 export default Home;

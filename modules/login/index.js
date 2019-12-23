@@ -2,11 +2,6 @@ import { useEffect, useContext } from "react";
 import { Form, Modal, useModal } from "components";
 import { UserContext } from "context/Global-Context";
 import usePostData from "api/usePostData";
-// const IMAGE_URL = "../static/img/login/";
-// const image1 = "Ucap-Janji-Akademi-Keperawatan-Bina-Insan-2016-13.jpg";
-// const image2 = "Ucap-Janji-Akademi-Keperawatan-Bina-Insan-2016-2.jpg";
-// const image3 = "Ucap-Janji-Akademi-Keperawatan-Bina-Insan-2016-6.jpg";
-// const image4 = "Ucap-Janji-Akademi-Keperawatan-Bina-Insan-2016-8.jpg";
 
 const formLogin = [
   {
