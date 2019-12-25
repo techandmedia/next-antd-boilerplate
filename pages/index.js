@@ -8,8 +8,6 @@ function Home(props) {
   const { user } = useContext(UserContext);
   const modulesToRender = user.isLoggedIn ? DashboardModules : HomeModules;
 
-  console.log(props, menu.menu, "baqhlul");
-
   function renderPage() {
     for (let i = 0; i < modulesToRender.length; i++) {
       if (modulesToRender[i].key === menu.menu) {
