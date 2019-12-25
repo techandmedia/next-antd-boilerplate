@@ -1,15 +1,18 @@
-import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic";
 import { Icon } from "antd";
 
 // const DynamicComponent = dynamic(() => import('../components/hello'))
 
-const Default = dynamic(() => import('./default'))
-const Profile = dynamic(() => import('./profile'))
-const UserList = dynamic(() => import('./user-list'))
-const LoginFailed = dynamic(() => import('./login-failed'))
-const Login = dynamic(() => import('./login'))
-const Register = dynamic(() => import('./register'))
-const CekStatus = dynamic(() => import('./cek-status'))
+const Default = dynamic(() => import("./default"));
+const Profile = dynamic(() => import("./profile"));
+const UserList = dynamic(() => import("./user-list"));
+const LoginFailed = dynamic(() => import("./login-failed"));
+const Login = dynamic(() => import("./login"));
+const Register = dynamic(() => import("./register"));
+const CekStatus = dynamic(() => import("./cek-status"));
+const CenterData = dynamic(() => import("./master-data/pusat"));
+const AcademicData = dynamic(() => import("./master-data/akademik"));
+const CivitasData = dynamic(() => import("./master-data/civitas"));
 
 // DEMO
 import DaftarDosen from "./daftar-dosen";
@@ -53,7 +56,7 @@ const DashboardMenu = [
     key: "default",
     title: (
       <span>
-        <Icon type="user" />
+        <Icon type="dashboard" />
         <span>Dashboard</span>
       </span>
     ),
@@ -139,7 +142,7 @@ const DashboardMenu = [
     key: "master-data",
     title: (
       <span>
-        <Icon type="notification" />
+        <Icon type="container" />
         <span>master data</span>
       </span>
     ),
@@ -147,17 +150,17 @@ const DashboardMenu = [
       {
         key: "master-pusat",
         title: "master pusat",
-        component: <h1>UNDER CONSTRUCTION</h1>
+        component: <CenterData />
       },
       {
         key: "akademik",
         title: "akademik",
-        component: <h1>UNDER CONSTRUCTION</h1>
+        component: <AcademicData />
       },
       {
         key: "civitas",
         title: "civitas",
-        component: <h1>UNDER CONSTRUCTION</h1>
+        component: <CivitasData />
       }
     ]
   },
