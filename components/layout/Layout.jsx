@@ -182,7 +182,7 @@ function DashboardLayout(props) {
           // margin: "24px 16px 0",
           overflow: "initial",
           padding: 24,
-          background: "#fff",
+          background: "#f6f4fc",
           minHeight: 280
         }}
       >

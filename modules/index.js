@@ -1,4 +1,4 @@
-import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic";
 import { Icon } from "antd";
 
 // const DynamicComponent = dynamic(() => import('../components/hello'))
@@ -54,7 +54,7 @@ const DashboardMenu = [
     key: "default",
     title: (
       <span>
-        <Icon type="user" />
+        <Icon type="dashboard" />
         <span>Dashboard</span>
       </span>
     ),
@@ -64,7 +64,7 @@ const DashboardMenu = [
     key: "master-data",
     title: (
       <span>
-        <Icon type="notification" />
+        <Icon type="container" />
         <span>master data</span>
       </span>
     ),
@@ -72,17 +72,17 @@ const DashboardMenu = [
       {
         key: "master-pusat",
         title: "master pusat",
-        component: <h1>UNDER CONSTRUCTION</h1>
+        component: <CenterData />
       },
       {
         key: "akademik",
         title: "akademik",
-        component: <h1>UNDER CONSTRUCTION</h1>
+        component: <AcademicData />
       },
       {
         key: "civitas",
         title: "civitas",
-        component: <h1>UNDER CONSTRUCTION</h1>
+        component: <CivitasData />
       }
     ]
   },
