@@ -5,12 +5,12 @@ import { Icon } from "antd";
 
 const Default = dynamic(() => import('./home-modules/default'))
 const Home = dynamic(() => import('./home-modules'))
-const Profile = dynamic(() => import('./profile'))
-const UserList = dynamic(() => import('./user-list'))
 const LoginFailed = dynamic(() => import('./home-modules/login-failed'))
-const Login = dynamic(() => import('./login'))
+const Login = dynamic(() => import('./home-modules/login'))
 const Register = dynamic(() => import('./home-modules/register'))
 const CekStatus = dynamic(() => import('./home-modules/cek-status'))
+const Profile = dynamic(() => import('./profile'))
+const UserList = dynamic(() => import('./user-list'))
 
 // DEMO
 import DaftarDosen from "./daftar-dosen";
@@ -33,20 +33,20 @@ const HomeMenu = [
     component: <Home />
   },
   {
-    key: "login",
-    title: "masuk",
-    component: <Login />
-  },
-  {
     key: "register",
     title: "pendaftaran",
     component: <Register />
   },
   {
     key: "status",
-    title: "daftar pengumuman kelulusan",
+    title: "ujian",
     component: <CekStatus />
-  }
+  },
+  {
+    key: "login",
+    title: "masuk",
+    component: <Login />
+  },
 ];
 
 const DashboardMenu = [

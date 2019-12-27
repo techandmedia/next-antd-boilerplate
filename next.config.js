@@ -70,19 +70,19 @@ module.exports = withLess({
    * exportTrailingSlash: true,
    */
 
-  exportPathMap: async function(
-    defaultPathMap,
-    { dev, dir, outDir, distDir, buildId }
-  ) {
-    return {
-      "/": { page: "/" },
-      // "api/config": { page: "api/config" },
-      // "api/user/login": { page: "api/user/login" }
-      // "/login": { page: "/login" },
-      // "/register": { page: "/register" },
-      // "/contact": { page: "/contact" },
-      // "/dashboard": { page: "/dashboard" },
-      // "/about": { page: "/about" }
-    };
-  }
+  // exportPathMap: async function(
+  //   defaultPathMap,
+  //   { dev, dir, outDir, distDir, buildId }
+  // ) {
+  //   return {
+  //     "/": { page: "/" },
+  //     // "api/config": { page: "api/config" },
+  //     // "api/user/login": { page: "api/user/login" }
+  //     // "/login": { page: "/login" },
+  //     // "/register": { page: "/register" },
+  //     // "/contact": { page: "/contact" },
+  //     // "/dashboard": { page: "/dashboard" },
+  //     // "/about": { page: "/about" }
+  //   };
+  // }
 });
