@@ -3,13 +3,14 @@ import { Icon } from "antd";
 
 // const DynamicComponent = dynamic(() => import('../components/hello'))
 
-const Default = dynamic(() => import('./default'))
+const Default = dynamic(() => import('./home-modules/default'))
+const Home = dynamic(() => import('./home-modules'))
 const Profile = dynamic(() => import('./profile'))
 const UserList = dynamic(() => import('./user-list'))
-const LoginFailed = dynamic(() => import('./login-failed'))
+const LoginFailed = dynamic(() => import('./home-modules/login-failed'))
 const Login = dynamic(() => import('./login'))
-const Register = dynamic(() => import('./register'))
-const CekStatus = dynamic(() => import('./cek-status'))
+const Register = dynamic(() => import('./home-modules/register'))
+const CekStatus = dynamic(() => import('./home-modules/cek-status'))
 
 // DEMO
 import DaftarDosen from "./daftar-dosen";
@@ -29,7 +30,7 @@ const HomeMenu = [
   {
     key: "default",
     title: "menu",
-    component: <h1>SISTEM INFORMASI AKADEMIKS</h1>
+    component: <Home />
   },
   {
     key: "login",
@@ -43,7 +44,7 @@ const HomeMenu = [
   },
   {
     key: "status",
-    title: "cek status",
+    title: "daftar pengumuman kelulusan",
     component: <CekStatus />
   }
 ];
@@ -58,83 +59,7 @@ const DashboardMenu = [
       </span>
     ),
     component: <Default />
-    // children: [
-    //   {
-    //     key: "task-list",
-    //     title: "Tasks List",
-    //   },
-    //   {
-    //     key: "user-list",
-    //     title: "User List",
-    //     component: <UserList />
-    //   },
-    //   {
-    //     key: "work-list",
-    //     title: "Work List"
-    //   }
-    // ]
   },
-  // {
-  //   key: "sub-menu-2",
-  //   title: (
-  //     <span>
-  //       <Icon type="laptop" />
-  //       <span>Tambahan</span>
-  //     </span>
-  //   ),
-  //   children: [
-  //     {
-  //       key: "dosen",
-  //       title: (
-  //         <span>
-  //           <span>Daftar Dosen</span>
-  //         </span>
-  //       ),
-  //       component: <DaftarDosen />
-  //     },
-  //     {
-  //       key: "user-list",
-  //       title: (
-  //         <span>
-  //           <span>User List</span>
-  //         </span>
-  //       ),
-  //       component: <UserList />
-  //     },
-  //     {
-  //       key: "22",
-  //       title: (
-  //         <span>
-  //           <span>Work List</span>
-  //         </span>
-  //       )
-  //     }
-  //   ]
-  // },
-  // {
-  //   key: "sub-menu-3",
-  //   title: (
-  //     <span>
-  //       <Icon type="notification" />
-  //       <span>User Profile</span>
-  //     </span>
-  //   ),
-  //   children: [
-  //     {
-  //       key: "profile",
-  //       title: "Profile",
-  //       component: <Profile />
-  //     },
-  //     {
-  //       key: "preference",
-  //       title: "Preference"
-  //     },
-  //     {
-  //       key: "change-password",
-  //       title: "Change Password"
-  //     }
-  //   ]
-  // },
   {
     key: "master-data",
     title: (
