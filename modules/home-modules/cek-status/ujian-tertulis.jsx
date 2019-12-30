@@ -12,9 +12,14 @@ const columns = [
     key: 'nama',
   },
   {
+    title: 'Nomor Ujian',
+    dataIndex: 'nomor_ujian',
+    key: 'nomor_ujian',
+  },
+  {
     title: 'Lulus',
-    dataIndex: 'lulus',
-    key: 'lulus',
+    dataIndex: 'status_ujian_tertulis',
+    key: 'status_ujian_tertulis',
   },
 ];
 
@@ -22,17 +27,20 @@ const data = [
   {
     key: '1',
     nama: 'John Brown',
-    lulus: 'YA',
+    nomor_ujian: 'BI.191001',
+    status_ujian_tertulis: 'lulus',
   },
   {
     key: '2',
     nama: 'Jim Green',
-    lulus: 'YA',
+    nomor_ujian: 'BI.191002',
+    status_ujian_tertulis: 'tidak lulus',
   },
   {
     key: '3',
     nama: 'Joe Black',
-    lulus: 'YA',
+    nomor_ujian: 'BI.191003',
+    status_ujian_tertulis: 'lulus',
   },
 ];
 
