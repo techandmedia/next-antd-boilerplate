@@ -8,7 +8,7 @@ const Home = dynamic(() => import('./home-modules'))
 const LoginFailed = dynamic(() => import('./home-modules/login-failed'))
 const Login = dynamic(() => import('./home-modules/login'))
 const Register = dynamic(() => import('./home-modules/register'))
-const CekStatus = dynamic(() => import('./home-modules/cek-status'))
+const Ujian = dynamic(() => import('./home-modules/ujian'))
 const Profile = dynamic(() => import('./profile'))
 const UserList = dynamic(() => import('./user-list'))
 
@@ -40,7 +40,7 @@ const HomeMenu = [
   {
     key: "status",
     title: "ujian",
-    component: <CekStatus />
+    component: <Ujian />
   },
   {
     key: "login",

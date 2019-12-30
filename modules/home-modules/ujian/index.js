@@ -14,9 +14,10 @@ import {
 import usePostData from "api/usePostData";
 import { cekStatusReducer, beforeUpload } from "./reducer";
 import { capitalize, isEmpty, getBase64, formatBytes } from "utils/helpers";
-import UjianTertulis from "./ujian-tertulis";
+import PengumumanUjian from "./pengumuman-ujian";
 const { Search } = Input;
-const { Meta } = Card; const { TabPane } = Tabs;
+const { Meta } = Card;
+const { TabPane } = Tabs;
 
 export default function CekStatus() {
   const [state, dispatch] = useReducer(cekStatusReducer, {
@@ -27,6 +28,7 @@ export default function CekStatus() {
     previewImage: "",
     previewVisible: false
   });
+  const [tabKey, setTabKey] = useState(null)
 
   const API = "user/cek-status";
   const [results, postToken] = usePostData();
@@ -97,11 +99,12 @@ export default function CekStatus() {
 
   function callback(key) {
     console.log(key);
+    setTabKey(key)
   }
 
   return (
     <div>
-      <h1>Daftar Pengumuman Kelulusan Ujian</h1>
+      <h1>Daftar Pengumuman Nomor dan Kelulusan Ujian</h1>
       <Search
         loading={results.isLoading}
         placeholder="Masukkan nomor token"
@@ -115,11 +118,15 @@ export default function CekStatus() {
         onSearch={handleSearch}
       />
       <Tabs onChange={callback} type="card">
-        <TabPane tab="Tertulis" key="1">
-          <UjianTertulis />
+        <TabPane tab="Nomor Ujian" key="nomor">
+          <PengumumanUjian tabKey={tabKey} />
         </TabPane>
-        <TabPane tab="Kesehatan" key="2">Under Construction
-    </TabPane>
+        <TabPane tab="Tertulis" key="tertulis">
+          <PengumumanUjian tabKey={tabKey} />
+        </TabPane>
+        <TabPane tab="Kesehatan" key="kesehatan">
+          <PengumumanUjian tabKey={tabKey} />
+        </TabPane>
       </Tabs>
       {state.nomorToken && (
         <Card style={{ marginTop: 16 }}>
