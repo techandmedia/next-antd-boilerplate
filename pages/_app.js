@@ -4,10 +4,6 @@ import Head from "next/head";
 import GlobalProvider from "../utils/context/Global-Context";
 import Layout from "components";
 import "../utils/style/ant-override.less";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { fas } from "@fortawesome/free-solid-svg-icons";
-
-library.add();
 
 export default class MyApp extends App {
   render() {
@@ -28,7 +24,7 @@ export default class MyApp extends App {
 /**
  Warning: You have opted-out of Automatic Static Optimization due to `getInitialProps` in `pages/_app`.
  Read more: https://err.sh/next.js/opt-out-auto-static-optimization
- 
+
  MyApp.getInitialProps = async (req, res) => {
    console.log("dari app nih", req);
    return { andri: "Tes dari APp" };

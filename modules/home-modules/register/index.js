@@ -1,36 +1,17 @@
 import { useEffect, useContext } from "react";
 import { Form, Modal, useModal } from "components";
 import { UserContext } from "context/Global-Context";
+import usePostData from "api/usePostData";
+import formRegister from "./form";
 
-const formLogin = [
-  {
-    field: "username",
-    placeholder: "Username",
-    icon: "user",
-    rules: [{ required: true, message: "Please input your username!" }]
-  },
-  {
-    field: "password",
-    placeholder: "Password",
-    icon: "lock",
-    rules: [
-      {
-        required: true,
-        message: "Please input your password!"
-      }
-    ]
-  }
-];
+const API = "user/register";
 
-const API = "user/login";
-
-export default function Login(props) {
+export default function Register(props) {
   const { dispatchUser } = useContext(UserContext);
-  const { results, postLogin } = props
+  const [results, postNewUser] = usePostData();
   const [modal, dispatchModal] = useModal();
 
   useEffect(() => {
-    console.log(results)
     const { isLoading, code } = results;
     if (!isLoading && code === 200) {
       dispatchModal({ type: "success", results });
@@ -52,9 +33,9 @@ export default function Login(props) {
     <React.Fragment>
       <Modal modal={modal} dispatchModal={dispatchModal} />
       <Form
-        loginForm
-        renderForm={formLogin}
-        postData={postLogin}
+        registerForm
+        renderForm={formRegister}
+        postData={postNewUser}
         API={API}
         {...props}
       />

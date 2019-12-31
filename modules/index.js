@@ -1,8 +1,22 @@
-import dynamic from 'next/dynamic'
+import dynamic from "next/dynamic";
 import { Icon } from "antd";
 
+// const DynamicComponent = dynamic(() => import('../components/hello'))
+
+const Default = dynamic(() => import("./home-modules/default"));
+const Home = dynamic(() => import("./home-modules"));
+const Profile = dynamic(() => import("./profile"));
+const UserList = dynamic(() => import("./user-list"));
+const LoginFailed = dynamic(() => import("./home-modules/login-failed"));
+const Login = dynamic(() => import("./home-modules/login"));
+const Register = dynamic(() => import("./home-modules/register"));
+const CekStatus = dynamic(() => import("./home-modules/cek-status"));
+const CenterData = dynamic(() => import("./master-data/pusat"));
+const AcademicData = dynamic(() => import("./master-data/akademik"));
+const CivitasData = dynamic(() => import("./master-data/civitas"));
+
 // DEMO
-// import DaftarDosen from "./daftar-dosen";
+import DaftarDosen from "./daftar-dosen";
 
 /**
  * Additional Modules is for Modules that do not have menu but usefull like
@@ -11,31 +25,30 @@ import { Icon } from "antd";
 const additional_Modules = [
   {
     key: "login-failed",
-    // component: <LoginFailed />
+    component: <LoginFailed />
   }
 ];
 
-
-
 const HomeMenu = [
   {
-    key: "/menu",
+    key: "default",
     title: "menu",
+    component: <Home />
   },
   {
-    key: "/menu/login",
+    key: "login",
     title: "masuk",
-    // component: <Login />
+    component: <Login />
   },
   {
-    key: "/menu/register",
+    key: "register",
     title: "pendaftaran",
-    // component: <Register />
+    component: <Register />
   },
   {
-    key: "/menu/status",
-    title: "cek status",
-    // component: <CekStatus />
+    key: "status",
+    title: "daftar pengumuman kelulusan",
+    component: <CekStatus />
   }
 ];
 
@@ -44,93 +57,17 @@ const DashboardMenu = [
     key: "default",
     title: (
       <span>
-        <Icon type="user" />
+        <Icon type="dashboard" />
         <span>Dashboard</span>
       </span>
     ),
-    // component: <Default />
-    // children: [
-    //   {
-    //     key: "task-list",
-    //     title: "Tasks List",
-    //   },
-    //   {
-    //     key: "user-list",
-    //     title: "User List",
-    //     component: <UserList />
-    //   },
-    //   {
-    //     key: "work-list",
-    //     title: "Work List"
-    //   }
-    // ]
+    component: <Default />
   },
-  // {
-  //   key: "sub-menu-2",
-  //   title: (
-  //     <span>
-  //       <Icon type="laptop" />
-  //       <span>Tambahan</span>
-  //     </span>
-  //   ),
-  //   children: [
-  //     {
-  //       key: "dosen",
-  //       title: (
-  //         <span>
-  //           <span>Daftar Dosen</span>
-  //         </span>
-  //       ),
-  //       component: <DaftarDosen />
-  //     },
-  //     {
-  //       key: "user-list",
-  //       title: (
-  //         <span>
-  //           <span>User List</span>
-  //         </span>
-  //       ),
-  //       component: <UserList />
-  //     },
-  //     {
-  //       key: "22",
-  //       title: (
-  //         <span>
-  //           <span>Work List</span>
-  //         </span>
-  //       )
-  //     }
-  //   ]
-  // },
-  // {
-  //   key: "sub-menu-3",
-  //   title: (
-  //     <span>
-  //       <Icon type="notification" />
-  //       <span>User Profile</span>
-  //     </span>
-  //   ),
-  //   children: [
-  //     {
-  //       key: "profile",
-  //       title: "Profile",
-  //       component: <Profile />
-  //     },
-  //     {
-  //       key: "preference",
-  //       title: "Preference"
-  //     },
-  //     {
-  //       key: "change-password",
-  //       title: "Change Password"
-  //     }
-  //   ]
-  // },
   {
     key: "master-data",
     title: (
       <span>
-        <Icon type="notification" />
+        <Icon type="container" />
         <span>master data</span>
       </span>
     ),
@@ -138,17 +75,17 @@ const DashboardMenu = [
       {
         key: "master-pusat",
         title: "master pusat",
-        component: <h1>UNDER CONSTRUCTION</h1>
+        component: <CenterData />
       },
       {
         key: "akademik",
         title: "akademik",
-        component: <h1>UNDER CONSTRUCTION</h1>
+        component: <AcademicData />
       },
       {
         key: "civitas",
         title: "civitas",
-        component: <h1>UNDER CONSTRUCTION</h1>
+        component: <CivitasData />
       }
     ]
   },

@@ -9,14 +9,16 @@ import {
   Modal,
   Button,
   message,
-  Result
+  Result, Tabs
 } from "antd";
+import usePostData from "api/usePostData";
 import { cekStatusReducer, beforeUpload } from "./reducer";
 import { capitalize, isEmpty, getBase64, formatBytes } from "utils/helpers";
+import UjianTertulis from "./ujian-tertulis";
 const { Search } = Input;
-const { Meta } = Card;
+const { Meta } = Card; const { TabPane } = Tabs;
 
-export default function CekStatus(props) {
+export default function CekStatus() {
   const [state, dispatch] = useReducer(cekStatusReducer, {
     type: "init",
     nomorToken: null,
@@ -27,7 +29,7 @@ export default function CekStatus(props) {
   });
 
   const API = "user/cek-status";
-  const {results, postToken} = props;
+  const [results, postToken] = usePostData();
 
   useEffect(() => {
     const { isLoading, code, message } = results;
@@ -93,9 +95,13 @@ export default function CekStatus(props) {
     </div>
   );
 
+  function callback(key) {
+    console.log(key);
+  }
+
   return (
     <div>
-      <h1>CEK STATUS</h1>
+      <h1>Daftar Pengumuman Kelulusan Ujian</h1>
       <Search
         loading={results.isLoading}
         placeholder="Masukkan nomor token"
@@ -108,6 +114,13 @@ export default function CekStatus(props) {
         enterButton
         onSearch={handleSearch}
       />
+      <Tabs onChange={callback} type="card">
+        <TabPane tab="Tertulis" key="1">
+          <UjianTertulis />
+        </TabPane>
+        <TabPane tab="Kesehatan" key="2">Under Construction
+    </TabPane>
+      </Tabs>
       {state.nomorToken && (
         <Card style={{ marginTop: 16 }}>
           <Skeleton loading={results.isLoading} active>
@@ -124,32 +137,32 @@ export default function CekStatus(props) {
                   subTitle="Verifikasi bukti pembayaran memakan waktu 1-5 hari kerja."
                 />
               ) : (
-                <div className="clearfix" style={{ marginTop: "1rem" }}>
-                  <Upload
-                    action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-                    listType="picture-card"
-                    onPreview={handlePreview}
-                    onChange={handleChange}
-                    beforeUpload={beforeUpload}
-                  >
-                    {state.fileList.length >= 2 ? null : uploadButton}
-                  </Upload>
-                  <Button onClick={() => handleProses(state.fileList)}>
-                    Proses
+                  <div className="clearfix" style={{ marginTop: "1rem" }}>
+                    <Upload
+                      action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                      listType="picture-card"
+                      onPreview={handlePreview}
+                      onChange={handleChange}
+                      beforeUpload={beforeUpload}
+                    >
+                      {state.fileList.length >= 2 ? null : uploadButton}
+                    </Upload>
+                    <Button onClick={() => handleProses(state.fileList)}>
+                      Proses
                   </Button>
-                  <Modal
-                    visible={state.previewVisible}
-                    footer={null}
-                    onCancel={handleCancel}
-                  >
-                    <img
-                      alt="example"
-                      style={{ width: "100%" }}
-                      src={state.previewImage}
-                    />
-                  </Modal>
-                </div>
-              )
+                    <Modal
+                      visible={state.previewVisible}
+                      footer={null}
+                      onCancel={handleCancel}
+                    >
+                      <img
+                        alt="example"
+                        style={{ width: "100%" }}
+                        src={state.previewImage}
+                      />
+                    </Modal>
+                  </div>
+                )
             ) : null}
           </Skeleton>
         </Card>

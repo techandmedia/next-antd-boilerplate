@@ -5,8 +5,7 @@ import escape from "sql-template-strings";
  */
 
 export default async function login(req, res) {
-  // export default async function login(req, res) {
-  console.log("LOGIN API", req.body);
+  console.log("LOGIN", req.body);
   const username = req.body.username;
   const password = req.body.password;
   // const queryLogin = escape`
@@ -21,7 +20,6 @@ export default async function login(req, res) {
   //     title: error.code,
   //     message: error.sqlMessage
   //   });
-  //   return null
   // }
 
   // if (error.code === undefined) {

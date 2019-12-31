@@ -1,13 +1,33 @@
 import { useEffect, useContext } from "react";
 import { Form, Modal, useModal } from "components";
 import { UserContext } from "context/Global-Context";
-import formRegister from "./form";
+import usePostData from "api/usePostData";
 
-const API = "user/register";
+const formLogin = [
+  {
+    field: "username",
+    placeholder: "Username",
+    icon: "user",
+    rules: [{ required: true, message: "Please input your username!" }]
+  },
+  {
+    field: "password",
+    placeholder: "Password",
+    icon: "lock",
+    rules: [
+      {
+        required: true,
+        message: "Please input your password!"
+      }
+    ]
+  }
+];
 
-export default function Register(props) {
-  const { results, postData } = props
+const API = "user/login";
+
+export default function Login(props) {
   const { dispatchUser } = useContext(UserContext);
+  const [results, postLogin] = usePostData();
   const [modal, dispatchModal] = useModal();
 
   useEffect(() => {
@@ -32,9 +52,9 @@ export default function Register(props) {
     <React.Fragment>
       <Modal modal={modal} dispatchModal={dispatchModal} />
       <Form
-        registerForm
-        renderForm={formRegister}
-        postData={postData}
+        loginForm
+        renderForm={formLogin}
+        postData={postLogin}
         API={API}
         {...props}
       />
