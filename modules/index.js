@@ -3,14 +3,17 @@ import { Icon } from "antd";
 
 // const DynamicComponent = dynamic(() => import('../components/hello'))
 
-const Default = dynamic(() => import('./home-modules/default'))
-const Home = dynamic(() => import('./home-modules'))
-const Profile = dynamic(() => import('./profile'))
-const UserList = dynamic(() => import('./user-list'))
-const LoginFailed = dynamic(() => import('./home-modules/login-failed'))
-const Login = dynamic(() => import('./login'))
-const Register = dynamic(() => import('./home-modules/register'))
-const CekStatus = dynamic(() => import('./home-modules/cek-status'))
+const Default = dynamic(() => import("./home-modules/default"));
+const Home = dynamic(() => import("./home-modules"));
+const Profile = dynamic(() => import("./profile"));
+const UserList = dynamic(() => import("./user-list"));
+const LoginFailed = dynamic(() => import("./home-modules/login-failed"));
+const Login = dynamic(() => import("./home-modules/login"));
+const Register = dynamic(() => import("./home-modules/register"));
+const CekStatus = dynamic(() => import("./home-modules/cek-status"));
+const CenterData = dynamic(() => import("./master-data/pusat"));
+const AcademicData = dynamic(() => import("./master-data/akademik"));
+const CivitasData = dynamic(() => import("./master-data/civitas"));
 
 // DEMO
 import DaftarDosen from "./daftar-dosen";
