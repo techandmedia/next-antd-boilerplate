@@ -1,5 +1,5 @@
-const URL_DEVELOPMENT = "/api/";
-const URL_PRODUCTION = "http://localhost:5000/api/";
+const URL_DEVELOPMENT = "http://localhost:3001/";
+const URL_PRODUCTION = "https://akper-service.subarnanto.com/";
 
 module.exports = {
   URL: process.env.NODE_ENV === "development" ? URL_DEVELOPMENT : URL_PRODUCTION

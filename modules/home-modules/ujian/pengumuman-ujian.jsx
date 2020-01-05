@@ -6,6 +6,18 @@ import default_columns, {
 } from './columns';
 
 export default function PengumumanUjian(props) {
+  const dataTertulis = [...data];
+  const dataKesehatan = data.filter(
+    item => item.status_ujian_tertulis === 'lulus',
+  );
+
+  const dataMasuk =
+    props.tabKey === 'nomor'
+      ? [...data]
+      : props.tabKey === 'tertulis'
+      ? [...dataTertulis]
+      : props.tabKey === 'kesehatan' && [...dataKesehatan];
+
   const columns =
     props.tabKey === 'nomor'
       ? [...default_columns]
@@ -19,7 +31,7 @@ export default function PengumumanUjian(props) {
   return (
     <Table
       columns={columns}
-      dataSource={data}
+      dataSource={dataMasuk}
       // scroll={{ x: 'calc(200px + 50%)', y: 240 }}
     />
   );

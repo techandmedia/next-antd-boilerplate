@@ -3,7 +3,6 @@ const formRegister = [
     label: "NIK",
     field: "nik",
     placeholder: "Masukkan NIK Anda",
-    // initialValue: profile ? defaultValue.user_name : "",
     rules: [
       {
         required: true,
@@ -28,22 +27,22 @@ const formRegister = [
     ]
   },
   {
-    label: "Nama Depan",
-    field: "nama_depan",
+    label: "Nama Lengkap",
+    field: "nama_lengkap",
     rules: [
       {
         required: true,
-        message: "Harap Masukkan Nama Depan!"
+        message: "Harap Masukkan Nama Anda!"
       }
     ]
   },
   {
-    label: "Nama Belakang",
-    field: "nama_belakang",
+    label: "Tempat Lahir",
+    field: "tempat_lahir",
     rules: [
       {
         required: true,
-        message: "Harap Masukkan Nama Belakang!"
+        message: "Harap Masukkan Tempat Lahir!"
       }
     ]
   },
@@ -59,7 +58,7 @@ const formRegister = [
   },
   {
     label: "Alamat",
-    field: "alamat",
+    field: "alamat_lengkap",
     rules: [
       {
         required: true,
@@ -68,18 +67,18 @@ const formRegister = [
     ]
   },
   {
-    label: "Kode Pos",
-    field: "id_kelurahan",
+    label: "Nomor HP",
+    field: "nomor_hp",
     rules: [
       {
         required: true,
-        message: "Harap Masukkan Kode Pos!"
+        message: "Harap Masukkan Nomor HP!"
       }
     ]
   },
   {
     label: "Warga Negara",
-    field: "id_warga_negara",
+    field: "warga_negara",
     rules: [
       {
         required: true,
@@ -108,24 +107,25 @@ const formRegister = [
     ]
   },
   {
-    label: "Nomor HP",
-    field: "nomor_hp",
-    rules: [
-      {
-        required: true,
-        message: "Harap Masukkan Nomor HP!"
-      }
-    ]
-  },
-  {
     label: "Asal Sekolah",
-    field: "id_asal_sekolah",
+    field: "asal_sekolah",
     rules: [
       {
         required: true,
         message: "Harap Masukkan Asal Sekolah!"
       }
     ]
+  },
+  {
+    label: "Bukti Bayar Ujian Tertulis",
+    field: "bukti_bayar_tertulis",
+    rules: [
+      {
+        required: true,
+        message: "Harap Upload Bukti Bayar Ujian Tertulis!"
+      }
+    ], 
+    // component: <Input addonAfter={<Icon type="upload" />} />
   }
 ];
 

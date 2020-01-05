@@ -28,10 +28,34 @@ export default function CekStatus() {
     previewImage: "",
     previewVisible: false
   });
-  const [tabKey, setTabKey] = useState(null)
+  const [tabKey, setTabKey] = useState("nomor")
 
   const API = "user/cek-status";
   const [results, postToken] = usePostData();
+  const [asalSekolah, getAsalSekolah] = usePostData()
+  const [hasilCariasalSekolah, cariAsalSekolah] = usePostData()
+
+  // useEffect(() => {
+  //   cariAsalSekolah("asal-sekolah", {
+  //     "type": "search",
+  //     "search": "penerbangan123123"
+  //   })
+
+  //   getAsalSekolah("asal-sekolah", {
+  //     "type": "get-page",
+  //     "page": 30,
+  //     "amount": 2000
+  //   })
+  // }, [])
+
+  useEffect(() => {
+    console.log(hasilCariasalSekolah)
+  }, [hasilCariasalSekolah])
+
+
+  useEffect(() => {
+    console.log(asalSekolah)
+  }, [asalSekolah])
 
   useEffect(() => {
     const { isLoading, code, message } = results;
