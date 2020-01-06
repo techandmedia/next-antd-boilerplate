@@ -16,19 +16,8 @@ const themeVariables = lessToJS(
 module.exports = withLess({
   env: {
     // Reference a variable that was defined in the .env file and make it available at Build Time
-    DB_HOST: process.env.DB_HOST,
-    DB_PORT: process.env.DB_PORT,
-    DB_USER: process.env.DB_USER,
-    DB_PASS: process.env.DB_PASS,
-    DB_DEV: process.env.DB_DEV,
-    DB_PROD: process.env.DB_PROD,
     URL_DEV: process.env.URL_DEVELOPMENT,
-    URL_PROD: process.env.URL_PRODUCTION,
-    MYSQL_HOST: process.env.MYSQL_HOST,
-    MYSQL_USER: process.env.MYSQL_USER,
-    MYSQL_PASSWORD: process.env.MYSQL_PASSWORD,
-    MYSQL_DATABASE_DEV: process.env.MYSQL_DATABASE_DEV,
-    MYSQL_DATABASE_PROD: process.env.MYSQL_DATABASE_PROD
+    URL_PROD: process.env.URL_PRODUCTION
   },
   lessLoaderOptions: {
     javascriptEnabled: true,

@@ -1,8 +1,12 @@
 import { useState, useEffect, useReducer, useContext } from "react";
 import axios from "axios";
-import config from "./config";
 
-const URL = config.URL;
+/**
+ * Ganti di sini untuk switch antar staging
+ * URL_DEV="http://localhost:3000/api/"
+ * URL_PROD="https://https://akper-service.subarnanto.com/"
+ */
+const URL = process.env.URL_DEV
 
 // ===== USE REDUCER ==========
 function fetchReducer(state, action) {
