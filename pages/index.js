@@ -16,6 +16,8 @@ function Home(props) {
     }
   }
 
+  console.log(process.env.DB_HOST)
+
   return (
     <Row type="flex" justify="center">
       <Col span={24}>

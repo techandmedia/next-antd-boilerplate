@@ -1,35 +1,56 @@
 import { useState, useEffect, useReducer, useContext } from "react";
 import axios from "axios";
-import config from "./config";
 
-const URL = config.URL;
+/**
+ * Ganti di sini untuk switch antar staging
+ * URL_DEV="http://localhost:3000/api/"
+ * URL_PROD="https://https://akper-service.subarnanto.com/"
+ */
+const URL = process.env.URL_DEV
 
 // ===== USE REDUCER ==========
 function fetchReducer(state, action) {
-  // console.log(state, action);
-  switch (action.type) {
+  // console.log(state);
+  // console.log(action);
+  const { type, result, } = action
+
+  switch (type) {
     case "FETCH_INIT":
       return {
-        ...state,
-        isLoading: true
+        code: "",
+        title: "",
+        message: "",
+        isLoading: true,
       };
+
     case "POST_SUCCESS":
-      const { result } = action;
+      console.log(result.data)
+      console.log(result.statusText)
       return {
         ...state,
-        code: result.data.code,
-        title: result.data.title,
-        message: result.data.message,
-        data: result.data.data,
+        code: result.status,
+        data: result.data,
+        message: result.data,
+        title: result.statusText,
         isLoading: false,
         isError: false
       };
+
     case "FETCH_FAILURE":
+      const {
+        statusCode,
+        error,
+        message } = result
+
       return {
         ...state,
+        code: statusCode,
+        title: error,
+        message,
         isLoading: false,
         isError: true
       };
+
     default:
       throw new Error();
   }
@@ -42,8 +63,7 @@ export default function usePostData() {
     code: "",
     title: "",
     message: "",
-    isLoading: false,
-    data: null
+    isLoading: true,
   });
 
   useEffect(() => {
@@ -51,17 +71,18 @@ export default function usePostData() {
 
     async function postData() {
       dispatch({ type: "FETCH_INIT" });
+      let result = null
+      const options = {
+        method: "post",
+        url: URL + API,
+        data: params,
+        xsrfCookieName: "XSRF-TOKEN",
+        xsrfHeaderName: "X-XSRF-TOKEN"
+      };
 
       try {
-        const options = {
-          method: "post",
-          url: URL + API,
-          data: params,
-          xsrfCookieName: "XSRF-TOKEN",
-          xsrfHeaderName: "X-XSRF-TOKEN"
-        };
-        const result = await axios(options);
-        console.log(result);
+        result = await axios(options);
+        console.log("result", result, URL + API);
 
         if (!didCancel) {
           dispatch({
@@ -72,9 +93,8 @@ export default function usePostData() {
           setParams("");
         }
       } catch (error) {
-        if (!didCancel) {
-          dispatch({ type: "FETCH_FAILURE" });
-        }
+        result = error.response.data
+        dispatch({ type: "FETCH_FAILURE", result });
       }
     }
 

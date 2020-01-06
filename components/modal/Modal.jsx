@@ -1,33 +1,44 @@
-import { useState, useReducer } from "react";
-import { Modal } from "antd";
+import { useState, useReducer } from 'react';
+import { Modal } from 'antd';
 
 function modalReducer(state, action) {
   // console.log(state, action);
   const { type, results } = action;
+  
   switch (type) {
-    case "success":
-      const { title, message } = results;
+    case 'success':
+      const { data } = results;
+      const { nik, email, nama_lengkap } = data;
       return {
         ...state,
         isModalVisible: true,
-        modalTitle: title,
-        modalMessage: message
+        modalTitle: results.title,
+        modalMessage: `${nama_lengkap} dengan nik: ${nik} berhasil dibuat`,
       };
-    case "modal-show":
+
+    case 'error':
+      return {
+        ...state,
+        isModalVisible: true,
+        modalTitle: results.title,
+        modalMessage: results.message,
+      };
+
+    case 'modal-show':
       return { ...state, isModalVisible: true };
-    case "modal-ok":
+
+    case 'modal-ok':
       return {
-        ...state,
         isModalVisible: false,
-        modalTitle: "",
-        modalMessage: ""
+        modalTitle: '',
+        modalMessage: '',
       };
-    case "modal-cancel":
+
+    case 'modal-cancel':
       return {
-        ...state,
         isModalVisible: false,
-        modalTitle: "",
-        modalMessage: ""
+        modalTitle: '',
+        modalMessage: '',
       };
     default:
       throw new Error();
@@ -37,8 +48,8 @@ function modalReducer(state, action) {
 export function useModal() {
   const [modal, dispatchModal] = useReducer(modalReducer, {
     isModalVisible: false,
-    modalTitle: "",
-    modalMessage: ""
+    modalTitle: '',
+    modalMessage: '',
   });
 
   return [modal, dispatchModal];
@@ -51,11 +62,11 @@ export default function CustomModal(props) {
   // console.log("modal", props);
 
   function handleOk() {
-    dispatchModal({ type: "modal-ok" });
+    dispatchModal({ type: 'modal-ok' });
   }
 
   function handleCancel() {
-    dispatchModal({ type: "modal-cancel" });
+    dispatchModal({ type: 'modal-cancel' });
   }
 
   return (
@@ -63,8 +74,7 @@ export default function CustomModal(props) {
       title={modalTitle}
       visible={isModalVisible}
       onOk={handleOk}
-      onCancel={handleCancel}
-    >
+      onCancel={handleCancel}>
       <p>{modalMessage}</p>
       {children}
     </Modal>
