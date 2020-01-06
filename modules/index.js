@@ -3,14 +3,17 @@ import { Icon } from "antd";
 
 // const DynamicComponent = dynamic(() => import('../components/hello'))
 
-const Default = dynamic(() => import('./home-modules/default'))
-const Home = dynamic(() => import('./home-modules'))
-const LoginFailed = dynamic(() => import('./home-modules/login-failed'))
-const Login = dynamic(() => import('./home-modules/login'))
-const Register = dynamic(() => import('./home-modules/pendaftaran'))
-const Ujian = dynamic(() => import('./home-modules/ujian'))
-const Profile = dynamic(() => import('./profile'))
-const UserList = dynamic(() => import('./user-list'))
+const Default = dynamic(() => import("./home-modules/default"));
+const Home = dynamic(() => import("./home-modules"));
+const Profile = dynamic(() => import("./profile"));
+const UserList = dynamic(() => import("./user-list"));
+const LoginFailed = dynamic(() => import("./home-modules/login-failed"));
+const Login = dynamic(() => import("./home-modules/login"));
+const Register = dynamic(() => import("./home-modules/register"));
+const CekStatus = dynamic(() => import("./home-modules/cek-status"));
+const CenterData = dynamic(() => import("./master-data/pusat"));
+const AcademicData = dynamic(() => import("./master-data/akademik"));
+const CivitasData = dynamic(() => import("./master-data/civitas"));
 
 // DEMO
 import DaftarDosen from "./daftar-dosen";
@@ -33,20 +36,20 @@ const HomeMenu = [
     component: <Home />
   },
   {
+    key: "login",
+    title: "masuk",
+    component: <Login />
+  },
+  {
     key: "register",
     title: "pendaftaran",
     component: <Register />
   },
   {
     key: "status",
-    title: "ujian",
-    component: <Ujian />
-  },
-  {
-    key: "login",
-    title: "masuk",
-    component: <Login />
-  },
+    title: "daftar pengumuman kelulusan",
+    component: <CekStatus />
+  }
 ];
 
 const DashboardMenu = [
