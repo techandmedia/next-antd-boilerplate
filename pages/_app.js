@@ -9,6 +9,7 @@ export default class MyApp extends App {
   render() {
     const { Component, pageProps, router } = this.props;
     const currentRoute = router.route;
+    console.log(currentRoute);
 
     return (
       <GlobalProvider>
@@ -31,7 +32,10 @@ export default class MyApp extends App {
   };
  */
 
-const baseURL = process.env.NODE_ENV === "development" ? "http://localhost:3000" : "http://localhost:5000"
+const baseURL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
+    : "http://localhost:5000";
 
 const HeadTags = props => (
   <div>

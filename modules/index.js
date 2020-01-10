@@ -11,8 +11,24 @@ const LoginFailed = dynamic(() => import("./home-modules/login-failed"));
 const Login = dynamic(() => import("./home-modules/login"));
 const Register = dynamic(() => import("./home-modules/register"));
 const CekStatus = dynamic(() => import("./home-modules/cek-status"));
+
+// MASTER data
+
+// PUSAT
 const CenterData = dynamic(() => import("./master-data/pusat"));
+const BadanHukum = dynamic(() => import("./master-data/pusat/badan-hukum"));
+const Inventaris = dynamic(() => import("./master-data/pusat/inventaris"));
+const PerguruanTinggi = dynamic(() =>
+  import("./master-data/pusat/perguruan-tinggi")
+);
+const Pimpinan = dynamic(() => import("./master-data/pusat/pimpinan"));
+const ProgramStudi = dynamic(() => import("./master-data/pusat/program-studi"));
+const Teknisi = dynamic(() => import("./master-data/pusat/teknisi"));
+
+// AKADEMIK
 const AcademicData = dynamic(() => import("./master-data/akademik"));
+
+// CIVITAS
 const CivitasData = dynamic(() => import("./master-data/civitas"));
 
 // DEMO
@@ -26,6 +42,30 @@ const additional_Modules = [
   {
     key: "login-failed",
     component: <LoginFailed />
+  },
+  {
+    key: "badan-hukum",
+    component: <BadanHukum />
+  },
+  {
+    key: "inventaris",
+    component: <Inventaris />
+  },
+  {
+    key: "perguruan-tinggi",
+    component: <PerguruanTinggi />
+  },
+  {
+    key: "pimpinan",
+    component: <Pimpinan />
+  },
+  {
+    key: "program-studi",
+    component: <ProgramStudi />
+  },
+  {
+    key: "teknisi",
+    component: <Teknisi />
   }
 ];
 
@@ -407,7 +447,7 @@ DashboardMenu.forEach(item => {
     DashboardModules.push({ key: item.key, component: item.component });
   }
 });
-
+console.log(DashboardModules);
 HomeMenu.forEach(item => {
   Modules.push({ key: item.key, component: item.component });
   HomeModules.push({ key: item.key, component: item.component });

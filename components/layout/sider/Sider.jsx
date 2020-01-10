@@ -36,14 +36,17 @@ export default function SideMenu({ collapsed, toggleCollapsed, collClick }) {
         defaultSelectedKeys={["default"]}
         // defaultOpenKeys={["sub-menu-1"]}
         style={{ backgroundColor: "initial" }}
-        onClick={handleMenuClick}
         // inlineCollapsed={collapsed}
       >
         {subMenu.map(item => {
           return (
-            <SubMenu key={item.key} title={item.title}>
+            <SubMenu
+              key={item.key}
+              title={item.title}
+              onClick={item.children ? false : handleMenuClick}
+            >
               {item.children.map(el => (
-                <Menu.Item key={el.key}>
+                <Menu.Item key={el.key} onClick={handleMenuClick}>
                   <span>{el.title}</span>
                 </Menu.Item>
               ))}
