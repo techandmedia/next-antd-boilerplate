@@ -57,17 +57,19 @@ function LegalForm(props) {
         extra={[]}
       />
       <Row gutter={48}>
-        <Col xs={24} md={12} lg={12}>
+        <Col xs={24} md={16} lg={16}>
+          {/* IDENTITAS START */}
           <Card
+            bordered={false}
+            title="Identitas"
+            extra={<Icon type="ellipsis" />}
             style={{
               width: "100%",
-              borderRadius: "1rem"
+              borderRadius: "1rem",
+              marginTop: "2rem"
             }}
             headStyle={{ borderBottom: 0 }}
-            bordered={false}
           >
-            {/* IDENTITAS START */}
-            <Title level={4}>Identitas</Title>
             <Col span={24}>
               <Form.Item label={<span>Kode</span>}>
                 {getFieldDecorator("kode", {
@@ -103,9 +105,21 @@ function LegalForm(props) {
                 })(<Input />)}
               </Form.Item>
             </Col>
-            {/* IDENTITAS END */}
-            {/* AKTA START */}
-            <Title level={4}>Akta Terakhir</Title>
+          </Card>
+          {/* IDENTITAS END */}
+          {/* AKTA START */}
+
+          <Card
+            bordered={false}
+            title="Akta Terakhir"
+            extra={<Icon type="ellipsis" />}
+            style={{
+              width: "100%",
+              borderRadius: "1rem",
+              marginTop: "2rem"
+            }}
+            headStyle={{ borderBottom: 0 }}
+          >
             <Col span={24}>
               <Form.Item label={<span>Akta</span>}>
                 {getFieldDecorator("akta", {
@@ -130,9 +144,20 @@ function LegalForm(props) {
                 })(<Input />)}
               </Form.Item>
             </Col>
-            {/* AKTA END */}
-            {/* PENGESAHAN START */}
-            <Title level={4}>Pengesahan</Title>
+          </Card>
+          {/* AKTA END */}
+          {/* PENGESAHAN START */}
+          <Card
+            bordered={false}
+            title="Pengesahan"
+            extra={<Icon type="ellipsis" />}
+            style={{
+              width: "100%",
+              borderRadius: "1rem",
+              marginTop: "2rem"
+            }}
+            headStyle={{ borderBottom: 0 }}
+          >
             <Col span={24}>
               <Form.Item label={<span>Nomor</span>}>
                 {getFieldDecorator("nomor", {
@@ -157,9 +182,20 @@ function LegalForm(props) {
                 })(<Input />)}
               </Form.Item>
             </Col>
-            {/* PENGESAHAN END */}
-            {/* ALAMAT START */}
-            <Title level={4}>Alamat</Title>
+          </Card>
+          {/* PENGESAHAN END */}
+          {/* ALAMAT START */}
+          <Card
+            bordered={false}
+            title="Alamat"
+            extra={<Icon type="ellipsis" />}
+            style={{
+              width: "100%",
+              borderRadius: "1rem",
+              marginTop: "2rem"
+            }}
+            headStyle={{ borderBottom: 0 }}
+          >
             <Col span={24}>
               <Form.Item label={<span>Jalan</span>}>
                 {getFieldDecorator("jalan", {
@@ -250,13 +286,13 @@ function LegalForm(props) {
                 })(<Input />)}
               </Form.Item>
             </Col>
-            {/* ALAMAT END */}
-            <Form.Item {...tailFormItemLayout}>
-              <Button type="primary" htmlType="submit">
-                Register
-              </Button>
-            </Form.Item>
           </Card>
+          {/* ALAMAT END */}
+          <Form.Item {...tailFormItemLayout}>
+            <Button type="primary" htmlType="submit" className="btn-long-form">
+              Simpan
+            </Button>
+          </Form.Item>
         </Col>
       </Row>
     </Form>

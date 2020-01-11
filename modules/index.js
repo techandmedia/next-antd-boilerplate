@@ -87,7 +87,7 @@ const HomeMenu = [
   },
   {
     key: "status",
-    title: "daftar pengumuman kelulusan",
+    title: "Pengumuman",
     component: <CekStatus />
   }
 ];

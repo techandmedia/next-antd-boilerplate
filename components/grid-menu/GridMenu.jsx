@@ -6,7 +6,7 @@ export default function GridMenu(props) {
   const onClickHandler = props.handleMenuClick ? props.handleMenuClick : null;
   const gridMenu = { cursor: "pointer", width: width };
   const gridIcon = { marginRight: "1rem" };
-
+  const styleDefault = { width: "100%" };
   const gridContent = menu.map((data, index) => {
     return (
       <Card.Grid
@@ -21,12 +21,7 @@ export default function GridMenu(props) {
   });
 
   return (
-    <Card
-      style={{
-        width: "100%"
-      }}
-      bordered={false}
-    >
+    <Card style={{ ...props.style, ...styleDefault }} bordered={false}>
       {gridContent}
     </Card>
   );

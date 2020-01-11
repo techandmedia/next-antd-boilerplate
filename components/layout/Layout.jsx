@@ -1,9 +1,9 @@
-import { useState, useContext } from 'react';
-import Link from 'next/link';
-import { UserContext, MenuContext } from 'context/Global-Context';
-import { Layout, Row, Col, Menu, Icon } from 'antd';
-import { CustomForm } from 'components';
-import { DashboardMenu, HomeMenu, rootSubmenuKeys } from '../../modules';
+import { useState, useContext } from "react";
+import Link from "next/link";
+import { UserContext, MenuContext } from "context/Global-Context";
+import { Layout, Row, Col, Menu, Icon } from "antd";
+import { CustomForm } from "components";
+import { DashboardMenu, HomeMenu, rootSubmenuKeys } from "../../modules";
 
 const { Content, Sider } = Layout;
 const { SubMenu } = Menu;
@@ -14,7 +14,7 @@ export default function CustomLayout(props) {
   const [collapsed, setCollapsed] = useState(false);
   const [onBreakpoint, setBreakPoint] = useState(null);
 
-  const [openKeys, setOpenKeys] = useState('default');
+  const [openKeys, setOpenKeys] = useState("default");
 
   function toggleCollapsed() {
     const varCollapsed = collapsed;
@@ -39,7 +39,7 @@ export default function CustomLayout(props) {
   }
 
   return (
-    <Layout style={{ height: '100vh' }}>
+    <Layout style={{ minHeight: "100vh" }}>
       <ChildrenLayout
         onBreakpoint={onBreakpoint}
         setBreakPoint={setBreakPoint}
@@ -70,10 +70,10 @@ function ChildrenLayout(props) {
 function HomeLayout(props) {
   return (
     <React.Fragment>
-      <div style={{ display: props.onBreakpoint ? 'block' : 'none' }}>
+      <div style={{ display: props.onBreakpoint ? "block" : "none" }}>
         <Sider
           className="home"
-          style={{ height: '100vh' }}
+          style={{ height: "100vh" }}
           breakpoint="lg"
           collapsedWidth="0"
           onBreakpoint={broken => {
@@ -85,7 +85,7 @@ function HomeLayout(props) {
         >
           <Menu
             mode="inline"
-            defaultSelectedKeys={['default']}
+            defaultSelectedKeys={["default"]}
             onClick={props.handleMenuClick}
           >
             {HomeMenu.map(item => {
@@ -102,23 +102,23 @@ function HomeLayout(props) {
         </Sider>
       </div>
       <Layout
-        style={{ width: '100vw', height: '100vh' }}
+        style={{ width: "100vw", height: "100vh" }}
         className="home login-bg"
       >
         <Row
           type="flex"
           justify="center"
           align="middle"
-          style={{ height: '100%' }}
+          style={{ height: "100%" }}
         >
-          <div style={{ width: 'auto' }}>
+          <div style={{ width: "auto" }}>
             <Col span={24}>
               <Content
                 className="content-home-section"
                 style={{
-                  overflow: 'initial',
-                  borderRadius: '4px',
-                  minWidth: '60rem'
+                  overflow: "initial",
+                  borderRadius: "4px",
+                  minWidth: "60rem"
                 }}
               >
                 <CustomForm currentRoute={props.currentRoute}>
@@ -139,18 +139,18 @@ function HomeLayout(props) {
 function DashboardLayout(props) {
   const logo = {
     height: 32,
-    background: 'rgba(255, 255, 255, 0.2)',
+    background: "rgba(255, 255, 255, 0.2)",
     margin: 16,
-    position: 'relative'
+    position: "relative"
   };
   return (
     <Layout className="dashboard">
       <div
-        className={props.collapsed ? 'trigger collapsed' : 'trigger'}
+        className={props.collapsed ? "trigger collapsed" : "trigger"}
         onClick={props.toggleCollapsed}
       />
       <Sider
-        style={{ overflowY: 'scroll', overflowX: 'hidden' }}
+        style={{ overflowY: "scroll", overflowX: "hidden" }}
         breakpoint="lg"
         collapsedWidth="0"
         trigger={null}
@@ -161,7 +161,7 @@ function DashboardLayout(props) {
         <div style={logo} />
         <Menu
           mode="inline"
-          defaultSelectedKeys={['default']}
+          defaultSelectedKeys={["default"]}
           onClick={props.handleMenuClick}
           onOpenChange={props.onOpenChange}
         >
@@ -183,12 +183,12 @@ function DashboardLayout(props) {
         </Menu>
       </Sider>
       <Content
-        className={props.collapsed ? 'collapsed' : ''}
+        className={props.collapsed ? "collapsed" : ""}
         style={{
           // margin: "24px 16px 0",
-          overflow: 'initial',
+          overflow: "initial",
           padding: 24,
-          background: '#fff',
+          background: "#f3f3f3",
           minHeight: 280
         }}
       >

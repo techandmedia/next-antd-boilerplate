@@ -1,4 +1,4 @@
-import { Input, Select, Button, Checkbox, Icon } from "antd";
+import { Input, Select, Button, Checkbox, Icon, Upload } from "antd";
 import { tailFormItemLayout, formItemLayout } from "components";
 
 const { Option } = Select;
@@ -63,6 +63,14 @@ export default function CustomForm({
   // const formToRender = [...renderForm, ...password];
   const formToRender = [...renderForm];
 
+  const normFile = e => {
+    console.log("Upload event:", e);
+    if (Array.isArray(e)) {
+      return e;
+    }
+    return e && e.fileList;
+  };
+
   if (loginForm) {
     return (
       <Form onSubmit={handleSubmit} className="login-form">
@@ -103,7 +111,7 @@ export default function CustomForm({
 
   return (
     <Form className="register-form" {...formItemLayout} onSubmit={handleSubmit}>
-      {formToRender.map(item => {
+      {formToRender.map((item, index) => {
         /**
          * For Readability, if then else
          * is better than itinerary operator
@@ -115,24 +123,46 @@ export default function CustomForm({
           return null;
         } else {
           return (
-            <Form.Item
-              label={item.label}
-              key={item.field}
-              hasFeedback={item.hasFeedback}
-            >
-              {getFieldDecorator(item.field, {
-                initialValue: item.initialValue,
-                rules: item.rules
-              })(
-                <Input
-                  key={item.label}
-                  placeholder={item.placeholder}
-                  onBlur={item.handleConfirmBlur}
-                  addonBefore={item.addonBefore}
-                  style={item.style}
-                />
-              )}
-            </Form.Item>
+            <div>
+              <Form.Item
+                label={item.label}
+                key={item.field}
+                hasFeedback={item.hasFeedback}
+              >
+                {getFieldDecorator(item.field, {
+                  initialValue: item.initialValue,
+                  rules: item.rules
+                })(
+                  <Input
+                    key={item.label}
+                    placeholder={item.placeholder}
+                    onBlur={item.handleConfirmBlur}
+                    addonBefore={item.addonBefore}
+                    style={item.style}
+                  />
+                )}
+              </Form.Item>
+              {index === formToRender.length - 1 ? (
+                <Form.Item label="Foto">
+                  {getFieldDecorator("foto", {
+                    valuePropName: "fileList",
+                    getValueFromEvent: normFile,
+                    rules: [
+                      { required: true, message: "Mohon unggah foto kamu!" }
+                    ]
+                  })(
+                    <Upload.Dragger name="files" action="/upload.do">
+                      <p className="ant-upload-drag-icon">
+                        <Icon type="inbox" />
+                      </p>
+                      <p className="ant-upload-text">
+                        Click or drag file to this area to upload
+                      </p>
+                    </Upload.Dragger>
+                  )}
+                </Form.Item>
+              ) : null}
+            </div>
           );
         }
       })}

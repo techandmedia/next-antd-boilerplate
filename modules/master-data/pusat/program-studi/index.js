@@ -1,45 +1,33 @@
-import {
-  Form,
-  Input,
-  Tooltip,
-  Icon,
-  Cascader,
-  Select,
-  Row,
-  Col,
-  Checkbox,
-  Button,
-  AutoComplete
-} from "antd";
-const { Option } = Select;
-const AutoCompleteOption = AutoComplete.Option;
+import { PageHeader, Table, Card, Icon } from "antd";
+import dataSource from "./data-source";
+import columns from "./column";
 
-function LegalForm(props) {
-  const { getFieldDecorator } = props.form;
+function ProgramStudyForm(props) {
   return (
-    <Form.Item
-      label={
-        <span>
-          Nickname&nbsp;
-          <Tooltip title="What do you want others to call you?">
-            <Icon type="question-circle-o" />
-          </Tooltip>
-        </span>
-      }
-    >
-      {getFieldDecorator("nickname", {
-        rules: [
-          {
-            required: true,
-            message: "Please input your nickname!",
-            whitespace: true
-          }
-        ]
-      })(<Input />)}
-    </Form.Item>
+    <div>
+      <PageHeader
+        onBack={() => null}
+        backIcon={false}
+        title="Program Studi"
+        subTitle=""
+        bordered={false}
+        extra={[]}
+      />
+      <Card
+        bordered={false}
+        title="Daftar Program Studi"
+        extra={<Icon type="ellipsis" />}
+        style={{
+          width: "100%",
+          borderRadius: "1rem",
+          marginTop: "2rem"
+        }}
+        headStyle={{ borderBottom: 0 }}
+      >
+        <Table dataSource={dataSource} columns={columns} />
+      </Card>
+    </div>
   );
 }
 
-const WrappedLegalForm = Form.create({ name: "badan-hukum" })(LegalForm);
-
-export default WrappedLegalForm;
+export default ProgramStudyForm;

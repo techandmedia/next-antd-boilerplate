@@ -7,7 +7,8 @@ const menu = [
   {
     key: "badan-hukum",
     icon: <Icon type="audit" />,
-    name: "Badan Hukum"
+    name: "Badan Hukum",
+    style: { borderRadius: "14px 0 0" }
   },
   {
     key: "perguruan-tinggi",
@@ -17,12 +18,14 @@ const menu = [
   {
     key: "program-studi",
     icon: <Icon type="experiment" />,
-    name: "Program Studi"
+    name: "Program Studi",
+    style: { borderRadius: "0 14px 0 0" }
   },
   {
     key: "pimpinan",
     icon: <Icon type="cluster" />,
-    name: "Pimpinan"
+    name: "Pimpinan",
+    style: { borderRadius: "0 0 0 14px" }
   },
   {
     key: "teknisi",
@@ -32,7 +35,8 @@ const menu = [
   {
     key: "inventaris",
     icon: <Icon type="car" />,
-    name: "Inventaris"
+    name: "Inventaris",
+    style: { borderRadius: "0 0 14px" }
   }
 ];
 export default function Content() {
@@ -58,7 +62,13 @@ export default function Content() {
       />
       <Row gutter={48}>
         <Col span={24}>
-          <GridMenu menu={menu} handleMenuClick={handleMenuClick} />
+          <GridMenu
+            menu={menu}
+            handleMenuClick={handleMenuClick}
+            style={{
+              borderRadius: 14
+            }}
+          />
         </Col>
       </Row>
     </div>

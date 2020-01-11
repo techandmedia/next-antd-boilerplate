@@ -114,12 +114,12 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f46f22",endColorstr="#05b7f1",GradientType=1);
 }
 
-@trigger-width : 6px;
-@trigger-height : 1.5px;
-@trigger-top : 45%;
-@trigger-left : 25%;
-@trigger-background : white;
-@trigger-position : absolute;
+@trigger-width: 6px;
+@trigger-height: 1.5px;
+@trigger-top: 45%;
+@trigger-left: 25%;
+@trigger-background: white;
+@trigger-position: absolute;
 
 .trigger {
   left: 15.5rem;
@@ -128,7 +128,7 @@
   background: @akper-tosca;
   height: 1.2rem;
   width: 1.2rem;
-  position: absolute;
+  position: fixed;
   bottom: 2.5rem;
   border-radius: 50%;
   box-shadow: 2px 3px 5px 0px #0000005c;
@@ -155,7 +155,7 @@
   }
 }
 
-@collapsed-trigger-left : 45%;
+@collapsed-trigger-left: 45%;
 .collapsed.trigger {
   left: -0.5rem;
   &::after {
@@ -208,4 +208,10 @@
 }
 .fading.fadeOut {
   opacity: 0;
+}
+.btn-long-form {
+  position: fixed;
+  bottom: 7.5vh;
+  right: 30vw;
+  cursor: pointer;
 }
