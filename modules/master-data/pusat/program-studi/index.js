@@ -1,8 +1,12 @@
 import { PageHeader, Table, Card, Icon } from "antd";
+import tableRules from "table-rules";
 import dataSource from "./data-source";
 import columns from "./column";
 
 function ProgramStudyForm(props) {
+  const datas = dataSource();
+  const column = columns();
+  console.log(tableRules);
   return (
     <div>
       <PageHeader
@@ -24,7 +28,7 @@ function ProgramStudyForm(props) {
         }}
         headStyle={{ borderBottom: 0 }}
       >
-        <Table dataSource={dataSource} columns={columns} />
+        <Table {...tableRules} dataSource={datas} columns={column} />
       </Card>
     </div>
   );

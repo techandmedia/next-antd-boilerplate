@@ -46,12 +46,16 @@ module.exports = withLess({
     }
 
     config.resolve.alias["components"] = path.join(__dirname, "components");
+    config.resolve.alias["utils"] = path.join(__dirname, "utils");
     config.resolve.alias["api"] = path.join(__dirname, "utils/api");
     config.resolve.alias["context"] = path.join(__dirname, "utils/context");
-    config.resolve.alias["utils"] = path.join(__dirname, "utils");
+    config.resolve.alias["table-rules"] = path.join(
+      __dirname,
+      "utils/table-default-rules"
+    );
 
     return config;
-  },
+  }
   /**
    * Jadi begini "www.domain/login/" kalau di address bar
    * Remove this line atau make it false

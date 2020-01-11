@@ -1,5 +1,7 @@
 export default function dataSource() {
-  return [
+  let cssRow = "no-wrap text-capitalize";
+
+  let datas = [
     {
       key: "1",
       name: "Mike",
@@ -13,4 +15,6 @@ export default function dataSource() {
       address: "10 Downing Street"
     }
   ];
+
+  return datas;
 }
