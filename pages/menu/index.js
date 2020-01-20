@@ -1,11 +1,11 @@
-import HomeMenu from '../../modules/menu/home-menu'
-import usePostData from "api/usePostData";
+import HomeMenu from '../../modules/menu/home-menu';
+import usePostData from 'api/usePostData';
 
-const API = "user/login";
+const API = 'user/login';
 
 function Menu(props) {
-  return <HomeMenu />
-};
+  return <HomeMenu />;
+}
 
 /**
  * Jika membutuhkan data di awal / sebelum component load
@@ -15,4 +15,4 @@ function Menu(props) {
 //   return { response: response,  }
 // }
 
-export default Menu
+export default Menu;

@@ -1,20 +1,20 @@
 export default function dataReducer(state, action) {
-  console.log("TEST", state);
-  console.log("TEST", action);
+  console.log('TEST', state);
+  console.log('TEST', action);
   const { type, user, data } = action;
 
   switch (type) {
-    case "init":
-      const API_FOR_NEW_TASK = "api/task/new-task";
-      const API_FOR_UPDATE_TASK = "api/users/update-task";
-      const API_TO_DELETE_TASK = "api/users/delete-task";
-      const API_FOR_ALL_TASKS = "api/users/tasks";
+    case 'init':
+      const API_FOR_NEW_TASK = 'api/task/new-task';
+      const API_FOR_UPDATE_TASK = 'api/users/update-task';
+      const API_TO_DELETE_TASK = 'api/users/delete-task';
+      const API_FOR_ALL_TASKS = 'api/users/tasks';
       const profile = user.detail[0];
-      const isAdmin = profile.group_name === "admin" ? true : false;
+      const isAdmin = profile.group_name === 'admin' ? true : false;
       const id_group =
-        profile.group_name === "admin"
+        profile.group_name === 'admin'
           ? 10001
-          : profile.group_name === "manager"
+          : profile.group_name === 'manager'
           ? 10005
           : 10010;
       const user_name = profile.user_name;
@@ -23,65 +23,65 @@ export default function dataReducer(state, action) {
 
       const columns = [
         {
-          title: "Full Name",
-          dataIndex: "user_full_name",
-          key: "user_full_name",
+          title: 'Full Name',
+          dataIndex: 'user_full_name',
+          key: 'user_full_name',
           editable: isAdmin,
           width: 200,
-          fixed: "left"
+          fixed: 'left',
         },
         {
-          title: "User Name",
-          dataIndex: "user_name",
-          key: "user_name",
+          title: 'User Name',
+          dataIndex: 'user_name',
+          key: 'user_name',
           width: 200,
-          editable: isAdmin
+          editable: isAdmin,
         },
         {
-          title: "Notes 1",
-          dataIndex: "notes_one",
-          key: "notes_one",
+          title: 'Notes 1',
+          dataIndex: 'notes_one',
+          key: 'notes_one',
           width: 200,
-          editable: true
+          editable: true,
         },
         {
-          title: "Notes 2",
-          dataIndex: "notes_two",
-          key: "notes_two",
+          title: 'Notes 2',
+          dataIndex: 'notes_two',
+          key: 'notes_two',
           width: 200,
-          editable: true
+          editable: true,
         },
         {
-          title: "Notes 3",
-          dataIndex: "notes_three",
-          key: "notes_three",
+          title: 'Notes 3',
+          dataIndex: 'notes_three',
+          key: 'notes_three',
           width: 200,
-          editable: true
+          editable: true,
         },
         {
-          title: "Grup",
-          dataIndex: "group_name",
-          key: "group_name",
+          title: 'Grup',
+          dataIndex: 'group_name',
+          key: 'group_name',
           width: 100,
-          editable: isAdmin
+          editable: isAdmin,
         },
         {
-          title: "Date",
+          title: 'Date',
           children: [
             {
-              title: "Created",
-              dataIndex: "created",
-              key: "created",
-              width: 100
+              title: 'Created',
+              dataIndex: 'created',
+              key: 'created',
+              width: 100,
             },
             {
-              title: "Modified",
-              dataIndex: "modified",
-              key: "modified",
-              width: 100
-            }
-          ]
-        }
+              title: 'Modified',
+              dataIndex: 'modified',
+              key: 'modified',
+              width: 100,
+            },
+          ],
+        },
       ];
 
       return {
@@ -97,10 +97,10 @@ export default function dataReducer(state, action) {
         API_FOR_NEW_TASK,
         API_FOR_UPDATE_TASK,
         API_TO_DELETE_TASK,
-        columns
+        columns,
       };
 
-    case "fetch":
+    case 'fetch':
       let temp = [];
       data.data.map(item => {
         const created = new Date(item.created);
@@ -110,14 +110,14 @@ export default function dataReducer(state, action) {
         temp.push({
           ...item,
           isUnderWorkingHour:
-            result >= state.preffered_working_hours ? true : false
+            result >= state.preffered_working_hours ? true : false,
         });
       });
 
       return {
         ...state,
         data: temp,
-        isLoading: false
+        isLoading: false,
       };
     default:
       throw new Error();

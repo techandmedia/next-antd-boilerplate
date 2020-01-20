@@ -1,7 +1,7 @@
-import { PageHeader, Table, Card, Icon } from "antd";
-import tableRules from "table-rules";
-import dataSource from "./data-source";
-import columns from "./column";
+import { PageHeader, Table, Card, Icon } from 'antd';
+import tableRules from 'table-rules';
+import dataSource from './data-source';
+import columns from './column';
 
 function ProgramStudyForm(props) {
   const datas = dataSource();
@@ -22,9 +22,9 @@ function ProgramStudyForm(props) {
         title="Daftar Program Studi"
         extra={<Icon type="ellipsis" />}
         style={{
-          width: "100%",
-          borderRadius: "1rem",
-          marginTop: "2rem"
+          width: '100%',
+          borderRadius: '1rem',
+          marginTop: '2rem',
         }}
         headStyle={{ borderBottom: 0 }}
       >

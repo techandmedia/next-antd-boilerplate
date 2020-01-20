@@ -1,7 +1,7 @@
-import { Menu, Icon, Dropdown } from "antd";
+import { Menu, Icon, Dropdown } from 'antd';
 
 export default function columns() {
-  let cssRow = "no-wrap text-capitalize";
+  let cssRow = 'no-wrap text-capitalize';
 
   function menu(record) {
     return (
@@ -17,21 +17,21 @@ export default function columns() {
 
   let dataColumns = [
     {
-      title: "name",
-      dataIndex: "name"
+      title: 'name',
+      dataIndex: 'name',
     },
     {
-      title: "age",
-      dataIndex: "age"
+      title: 'age',
+      dataIndex: 'age',
     },
     {
-      title: "address",
-      dataIndex: "address"
+      title: 'address',
+      dataIndex: 'address',
     },
     {
-      title: "",
-      dataIndex: "operation",
-      key: "operation",
+      title: '',
+      dataIndex: 'operation',
+      key: 'operation',
       width: 60,
       render: (text, record) => {
         return (
@@ -43,8 +43,8 @@ export default function columns() {
             </Dropdown>
           </React.Fragment>
         );
-      }
-    }
+      },
+    },
   ];
 
   return dataColumns;

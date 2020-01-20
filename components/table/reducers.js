@@ -1,17 +1,17 @@
 export default function menuReducer(state, action) {
-  console.log("TEST", state);
-  console.log("TEST", action);
+  console.log('TEST', state);
+  console.log('TEST', action);
   const { key } = action;
 
   switch (key) {
     case 1:
       return {
-        ...state
+        ...state,
       };
 
     case 2:
       return {
-        ...state
+        ...state,
       };
     default:
       throw new Error();

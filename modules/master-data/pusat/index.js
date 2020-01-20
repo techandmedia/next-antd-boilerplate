@@ -1,43 +1,43 @@
-import { useContext } from "react";
-import { Row, Col, Card, PageHeader, Icon, Tag } from "antd";
-import { MenuContext } from "context/Global-Context";
-import { GridMenu } from "components";
+import { useContext } from 'react';
+import { Row, Col, Card, PageHeader, Icon, Tag } from 'antd';
+import { MenuContext } from 'context/Global-Context';
+import { GridMenu } from 'components';
 
 const menu = [
   {
-    key: "badan-hukum",
+    key: 'badan-hukum',
     icon: <Icon type="audit" />,
-    name: "Badan Hukum",
-    style: { borderRadius: "14px 0 0" }
+    name: 'Badan Hukum',
+    style: { borderRadius: '14px 0 0' },
   },
   {
-    key: "perguruan-tinggi",
+    key: 'perguruan-tinggi',
     icon: <Icon type="bank" />,
-    name: "Perguruan Tinggi"
+    name: 'Perguruan Tinggi',
   },
   {
-    key: "program-studi",
+    key: 'program-studi',
     icon: <Icon type="experiment" />,
-    name: "Program Studi",
-    style: { borderRadius: "0 14px 0 0" }
+    name: 'Program Studi',
+    style: { borderRadius: '0 14px 0 0' },
   },
   {
-    key: "pimpinan",
+    key: 'pimpinan',
     icon: <Icon type="cluster" />,
-    name: "Pimpinan",
-    style: { borderRadius: "0 0 0 14px" }
+    name: 'Pimpinan',
+    style: { borderRadius: '0 0 0 14px' },
   },
   {
-    key: "teknisi",
+    key: 'teknisi',
     icon: <Icon type="tool" />,
-    name: "Teknisi / Lab"
+    name: 'Teknisi / Lab',
   },
   {
-    key: "inventaris",
+    key: 'inventaris',
     icon: <Icon type="car" />,
-    name: "Inventaris",
-    style: { borderRadius: "0 0 14px" }
-  }
+    name: 'Inventaris',
+    style: { borderRadius: '0 0 14px' },
+  },
 ];
 export default function Content() {
   const { dispatchMenu } = useContext(MenuContext);
@@ -55,9 +55,9 @@ export default function Content() {
         subTitle=""
         bordered={false}
         extra={[
-          <Tag style={{ color: "black" }} key="2" color="white">
+          <Tag style={{ color: 'black' }} key="2" color="white">
             <Icon type="search" />
-          </Tag>
+          </Tag>,
         ]}
       />
       <Row gutter={48}>
@@ -66,7 +66,7 @@ export default function Content() {
             menu={menu}
             handleMenuClick={handleMenuClick}
             style={{
-              borderRadius: 14
+              borderRadius: 14,
             }}
           />
         </Col>

@@ -1,29 +1,29 @@
-import { useEffect, useContext } from "react";
-import { Form, Modal, useModal } from "components";
-import { UserContext } from "context/Global-Context";
-import usePostData from "api/usePostData";
+import { useEffect, useContext } from 'react';
+import { Form, Modal, useModal } from 'components';
+import { UserContext } from 'context/Global-Context';
+import usePostData from 'api/usePostData';
 
 const formLogin = [
   {
-    field: "username",
-    placeholder: "Username",
-    icon: "user",
-    rules: [{ required: true, message: "Please input your username!" }]
+    field: 'username',
+    placeholder: 'Username',
+    icon: 'user',
+    rules: [{ required: true, message: 'Please input your username!' }],
   },
   {
-    field: "password",
-    placeholder: "Password",
-    icon: "lock",
+    field: 'password',
+    placeholder: 'Password',
+    icon: 'lock',
     rules: [
       {
         required: true,
-        message: "Please input your password!"
-      }
-    ]
-  }
+        message: 'Please input your password!',
+      },
+    ],
+  },
 ];
 
-const API = "user/login";
+const API = 'user/login';
 
 export default function Login(props) {
   const { dispatchUser } = useContext(UserContext);
@@ -33,18 +33,18 @@ export default function Login(props) {
   useEffect(() => {
     const { isLoading, code } = results;
     if (!isLoading && code === 200) {
-      dispatchModal({ type: "success", results });
+      dispatchModal({ type: 'success', results });
       setTimeout(() => {
         dispatchUser({
-          type: "login-success",
+          type: 'login-success',
           data: results.data,
-          cookie: "COOKIES"
+          cookie: 'COOKIES',
         });
       }, 1000);
     }
 
     if (!isLoading && code > 200) {
-      dispatchModal({ type: "success", results });
+      dispatchModal({ type: 'success', results });
     }
   }, [results]);
 

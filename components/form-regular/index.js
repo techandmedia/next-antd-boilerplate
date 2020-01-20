@@ -1,6 +1,6 @@
-import { Form, Row, Col } from "antd";
-import Methods from "./methods";
-import NewForm from "./Form";
+import { Form, Row, Col } from 'antd';
+import Methods from './methods';
+import NewForm from './Form';
 
 class CustomForm extends React.Component {
   constructor() {
@@ -8,7 +8,7 @@ class CustomForm extends React.Component {
     this.methods = new Methods();
     this.state = {
       confirmDirty: false,
-      autoCompleteResult: []
+      autoCompleteResult: [],
     };
   }
 
@@ -38,7 +38,7 @@ class CustomForm extends React.Component {
       value,
       callback,
       this.props,
-      this.state
+      this.state,
     );
   };
 
@@ -49,18 +49,18 @@ class CustomForm extends React.Component {
       loginForm,
       renderForm,
       defaultValue,
-      registerForm
+      registerForm,
     } = this.props;
     const {
       compareToFirstPassword,
       validateToNextPassword,
-      handleSubmit
+      handleSubmit,
     } = this;
 
     return (
       <Row type="flex" justify="center">
         <Col span={24}>
-          <div style={{ textAlign: "left" }}>
+          <div style={{ textAlign: 'left' }}>
             {loginForm ? (
               <h1 style={{ marginBottom: 15 }}>AKSES MASUK</h1>
             ) : registerForm ? (
@@ -89,6 +89,6 @@ class CustomForm extends React.Component {
   }
 }
 
-const WrappedCustomForm = Form.create({ name: "form" })(CustomForm);
+const WrappedCustomForm = Form.create({ name: 'form' })(CustomForm);
 
 export default WrappedCustomForm;

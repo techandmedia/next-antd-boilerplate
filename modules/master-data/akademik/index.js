@@ -1,42 +1,42 @@
-import { Row, Col, Card, PageHeader, Icon, Tag } from "antd";
-import { GridMenu } from "components";
+import { Row, Col, Card, PageHeader, Icon, Tag } from 'antd';
+import { GridMenu } from 'components';
 const menu = [
   {
     icon: <Icon type="file-done" />,
-    name: "Kurikulum"
+    name: 'Kurikulum',
   },
   {
     icon: <Icon type="read" />,
-    name: "Mata Kuliah"
+    name: 'Mata Kuliah',
   },
   {
     icon: <Icon type="percentage" />,
-    name: "Bobot Nilai"
+    name: 'Bobot Nilai',
   },
   {
     icon: <Icon type="number" />,
-    name: "Predikat"
+    name: 'Predikat',
   },
   {
     icon: <Icon type="laptop" />,
-    name: "Fasilitas Penunjang"
+    name: 'Fasilitas Penunjang',
   },
   {
     icon: <Icon type="paper-clip" />,
-    name: "Batas SKS"
+    name: 'Batas SKS',
   },
   {
     icon: <Icon type="team" />,
-    name: "Kelas"
+    name: 'Kelas',
   },
   {
     icon: <Icon type="clock-circle" />,
-    name: "Jam Kuliah"
+    name: 'Jam Kuliah',
   },
   {
     icon: <Icon type="diff" />,
-    name: "Set Kurikulum"
-  }
+    name: 'Set Kurikulum',
+  },
 ];
 export default function Content() {
   return (
@@ -48,9 +48,9 @@ export default function Content() {
         subTitle=""
         bordered={false}
         extra={[
-          <Tag style={{ color: "black" }} key="2" color="white">
+          <Tag style={{ color: 'black' }} key="2" color="white">
             <Icon type="search" />
-          </Tag>
+          </Tag>,
         ]}
       />
       <Row gutter={48}>

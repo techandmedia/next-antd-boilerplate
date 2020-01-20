@@ -1,11 +1,11 @@
-import { useEffect, useContext } from "react";
-import { Form, } from 'antd';
-import { Modal, useModal } from "components";
-import FormPendaftaran from './Pendaftaran'
-import usePostData from "api/usePostData";
+import { useEffect, useContext } from 'react';
+import { Form } from 'antd';
+import { Modal, useModal } from 'components';
+import FormPendaftaran from './Pendaftaran';
+import usePostData from 'api/usePostData';
 
 function Pendaftaran(props) {
-  const { getFieldDecorator, validateFieldsAndScroll } = props.form
+  const { getFieldDecorator, validateFieldsAndScroll } = props.form;
   const [results, postNewUser] = usePostData();
   const [modal, dispatchModal] = useModal();
 
@@ -13,11 +13,11 @@ function Pendaftaran(props) {
     const { isLoading, code } = results;
 
     if (!isLoading && code >= 200 && code < 300) {
-      dispatchModal({ type: "success", results });
+      dispatchModal({ type: 'success', results });
     }
 
     if (!isLoading && code >= 300) {
-      dispatchModal({ type: "error", results });
+      dispatchModal({ type: 'error', results });
     }
   }, [results]);
 
@@ -37,7 +37,8 @@ function Pendaftaran(props) {
           tinggi_badan,
           berat_badan,
           asal_sekolah,
-          bukti_bayar_tertulis } = values
+          bukti_bayar_tertulis,
+        } = values;
 
         postNewUser('pendaftaran-ujian/sign-up', {
           nik,
@@ -54,7 +55,7 @@ function Pendaftaran(props) {
         });
       }
     });
-  };
+  }
 
   return (
     <React.Fragment>

@@ -1,1 +1,1 @@
-export { default as SideMenu } from "./Sider";
+export { default as SideMenu } from './Sider';

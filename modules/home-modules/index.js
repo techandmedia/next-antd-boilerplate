@@ -1,4 +1,4 @@
-import { Tabs } from "antd";
+import { Tabs } from 'antd';
 
 const { TabPane } = Tabs;
 
@@ -12,7 +12,7 @@ export default function HomeMenu() {
       <TabPane tab="Visi Misi" key="1">
         Visi dan Misi Akper Bina Insan Jakarta
       </TabPane>
-      <TabPane tab="Tata Cara Pendaftaran" key="2" style={{ width: "20em" }}>
+      <TabPane tab="Tata Cara Pendaftaran" key="2" style={{ width: '20em' }}>
         Tata Cara Pendaftaran
         <ol>
           <li>

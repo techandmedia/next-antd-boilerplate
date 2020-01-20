@@ -2,23 +2,23 @@ export default function menuReducer(state, action) {
   // console.log(state, action);
   const { type, data, cookie } = action;
   switch (type) {
-    case "init":
+    case 'init':
       return {
-        ...state
+        ...state,
       };
-    case "login-success":
+    case 'login-success':
       return {
         ...state,
         isLoggedIn: true,
         data,
-        cookie
+        cookie,
       };
-    case "logout-success":
+    case 'logout-success':
       return {
         ...state,
         isLoggedIn: false,
         data: [],
-        cookie: ""
+        cookie: '',
       };
     default:
       throw new Error();

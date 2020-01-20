@@ -5,33 +5,33 @@ export function cekStatusReducer(state, action) {
     feedbackServer,
     fileList,
     previewImage,
-    previewVisible
+    previewVisible,
   } = action;
   switch (type) {
-    case "init":
+    case 'init':
       return {
         nomorToken: nomorToken,
         feedbackServer: feedbackServer,
         fileList: fileList,
         previewImage: previewImage,
-        previewVisible: previewVisible
+        previewVisible: previewVisible,
       };
-    case "server":
+    case 'server':
       return {
         ...state,
-        feedbackServer: feedbackServer
+        feedbackServer: feedbackServer,
       };
-    case "search":
+    case 'search':
       return {
         ...state,
-        nomorToken: nomorToken
+        nomorToken: nomorToken,
       };
-    case "preview":
+    case 'preview':
       return {
         ...state,
         previewImage: previewImage ? previewImage : state.previewImage,
         previewVisible: previewVisible ? previewVisible : state.previewVisible,
-        fileList: fileList
+        fileList: fileList,
       };
     default:
       throw new Error();
@@ -39,13 +39,13 @@ export function cekStatusReducer(state, action) {
 }
 
 export function beforeUpload(file) {
-  const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
+  const isJpgOrPng = file.type === 'image/jpeg' || file.type === 'image/png';
   if (!isJpgOrPng) {
-    message.error("You can only upload JPG/PNG file!");
+    message.error('You can only upload JPG/PNG file!');
   }
   const isLt2M = file.size / 1024 / 1024 < 2;
   if (!isLt2M) {
-    message.error("Image must smaller than 2MB!");
+    message.error('Image must smaller than 2MB!');
   }
   return isJpgOrPng && isLt2M;
 }

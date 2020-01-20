@@ -1,19 +1,19 @@
 export default function dataSource() {
-  let cssRow = "no-wrap text-capitalize";
+  let cssRow = 'no-wrap text-capitalize';
 
   let datas = [
     {
-      key: "1",
-      name: "Mike",
+      key: '1',
+      name: 'Mike',
       age: 32,
-      address: "10 Downing Street"
+      address: '10 Downing Street',
     },
     {
-      key: "2",
-      name: "John",
+      key: '2',
+      name: 'John',
       age: 42,
-      address: "10 Downing Street"
-    }
+      address: '10 Downing Street',
+    },
   ];
 
   return datas;

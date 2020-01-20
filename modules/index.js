@@ -1,38 +1,38 @@
-import dynamic from "next/dynamic";
-import { Icon } from "antd";
+import dynamic from 'next/dynamic';
+import { Icon } from 'antd';
 
 // const DynamicComponent = dynamic(() => import('../components/hello'))
 
-const Default = dynamic(() => import("./home-modules/default"));
-const Home = dynamic(() => import("./home-modules"));
-const Profile = dynamic(() => import("./profile"));
-const UserList = dynamic(() => import("./user-list"));
-const LoginFailed = dynamic(() => import("./home-modules/login-failed"));
-const Login = dynamic(() => import("./home-modules/login"));
-const Register = dynamic(() => import("./home-modules/register"));
-const CekStatus = dynamic(() => import("./home-modules/cek-status"));
+const Default = dynamic(() => import('./home-modules/default'));
+const Home = dynamic(() => import('./home-modules'));
+const Profile = dynamic(() => import('./profile'));
+const UserList = dynamic(() => import('./user-list'));
+const LoginFailed = dynamic(() => import('./home-modules/login-failed'));
+const Login = dynamic(() => import('./home-modules/login'));
+const Register = dynamic(() => import('./home-modules/register'));
+const CekStatus = dynamic(() => import('./home-modules/cek-status'));
 
 // MASTER data
 
 // PUSAT
-const CenterData = dynamic(() => import("./master-data/pusat"));
-const BadanHukum = dynamic(() => import("./master-data/pusat/badan-hukum"));
-const Inventaris = dynamic(() => import("./master-data/pusat/inventaris"));
+const CenterData = dynamic(() => import('./master-data/pusat'));
+const BadanHukum = dynamic(() => import('./master-data/pusat/badan-hukum'));
+const Inventaris = dynamic(() => import('./master-data/pusat/inventaris'));
 const PerguruanTinggi = dynamic(() =>
-  import("./master-data/pusat/perguruan-tinggi")
+  import('./master-data/pusat/perguruan-tinggi'),
 );
-const Pimpinan = dynamic(() => import("./master-data/pusat/pimpinan"));
-const ProgramStudi = dynamic(() => import("./master-data/pusat/program-studi"));
-const Teknisi = dynamic(() => import("./master-data/pusat/teknisi"));
+const Pimpinan = dynamic(() => import('./master-data/pusat/pimpinan'));
+const ProgramStudi = dynamic(() => import('./master-data/pusat/program-studi'));
+const Teknisi = dynamic(() => import('./master-data/pusat/teknisi'));
 
 // AKADEMIK
-const AcademicData = dynamic(() => import("./master-data/akademik"));
+const AcademicData = dynamic(() => import('./master-data/akademik'));
 
 // CIVITAS
-const CivitasData = dynamic(() => import("./master-data/civitas"));
+const CivitasData = dynamic(() => import('./master-data/civitas'));
 
 // DEMO
-import DaftarDosen from "./daftar-dosen";
+import DaftarDosen from './daftar-dosen';
 
 /**
  * Additional Modules is for Modules that do not have menu but usefull like
@@ -40,71 +40,71 @@ import DaftarDosen from "./daftar-dosen";
  */
 const additional_Modules = [
   {
-    key: "login-failed",
-    component: <LoginFailed />
+    key: 'login-failed',
+    component: <LoginFailed />,
   },
   {
-    key: "badan-hukum",
-    component: <BadanHukum />
+    key: 'badan-hukum',
+    component: <BadanHukum />,
   },
   {
-    key: "inventaris",
-    component: <Inventaris />
+    key: 'inventaris',
+    component: <Inventaris />,
   },
   {
-    key: "perguruan-tinggi",
-    component: <PerguruanTinggi />
+    key: 'perguruan-tinggi',
+    component: <PerguruanTinggi />,
   },
   {
-    key: "pimpinan",
-    component: <Pimpinan />
+    key: 'pimpinan',
+    component: <Pimpinan />,
   },
   {
-    key: "program-studi",
-    component: <ProgramStudi />
+    key: 'program-studi',
+    component: <ProgramStudi />,
   },
   {
-    key: "teknisi",
-    component: <Teknisi />
-  }
+    key: 'teknisi',
+    component: <Teknisi />,
+  },
 ];
 
 const HomeMenu = [
   {
-    key: "default",
-    title: "menu",
-    component: <Home />
+    key: 'default',
+    title: 'menu',
+    component: <Home />,
   },
   {
-    key: "login",
-    title: "masuk",
-    component: <Login />
+    key: 'login',
+    title: 'masuk',
+    component: <Login />,
   },
   {
-    key: "register",
-    title: "pendaftaran",
-    component: <Register />
+    key: 'register',
+    title: 'pendaftaran',
+    component: <Register />,
   },
   {
-    key: "status",
-    title: "Pengumuman",
-    component: <CekStatus />
-  }
+    key: 'status',
+    title: 'Pengumuman',
+    component: <CekStatus />,
+  },
 ];
 
 const DashboardMenu = [
   {
-    key: "default",
+    key: 'default',
     title: (
       <span>
         <Icon type="dashboard" />
         <span>Dashboard</span>
       </span>
     ),
-    component: <Default />
+    component: <Default />,
   },
   {
-    key: "master-data",
+    key: 'master-data',
     title: (
       <span>
         <Icon type="container" />
@@ -113,24 +113,24 @@ const DashboardMenu = [
     ),
     children: [
       {
-        key: "master-pusat",
-        title: "master pusat",
-        component: <CenterData />
+        key: 'master-pusat',
+        title: 'master pusat',
+        component: <CenterData />,
       },
       {
-        key: "akademik",
-        title: "akademik",
-        component: <AcademicData />
+        key: 'akademik',
+        title: 'akademik',
+        component: <AcademicData />,
       },
       {
-        key: "civitas",
-        title: "civitas",
-        component: <CivitasData />
-      }
-    ]
+        key: 'civitas',
+        title: 'civitas',
+        component: <CivitasData />,
+      },
+    ],
   },
   {
-    key: "pmb-online",
+    key: 'pmb-online',
     title: (
       <span>
         <Icon type="notification" />
@@ -139,19 +139,19 @@ const DashboardMenu = [
     ),
     children: [
       {
-        key: "konfigurasi",
-        title: "konfigurasi",
-        component: <h1>UNDER CONSTRUCTION</h1>
+        key: 'konfigurasi',
+        title: 'konfigurasi',
+        component: <h1>UNDER CONSTRUCTION</h1>,
       },
       {
-        key: "maba",
-        title: "maba",
-        component: <h1>UNDER CONSTRUCTION</h1>
-      }
-    ]
+        key: 'maba',
+        title: 'maba',
+        component: <h1>UNDER CONSTRUCTION</h1>,
+      },
+    ],
   },
   {
-    key: "akademika",
+    key: 'akademika',
     title: (
       <span>
         <Icon type="notification" />
@@ -160,56 +160,56 @@ const DashboardMenu = [
     ),
     children: [
       {
-        key: "tahun-akademik",
-        title: "tahun akademik",
-        component: <h1>UNDER CONSTRUCTION</h1>
+        key: 'tahun-akademik',
+        title: 'tahun akademik',
+        component: <h1>UNDER CONSTRUCTION</h1>,
       },
       {
-        key: "status-mahasiswa",
-        title: "status mahasiswa",
-        component: <h1>UNDER CONSTRUCTION</h1>
+        key: 'status-mahasiswa',
+        title: 'status mahasiswa',
+        component: <h1>UNDER CONSTRUCTION</h1>,
       },
       {
-        key: "perkuliahan",
-        title: "Perkuliahan",
-        component: <h1>UNDER CONSTRUCTION</h1>
+        key: 'perkuliahan',
+        title: 'Perkuliahan',
+        component: <h1>UNDER CONSTRUCTION</h1>,
       },
       {
-        key: "krs",
-        title: "KRS",
-        component: <h1>UNDER CONSTRUCTION</h1>
+        key: 'krs',
+        title: 'KRS',
+        component: <h1>UNDER CONSTRUCTION</h1>,
       },
       {
-        key: "tugas-akhir",
-        title: "Tugas Akhir",
-        component: <h1>UNDER CONSTRUCTION</h1>
+        key: 'tugas-akhir',
+        title: 'Tugas Akhir',
+        component: <h1>UNDER CONSTRUCTION</h1>,
       },
       {
-        key: "penilaian",
-        title: "Penilaian",
-        component: <h1>UNDER CONSTRUCTION</h1>
+        key: 'penilaian',
+        title: 'Penilaian',
+        component: <h1>UNDER CONSTRUCTION</h1>,
       },
       {
-        key: "hasil-studi",
-        title: "Hasil Studi",
-        component: <h1>UNDER CONSTRUCTION</h1>
+        key: 'hasil-studi',
+        title: 'Hasil Studi',
+        component: <h1>UNDER CONSTRUCTION</h1>,
       },
       {
-        key: "wisuda",
-        title: "Wisuda",
-        component: <h1>UNDER CONSTRUCTION</h1>
+        key: 'wisuda',
+        title: 'Wisuda',
+        component: <h1>UNDER CONSTRUCTION</h1>,
       },
       {
-        key: "quesioner",
-        title: "Quesioner",
-        component: <h1>UNDER CONSTRUCTION</h1>
+        key: 'quesioner',
+        title: 'Quesioner',
+        component: <h1>UNDER CONSTRUCTION</h1>,
       },
       {
-        key: "evaluasi-dosen-mengajar",
-        title: "Evaluasi Dosen Mengajar",
-        component: <h1>UNDER CONSTRUCTION</h1>
-      }
-    ]
+        key: 'evaluasi-dosen-mengajar',
+        title: 'Evaluasi Dosen Mengajar',
+        component: <h1>UNDER CONSTRUCTION</h1>,
+      },
+    ],
   },
   // {
   //   key: "sub-menu-6",
@@ -255,7 +255,7 @@ const DashboardMenu = [
   //   ]
   // },
   {
-    key: "grafik-view",
+    key: 'grafik-view',
     title: (
       <span>
         <Icon type="notification" />
@@ -264,25 +264,25 @@ const DashboardMenu = [
     ),
     children: [
       {
-        key: "presensi",
-        title: "Presensi"
+        key: 'presensi',
+        title: 'Presensi',
       },
       {
-        key: "pmb",
-        title: "PMB"
+        key: 'pmb',
+        title: 'PMB',
       },
       {
-        key: "mahasiswa",
-        title: "Mahasiswa"
+        key: 'mahasiswa',
+        title: 'Mahasiswa',
       },
       {
-        key: "ip-semester",
-        title: "IP Semester"
-      }
-    ]
+        key: 'ip-semester',
+        title: 'IP Semester',
+      },
+    ],
   },
   {
-    key: "forlap-dikti",
+    key: 'forlap-dikti',
     title: (
       <span>
         <Icon type="notification" />
@@ -291,14 +291,14 @@ const DashboardMenu = [
     ),
     children: [
       {
-        key: "feeder-dikti",
-        title: "Feeder Dikti"
+        key: 'feeder-dikti',
+        title: 'Feeder Dikti',
       },
       {
-        key: "feeder-ke-siakad",
-        title: "Feeder ke Siakad"
-      }
-    ]
+        key: 'feeder-ke-siakad',
+        title: 'Feeder ke Siakad',
+      },
+    ],
   },
   // {
   //   key: "sub-menu-9",
@@ -374,7 +374,7 @@ const DashboardMenu = [
   //   ]
   // },
   {
-    key: "akun-saya",
+    key: 'akun-saya',
     title: (
       <span>
         <Icon type="notification" />
@@ -383,14 +383,14 @@ const DashboardMenu = [
     ),
     children: [
       {
-        key: "edit-profile",
-        title: "edit profile"
+        key: 'edit-profile',
+        title: 'edit profile',
       },
       {
-        key: "edit-password",
-        title: "edit password"
-      }
-    ]
+        key: 'edit-password',
+        title: 'edit password',
+      },
+    ],
   },
   // {
   //   key: "sub-menu-13",
@@ -420,14 +420,14 @@ const DashboardMenu = [
   //   )
   // },
   {
-    key: "logout",
+    key: 'logout',
     title: (
       <span>
         <Icon type="notification" />
         <span>Logout</span>
       </span>
-    )
-  }
+    ),
+  },
 ];
 
 const Modules = [...additional_Modules];
@@ -458,6 +458,6 @@ export {
   DashboardModules,
   HomeMenu,
   HomeModules,
-  rootSubmenuKeys
+  rootSubmenuKeys,
 };
 // export default Modules;

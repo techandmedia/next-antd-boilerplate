@@ -5,7 +5,7 @@ export default function menuReducer(state, action) {
     case key:
       return {
         ...state,
-        menu: key
+        menu: key,
       };
     default:
       throw new Error();

@@ -3,7 +3,7 @@ class Methods {
    * handleSubmit
    */
   handleSubmit = (e, props) => {
-    console.log("PROPS", props);
+    console.log('PROPS', props);
     const { form, postData, API } = props;
     e.preventDefault();
     form.validateFieldsAndScroll((err, values) => {
@@ -29,8 +29,8 @@ class Methods {
    */
   compareToFirstPassword = (rule, value, callback, props) => {
     const { form } = props;
-    if (value && value !== form.getFieldValue("password")) {
-      callback("Kata sandi dan konfirmasi berbeda!");
+    if (value && value !== form.getFieldValue('password')) {
+      callback('Kata sandi dan konfirmasi berbeda!');
     } else {
       callback();
     }
@@ -43,7 +43,7 @@ class Methods {
   validateToNextPassword = (rule, value, callback, props, state) => {
     const { form } = props;
     if (value && state.confirmDirty) {
-      form.validateFields(["confirm"], { force: true });
+      form.validateFields(['confirm'], { force: true });
     }
     callback();
   };

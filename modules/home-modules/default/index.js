@@ -7,21 +7,21 @@ import {
   Tag,
   Dropdown,
   Icon,
-  List
-} from "antd";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+  List,
+} from 'antd';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faUserGraduate,
-  faChalkboardTeacher
-} from "@fortawesome/free-solid-svg-icons";
-import { faIdBadge } from "@fortawesome/free-regular-svg-icons";
+  faChalkboardTeacher,
+} from '@fortawesome/free-solid-svg-icons';
+import { faIdBadge } from '@fortawesome/free-regular-svg-icons';
 import {
   BarChart,
   XAxis,
   Tooltip as ChartTooltip,
   Legend,
-  Bar
-} from "recharts";
+  Bar,
+} from 'recharts';
 const { Meta } = Card;
 
 const menu = (
@@ -34,96 +34,96 @@ const menu = (
 
 const dataSource = [
   {
-    key: "table-1",
+    key: 'table-1',
     icon: (
       <FontAwesomeIcon
         icon={faUserGraduate}
-        style={{ width: "1rem", marignRight: "1rem" }}
+        style={{ width: '1rem', marignRight: '1rem' }}
       />
     ),
-    name: "Mahasiswa/i",
-    count: "0"
+    name: 'Mahasiswa/i',
+    count: '0',
   },
   {
-    key: "table-2",
+    key: 'table-2',
     icon: (
       <FontAwesomeIcon
         icon={faChalkboardTeacher}
-        style={{ width: "1rem", marignRight: "1rem" }}
+        style={{ width: '1rem', marignRight: '1rem' }}
       />
     ),
-    name: "Dosen",
-    count: "0"
+    name: 'Dosen',
+    count: '0',
   },
   {
-    key: "table-3",
+    key: 'table-3',
     icon: (
       <FontAwesomeIcon
         icon={faIdBadge}
-        style={{ width: "1rem", marignRight: "1rem" }}
+        style={{ width: '1rem', marignRight: '1rem' }}
       />
     ),
-    name: "Lainnya",
-    count: "0"
-  }
+    name: 'Lainnya',
+    count: '0',
+  },
 ];
 
 const dataOverview = [
   {
-    key: "tableOv-1",
+    key: 'tableOv-1',
     icon: (
       <FontAwesomeIcon
         icon={faUserGraduate}
-        style={{ width: "1rem", marignRight: "1rem" }}
+        style={{ width: '1rem', marignRight: '1rem' }}
       />
     ),
-    name: "Murid",
-    count: "0"
+    name: 'Murid',
+    count: '0',
   },
   {
-    key: "tableOv-2",
+    key: 'tableOv-2',
     icon: (
       <FontAwesomeIcon
         icon={faChalkboardTeacher}
-        style={{ width: "1rem", marignRight: "1rem" }}
+        style={{ width: '1rem', marignRight: '1rem' }}
       />
     ),
-    name: "Dosen",
-    count: "0"
+    name: 'Dosen',
+    count: '0',
   },
   {
-    key: "tableOv-3",
+    key: 'tableOv-3',
     icon: (
       <FontAwesomeIcon
         icon={faIdBadge}
-        style={{ width: "1rem", marignRight: "1rem" }}
+        style={{ width: '1rem', marignRight: '1rem' }}
       />
     ),
-    name: "Mata Kuliah",
-    count: "0"
+    name: 'Mata Kuliah',
+    count: '0',
   },
   {
-    key: "tableOv-4",
+    key: 'tableOv-4',
     icon: (
       <FontAwesomeIcon
         icon={faIdBadge}
-        style={{ width: "1rem", marignRight: "1rem" }}
+        style={{ width: '1rem', marignRight: '1rem' }}
       />
     ),
-    name: "Alumni",
-    count: "0"
+    name: 'Alumni',
+    count: '0',
   },
   {
-    key: "tableOv-5",
+    key: 'tableOv-5',
     icon: (
       <FontAwesomeIcon
         icon={faIdBadge}
-        style={{ width: "1rem", marignRight: "1rem" }}
+        style={{ width: '1rem', marignRight: '1rem' }}
       />
     ),
-    name: "DO",
-    count: "0"
-  }
+    name: 'DO',
+    count: '0',
+  },
 ];
 const menuAttendance = (
   <Menu>
@@ -134,30 +134,30 @@ const menuAttendance = (
 );
 const attendance = [
   {
-    name: "23/12",
+    name: '23/12',
     mahasiswa: 2,
-    staff: 4
+    staff: 4,
   },
   {
-    name: "24/12",
+    name: '24/12',
     mahasiswa: 0,
-    staff: 3
+    staff: 3,
   },
   {
-    name: "25/12",
+    name: '25/12',
     mahasiswa: 1,
-    staff: 1
+    staff: 1,
   },
   {
-    name: "26/12",
+    name: '26/12',
     mahasiswa: 2,
-    staff: 0
+    staff: 0,
   },
   {
-    name: "27/12",
+    name: '27/12',
     mahasiswa: 90,
-    staff: 12
-  }
+    staff: 12,
+  },
 ];
 
 export default function Content() {
@@ -172,23 +172,23 @@ export default function Content() {
         extra={[
           <Dropdown key="1" overlay={menu}>
             <a className="ant-dropdown-link" href="#">
-              <Tag style={{ color: "black" }} color="white">
+              <Tag style={{ color: 'black' }} color="white">
                 Tahun Akademik &nbsp; 2019 / 2020 <Icon type="down" />
               </Tag>
             </a>
           </Dropdown>,
-          <Tag style={{ color: "black" }} key="2" color="white">
+          <Tag style={{ color: 'black' }} key="2" color="white">
             <Icon type="search" />
-          </Tag>
+          </Tag>,
         ]}
       />
       <Row gutter={48}>
         <Col xs={24} md={16} lg={16}>
           <Card
             style={{
-              width: "100%",
-              background: "#ffdc9c",
-              borderRadius: "1rem"
+              width: '100%',
+              background: '#ffdc9c',
+              borderRadius: '1rem',
             }}
             bordered={false}
           >
@@ -202,10 +202,10 @@ export default function Content() {
             <Col span={4}>
               <Icon
                 style={{
-                  fontSize: "8rem",
-                  position: "absolute",
-                  top: "-7rem",
-                  right: "-1rem"
+                  fontSize: '8rem',
+                  position: 'absolute',
+                  top: '-7rem',
+                  right: '-1rem',
                 }}
                 type="smile"
                 theme="twoTone"
@@ -219,8 +219,8 @@ export default function Content() {
             title="Birthday today"
             extra={<Icon type="ellipsis" />}
             style={{
-              width: "100%",
-              borderRadius: "1rem"
+              width: '100%',
+              borderRadius: '1rem',
             }}
             headStyle={{ borderBottom: 0 }}
           >
@@ -252,15 +252,15 @@ export default function Content() {
             extra={
               <Dropdown key="1" overlay={menuAttendance}>
                 <a className="ant-dropdown-link" href="#">
-                  <Tag style={{ color: "black" }} color="white">
+                  <Tag style={{ color: 'black' }} color="white">
                     Minggu ini <Icon type="down" />
                   </Tag>
                 </a>
               </Dropdown>
             }
             style={{
-              width: "100%",
-              borderRadius: "1rem"
+              width: '100%',
+              borderRadius: '1rem',
             }}
             headStyle={{ borderBottom: 0 }}
           >
@@ -279,9 +279,9 @@ export default function Content() {
             title="Overview"
             extra={<Icon type="ellipsis" />}
             style={{
-              width: "100%",
-              borderRadius: "1rem",
-              marginTop: "2rem"
+              width: '100%',
+              borderRadius: '1rem',
+              marginTop: '2rem',
             }}
             headStyle={{ borderBottom: 0 }}
           >

@@ -4,7 +4,7 @@
  * @param s {String} String to formated with first letter capitalize
  */
 export function capitalize(s) {
-  if (typeof s !== "string") return "";
+  if (typeof s !== 'string') return '';
   return s.charAt(0).toUpperCase() + s.slice(1);
 }
 
@@ -15,15 +15,15 @@ export function capitalize(s) {
  */
 export function isEmpty(object) {
   switch (typeof object) {
-    case "string":
-      return object === "";
+    case 'string':
+      return object === '';
       break;
-    case "object": //array known as an object tho
+    case 'object': //array known as an object tho
       return Array.isArray(object)
         ? object.length === 0
         : Object.entries(object).length === 0 && object.constructor === Object;
       break;
-    case "undefined":
+    case 'undefined':
       return true;
       break;
     default:
@@ -51,13 +51,13 @@ export function getBase64(file) {
  * @param decimals {integer} allowed decimals after comma
  */
 export function formatBytes(bytes, decimals = 2) {
-  if (bytes === 0) return "0 Bytes";
+  if (bytes === 0) return '0 Bytes';
 
   const k = 1024;
   const dm = decimals < 0 ? 0 : decimals;
-  const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
 
   const i = Math.floor(Math.log(bytes) / Math.log(k));
 
-  return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 }

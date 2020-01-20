@@ -9,8 +9,8 @@ import {
   Col,
   Checkbox,
   Button,
-  AutoComplete
-} from "antd";
+  AutoComplete,
+} from 'antd';
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
 
@@ -27,19 +27,19 @@ function LegalForm(props) {
         </span>
       }
     >
-      {getFieldDecorator("nickname", {
+      {getFieldDecorator('nickname', {
         rules: [
           {
             required: true,
-            message: "Please input your nickname!",
-            whitespace: true
-          }
-        ]
+            message: 'Please input your nickname!',
+            whitespace: true,
+          },
+        ],
       })(<Input />)}
     </Form.Item>
   );
 }
 
-const WrappedLegalForm = Form.create({ name: "badan-hukum" })(LegalForm);
+const WrappedLegalForm = Form.create({ name: 'badan-hukum' })(LegalForm);
 
 export default WrappedLegalForm;

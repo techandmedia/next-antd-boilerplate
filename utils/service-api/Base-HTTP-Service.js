@@ -1,5 +1,3 @@
 export class HTTPService {
-  getAllData() {
-    
-  }
+  getAllData() {}
 }

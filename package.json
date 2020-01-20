@@ -2,11 +2,16 @@
   "name": "with-ant-design",
   "version": "1.0.0",
   "scripts": {
-    "dev": "NODE_ENV=development next",
-    "build": "next build",
+    "format": "prettier --write \"components/**/*.js\" \"modules/**/*.js\" \"utils/**/*.js\" \"pages/**/*.js\" \"test/**/*.js\"",
+    "dev": "yarn format && NODE_ENV=development next",
+    "build": "yarn format && next build",
     "export": "next export",
     "start": "NODE_ENV=production next start",
-    "reset": "rm -rf node_modules .next && yarn"
+    "reset": "rm -rf node_modules .next && yarn",
+    "clean": "rm -rf .next && yarn dev",
+    "clean_build": "rm -rf .next && yarn build",
+    "ssr-windows": "cross-env NODE_ENV=production && node server/production-server.js",
+    "ssr-linux": "cross-env NODE_ENV=production node server/production-server.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
@@ -33,6 +38,7 @@
   },
   "license": "ISC",
   "devDependencies": {
+    "cross-env": "^6.0.3",
     "prettier": "^1.19.1"
   }
 }

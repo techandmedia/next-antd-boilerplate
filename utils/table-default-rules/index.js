@@ -1,3 +1,3 @@
 module.exports = {
-  bordered: true
+  bordered: true,
 };

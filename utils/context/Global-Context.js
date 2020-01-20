@@ -1,5 +1,5 @@
-import { useEffect, useState, createContext, useReducer } from "react";
-import { selectMenuReducer, userReducer } from "../reducers";
+import { useEffect, useState, createContext, useReducer } from 'react';
+import { selectMenuReducer, userReducer } from '../reducers';
 
 const MenuContext = createContext(null);
 const UserContext = createContext(null);
@@ -7,11 +7,11 @@ const UserContext = createContext(null);
 export default function GlobalProvider(props) {
   const [user, dispatchUser] = useReducer(userReducer, {
     // isLoggedIn: false,
-    isLoggedIn: true,
-    preferredWorkingHour: 8
+    isLoggedIn: false,
+    preferredWorkingHour: 8,
   });
   const [menu, dispatchMenu] = useReducer(selectMenuReducer, {
-    menu: "default"
+    menu: 'default',
   });
 
   return (

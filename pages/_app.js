@@ -1,9 +1,9 @@
-import React from "react";
-import App from "next/app";
-import Head from "next/head";
-import GlobalProvider from "../utils/context/Global-Context";
-import Layout from "components";
-import "../utils/style/ant-override.less";
+import React from 'react';
+import App from 'next/app';
+import Head from 'next/head';
+import GlobalProvider from '../utils/context/Global-Context';
+import Layout from 'components';
+import '../utils/style/ant-override.less';
 
 export default class MyApp extends App {
   render() {
@@ -33,9 +33,9 @@ export default class MyApp extends App {
  */
 
 const baseURL =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:3000"
-    : "http://localhost:5000";
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3000'
+    : 'http://localhost:5000';
 
 const HeadTags = props => (
   <div>

@@ -1,132 +1,132 @@
 const formRegister = [
   {
-    label: "NIK",
-    field: "nik",
-    placeholder: "Masukkan NIK Anda",
+    label: 'NIK',
+    field: 'nik',
+    placeholder: 'Masukkan NIK Anda',
     rules: [
       {
         required: true,
-        message: "Harap Masukkan NIK Anda!"
-      }
-    ]
+        message: 'Harap Masukkan NIK Anda!',
+      },
+    ],
   },
   {
-    label: "E-Mail",
-    field: "email",
-    placeholder: "Masukkan email Anda",
+    label: 'E-Mail',
+    field: 'email',
+    placeholder: 'Masukkan email Anda',
     // initialValue: profile ? defaultValue.user_name : "",
     rules: [
       {
-        type: "email",
-        message: "Format E-mail tidak valid!"
+        type: 'email',
+        message: 'Format E-mail tidak valid!',
       },
       {
         required: true,
-        message: "Harap Masukkan Email Anda!"
-      }
-    ]
+        message: 'Harap Masukkan Email Anda!',
+      },
+    ],
   },
   {
-    label: "Nama Lengkap",
-    field: "nama_lengkap",
+    label: 'Nama Lengkap',
+    field: 'nama_lengkap',
     rules: [
       {
         required: true,
-        message: "Harap Masukkan Nama Anda!"
-      }
-    ]
+        message: 'Harap Masukkan Nama Anda!',
+      },
+    ],
   },
   {
-    label: "Tempat Lahir",
-    field: "tempat_lahir",
+    label: 'Tempat Lahir',
+    field: 'tempat_lahir',
     rules: [
       {
         required: true,
-        message: "Harap Masukkan Tempat Lahir!"
-      }
-    ]
+        message: 'Harap Masukkan Tempat Lahir!',
+      },
+    ],
   },
   {
-    label: "Tanggal Lahir",
-    field: "tanggal_lahir",
+    label: 'Tanggal Lahir',
+    field: 'tanggal_lahir',
     rules: [
       {
         required: true,
-        message: "Harap Masukkan Tanggal Lahir!"
-      }
-    ]
+        message: 'Harap Masukkan Tanggal Lahir!',
+      },
+    ],
   },
   {
-    label: "Alamat",
-    field: "alamat_lengkap",
+    label: 'Alamat',
+    field: 'alamat_lengkap',
     rules: [
       {
         required: true,
-        message: "Harap Masukkan Alamat!"
-      }
-    ]
+        message: 'Harap Masukkan Alamat!',
+      },
+    ],
   },
   {
-    label: "Nomor HP",
-    field: "nomor_hp",
+    label: 'Nomor HP',
+    field: 'nomor_hp',
     rules: [
       {
         required: true,
-        message: "Harap Masukkan Nomor HP!"
-      }
-    ]
+        message: 'Harap Masukkan Nomor HP!',
+      },
+    ],
   },
   {
-    label: "Warga Negara",
-    field: "warga_negara",
+    label: 'Warga Negara',
+    field: 'warga_negara',
     rules: [
       {
         required: true,
-        message: "Harap Masukkan Warga Negara!"
-      }
-    ]
+        message: 'Harap Masukkan Warga Negara!',
+      },
+    ],
   },
   {
-    label: "Tinggi Badan",
-    field: "tinggi_badan",
+    label: 'Tinggi Badan',
+    field: 'tinggi_badan',
     rules: [
       {
         required: true,
-        message: "Harap Masukkan Tinggi Badan!"
-      }
-    ]
+        message: 'Harap Masukkan Tinggi Badan!',
+      },
+    ],
   },
   {
-    label: "Berat Badan",
-    field: "berat_badan",
+    label: 'Berat Badan',
+    field: 'berat_badan',
     rules: [
       {
         required: true,
-        message: "Harap Masukkan Berat Badan!"
-      }
-    ]
+        message: 'Harap Masukkan Berat Badan!',
+      },
+    ],
   },
   {
-    label: "Asal Sekolah",
-    field: "asal_sekolah",
+    label: 'Asal Sekolah',
+    field: 'asal_sekolah',
     rules: [
       {
         required: true,
-        message: "Harap Masukkan Asal Sekolah!"
-      }
-    ]
+        message: 'Harap Masukkan Asal Sekolah!',
+      },
+    ],
   },
   {
-    label: "Bukti Bayar Ujian Tertulis",
-    field: "bukti_bayar_tertulis",
+    label: 'Bukti Bayar Ujian Tertulis',
+    field: 'bukti_bayar_tertulis',
     rules: [
       {
         required: true,
-        message: "Harap Upload Bukti Bayar Ujian Tertulis!"
-      }
-    ], 
+        message: 'Harap Upload Bukti Bayar Ujian Tertulis!',
+      },
+    ],
     // component: <Input addonAfter={<Icon type="upload" />} />
-  }
+  },
 ];
 
 export default formRegister;

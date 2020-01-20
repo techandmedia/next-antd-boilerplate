@@ -1,4 +1,4 @@
-import { useState, useEffect, useReducer } from "react";
+import { useState, useEffect, useReducer } from 'react';
 import {
   Input,
   Tooltip,
@@ -9,50 +9,52 @@ import {
   Modal,
   Button,
   message,
-  Result, Tabs
-} from "antd";
-import usePostData from "api/usePostData";
-import { cekStatusReducer, beforeUpload } from "./reducer";
-import { capitalize, isEmpty, getBase64, formatBytes } from "utils/helpers";
-import UjianTertulis from "./ujian-tertulis";
+  Result,
+  Tabs,
+} from 'antd';
+import usePostData from 'api/usePostData';
+import { cekStatusReducer, beforeUpload } from './reducer';
+import { capitalize, isEmpty, getBase64, formatBytes } from 'utils/helpers';
+import UjianTertulis from './ujian-tertulis';
 const { Search } = Input;
-const { Meta } = Card; const { TabPane } = Tabs;
+const { Meta } = Card;
+const { TabPane } = Tabs;
 
 export default function CekStatus() {
   const [state, dispatch] = useReducer(cekStatusReducer, {
-    type: "init",
+    type: 'init',
     nomorToken: null,
     feedbackServer: null,
     fileList: [],
-    previewImage: "",
-    previewVisible: false
+    previewImage: '',
+    previewVisible: false,
   });
 
-  const API = "user/cek-status";
+  const API = 'user/cek-status';
   const [results, postToken] = usePostData();
 
   useEffect(() => {
     const { isLoading, code, message } = results;
-    let text = capitalize(message ? message : "Nomor token tidak dikenali");
+    let text = capitalize(message ? message : 'Nomor token tidak dikenali');
     if (!isLoading && code === 200) {
-      dispatch({ type: "server", feedbackServer: text });
+      dispatch({ type: 'server', feedbackServer: text });
     }
     if (!isLoading && code > 200) {
-      dispatch({ type: "server", feedbackServer: text });
+      dispatch({ type: 'server', feedbackServer: text });
     }
   }, [results]);
 
   const handleSearch = (value, event) => {
     if (!isEmpty(value)) {
       postToken(API, { token: value });
-      dispatch({ type: "search", nomorToken: value });
+      dispatch({ type: 'search', nomorToken: value });
     }
   };
 
   const handleCancel = () =>
     dispatch({
-      type: "preview",
-      previewVisible: false
+      type: 'preview',
+      previewVisible: false,
     });
 
   const handlePreview = async file => {
@@ -60,27 +62,27 @@ export default function CekStatus() {
       file.preview = await getBase64(file.originFileObj);
     }
     dispatch({
-      type: "preview",
+      type: 'preview',
       previewImage: file.url || file.preview,
-      previewVisible: true
+      previewVisible: true,
     });
   };
 
   const handleChange = ({ fileList }) =>
-    dispatch({ type: "preview", fileList: fileList });
+    dispatch({ type: 'preview', fileList: fileList });
 
   const [proses, setProses] = useState(false);
   const handleProses = status => {
     let okCounter = 0;
     const messages = state.fileList.map(image => {
-      if (image.status === "done") {
+      if (image.status === 'done') {
         message.success(
-          `${image.name} berhasil diunggah (${formatBytes(image.size)})`
+          `${image.name} berhasil diunggah (${formatBytes(image.size)})`,
         );
         okCounter++;
       } else {
         message.error(
-          `${image.name} gagal diunggah (${formatBytes(image.size)})`
+          `${image.name} gagal diunggah (${formatBytes(image.size)})`,
         );
       }
     });
@@ -105,10 +107,10 @@ export default function CekStatus() {
       <Search
         loading={results.isLoading}
         placeholder="Masukkan nomor token"
-        prefix={<Icon type="solution" style={{ color: "rgba(0,0,0,.45)" }} />}
+        prefix={<Icon type="solution" style={{ color: 'rgba(0,0,0,.45)' }} />}
         suffix={
           <Tooltip title="Nomor token yang terkirim ke email pendaftaraan">
-            <Icon type="info-circle" style={{ color: "rgba(0,0,0,.45)" }} />
+            <Icon type="info-circle" style={{ color: 'rgba(0,0,0,.45)' }} />
           </Tooltip>
         }
         enterButton
@@ -118,8 +120,9 @@ export default function CekStatus() {
         <TabPane tab="Tertulis" key="1">
           <UjianTertulis />
         </TabPane>
-        <TabPane tab="Kesehatan" key="2">Under Construction
-    </TabPane>
+        <TabPane tab="Kesehatan" key="2">
+          Under Construction
+        </TabPane>
       </Tabs>
       {state.nomorToken && (
         <Card style={{ marginTop: 16 }}>
@@ -131,38 +134,38 @@ export default function CekStatus() {
             {results.code === 200 ? (
               results.data.proses === true || proses === true ? ( //harusnya dari server
                 <Result
-                  style={{ marginTop: "1rem" }}
+                  style={{ marginTop: '1rem' }}
                   status="success"
                   title="Terima kasih!"
                   subTitle="Verifikasi bukti pembayaran memakan waktu 1-5 hari kerja."
                 />
               ) : (
-                  <div className="clearfix" style={{ marginTop: "1rem" }}>
-                    <Upload
-                      action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-                      listType="picture-card"
-                      onPreview={handlePreview}
-                      onChange={handleChange}
-                      beforeUpload={beforeUpload}
-                    >
-                      {state.fileList.length >= 2 ? null : uploadButton}
-                    </Upload>
-                    <Button onClick={() => handleProses(state.fileList)}>
-                      Proses
+                <div className="clearfix" style={{ marginTop: '1rem' }}>
+                  <Upload
+                    action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                    listType="picture-card"
+                    onPreview={handlePreview}
+                    onChange={handleChange}
+                    beforeUpload={beforeUpload}
+                  >
+                    {state.fileList.length >= 2 ? null : uploadButton}
+                  </Upload>
+                  <Button onClick={() => handleProses(state.fileList)}>
+                    Proses
                   </Button>
-                    <Modal
-                      visible={state.previewVisible}
-                      footer={null}
-                      onCancel={handleCancel}
-                    >
-                      <img
-                        alt="example"
-                        style={{ width: "100%" }}
-                        src={state.previewImage}
-                      />
-                    </Modal>
-                  </div>
-                )
+                  <Modal
+                    visible={state.previewVisible}
+                    footer={null}
+                    onCancel={handleCancel}
+                  >
+                    <img
+                      alt="example"
+                      style={{ width: '100%' }}
+                      src={state.previewImage}
+                    />
+                  </Modal>
+                </div>
+              )
             ) : null}
           </Skeleton>
         </Card>
